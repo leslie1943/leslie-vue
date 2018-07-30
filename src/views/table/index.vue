@@ -14,7 +14,7 @@
                 <tr v-else>
                     <td width="5%"> </td>
                     <td width="25%"> </td>
-                    <td v-for="(emp,e) in tableData.empty" :key="e">{{emp}}</td>
+                    <td v-for="(name,n) in tableData.names" :key="n"></td>
                 </tr>
               </thead>
 
