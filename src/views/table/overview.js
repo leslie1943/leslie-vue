@@ -10,7 +10,7 @@ export function getTableData() {
                     {
 
                         demandName: "笔记本电脑",
-                        demandPara: "品牌、规格型号: 苹果<br/> air联想, Lenove G470,戴尔 D10",
+                        demandPara: "品牌、规格型号: 苹果, air联想, Lenove G470, 戴尔 D10",
                         demandProviders: ["苹果 air", "联想 Lenove G480", "联想 Lenove G490", "联想 Lenove X1", "戴尔 D20"],
                     },
                     {
@@ -127,6 +127,38 @@ export function getTableData() {
                         demandName: "针管",
                         demandPara: "报价备注",
                         demandProviders: ["报价备注针管-1111", "报价备注针管-2222", "报价备注针管-3333", "报价备注针管-4444", "报价备注针管-5555"],
+                    },
+                ]
+            },
+            
+            //4
+            {
+                rowspan: 4,
+                rows: [
+                    {
+
+                        demandName: "杯子",
+                        demandPara: "品牌、规格型号: 100ml",
+                        demandProviders: ["星巴克-200ml", "漫咖啡-320ml", "巴黎贝甜-430ml", "test440ml", "aa550ml"],
+                    },
+                    {
+
+                        demandName: "杯子",
+                        demandPara: "售后服务要求: 无条件",
+                        demandProviders: ["无-1", "无-2", "无-3", "无-4", "无-5"],
+                    },
+ 
+                    {
+
+                        demandName: "杯子",
+                        demandPara: "供应商报价",
+                        demandProviders: ["21.00", "31.00", "32.00", "45.00", "99.00"],
+                    },
+                    {
+
+                        demandName: "杯子",
+                        demandPara: "报价备注",
+                        demandProviders: ["星巴克", "杯子-2222", "杯子-3333", "杯子-4444", "杯子-5555"],
                     },
                 ]
             },
