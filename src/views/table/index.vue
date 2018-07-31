@@ -52,8 +52,7 @@ export default {
 </script>
 
 <style scoped>
-  .ground-route-table,
-  .ground-route-table-samll {
+  .ground-route-table{
     width: 100%;
     border: 1px solid #dfe6ec;
     border-collapse: collapse;
