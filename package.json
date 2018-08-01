@@ -24,6 +24,7 @@
     "vue-dev-generator-cli": "0.0.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
+    "vx-easyui": "^0.1.1",
     "xml2js": "^0.4.19",
     "xmlreader": "^0.2.3"
   },

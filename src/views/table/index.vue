@@ -2,8 +2,8 @@
     <div style="text-align:center;">
         <el-collapse>
           <el-collapse-item name="1" title="报价比较数据">
-
-            <table width="auto" v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
+            <div style="width:2000px;overflow-x:scroll;">
+            <table  width="2200px;" v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
               <thead>
                 <tr v-if="t===0" style="background-color:#A4C0E0;">
                   <th width="5%">采购需求</th>
@@ -28,6 +28,7 @@
               </tbody>
 
             </table>
+            </div>
           </el-collapse-item>
       </el-collapse>
       <hr>
@@ -80,10 +81,13 @@ export default {
         } else if (data.flag === 2) {
           res = "<span style='color:#ff0000;'>" + "×  不满足" + "</span>";
           res += "<hr class='split-line'>";
-          res += "<span>"+data.desc+"</span>";
+          res += "<span>" + data.desc + "</span>";
           return res;
         }else if(data.flag === 3){
-          return data.item;
+          res = "<span>"+data.item+"</span>";
+          res += "<hr class='split-line'>";
+          res += "<span>" + data.desc + "</span>";
+          return res;
         }
       } else if (typeof data === "string") {
         return data;

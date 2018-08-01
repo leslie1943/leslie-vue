@@ -12,7 +12,7 @@ export function getTableData() {
                     {
                         demandName: "笔记本电脑",
                         demandPara: ["苹果air", "联想Lenove G470", "戴尔 D10"],
-                        demandProviders: [{ flag: 3, item:"苹果air" }, { flag: 3, item:"联想Lenove" }, { flag: 3 , item:"戴尔 D10"}, { flag: 3, item:"戴尔 D10" }, { flag: 3, item:"苹果air" }],
+                        demandProviders: [{ flag: 3, item:"苹果air" ,desc:"更多"}, { flag: 3, item:"联想Lenove",desc:"更多" }, { flag: 3 , item:"戴尔 D10",desc:"更多"}, { flag: 3, item:"戴尔 D10" ,desc:"更多"}, { flag: 3, item:"苹果air" ,desc:"更多"}],
                     },
                     // 技术参数及设置要求
                     {
@@ -65,7 +65,7 @@ export function getTableData() {
                     {
                         demandName: "鼠标",
                         demandPara: ["苹果air", "联想Lenove G470", "戴尔 D10"],
-                        demandProviders: [{ flag: 3, item:"苹果air" }, { flag: 3, item:"联想Lenove" }, { flag: 3 , item:"戴尔 D10"}, { flag: 3, item:"戴尔 D10" }, { flag: 3, item:"苹果air" }],
+                        demandProviders: [{ flag: 3, item:"苹果air",desc:"更多" }, { flag: 3, item:"联想Lenove",desc:"更多" }, { flag: 3 , item:"戴尔 D10",desc:"更多"}, { flag: 3, item:"戴尔 D10" ,desc:"更多"}, { flag: 3, item:"苹果air",desc:"更多" }],
                     },
                     // 技术参数及设置要求
                     {
@@ -79,12 +79,6 @@ export function getTableData() {
                         demandPara: ["三年保修", "7*24小时电话支持"],
                         demandProviders: [{ flag: 1, desc:"售后服务要求-补充说明" }, { flag: 1, desc:"售后服务要求-补充说明" }, { flag: 2, desc:"售后服务要求-补充说明" }, { flag: 2 , desc:"售后服务要求-补充说明"}, { flag: 1, desc:"售后服务要求-补充说明" }],
                     },
-
-                    // {
-                    //     demandName: "鼠标",
-                    //     demandPara: "实名证件-身份证",
-                    //     demandProviders: ["身份证-111111111", "身份证-222222222", "身份证-333333333", "身份证-444444444", "身份证-555555555"],
-                    // },
 
                     {
                         demandName: "鼠标",
