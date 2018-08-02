@@ -2,11 +2,14 @@ export function getTableData() {
     return {
         // 表头: 采购需求+采购详细+ 所有报价的供应商.
         names: ["大连万达集团", "大连理工大学", "大连交通大学", "东北财经大学", "大连海洋大学"],
+        totalPrice: [10000,20000,30000,40000,50000],
         // 内容: 
         tables: [
             // --------------------------------- data 1
             {
                 rowspan: 8, // 5 + x(证件)
+                quantity:3,
+                unit: "台",
                 rows: [
                     //品牌、规格型号
                     {
@@ -60,6 +63,8 @@ export function getTableData() {
             // --------------------------------- data 2
             {
                 rowspan: 7, // 5 + x(证件)
+                quantity:3,
+                unit: "件",
                 rows: [
                     //品牌、规格型号
                     {
