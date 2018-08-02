@@ -6,7 +6,7 @@
             <table  width="2200px;" v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
               <thead>
                 <tr v-if="t===0" style="background-color:#A4C0E0;">
-                  <th width="5%">采购需求</th>
+                  <th width="5%" colspan="1">采购需求</th>
                   <th width="15%">采购详细</th>
                   <th v-for="(name,n) in tableData.names" :key="n">{{name}}</th>
                 </tr>
