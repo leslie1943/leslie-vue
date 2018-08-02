@@ -6,34 +6,43 @@
             <!-- 循环table -->
             <table  width="2200px;" v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
               <thead>
-                <!-- 第一个清单: 表头 -->
+                <!-- #################### -->
                 <tr v-if="t===0" style="background-color:#EBEEF5;">
-                  <!-- 合并单元格 -->
                   <th width="20%" colspan="2">采购需求</th>
                   <th v-for="(name,n) in tableData.names" :key="n">{{name}}</th>
                 </tr>
-
-                <!-- 其他清单: 无表头 -->
+                <!-- #################### -->
                 <tr v-else>
                     <th width="20%" colspan="2"> </th>
-                    <!-- 合并单元格 -->
                     <th v-for="(name,n) in tableData.names" :key="n"></th>
                 </tr>
               </thead>
 
               <tbody>
-                
-                <!-- 第一行：总报价 -->
+                <!-- #################### -->
                 <tr v-if="t===0">
                    <td width="20%" style="background-color:#EBEEF5;" colspan="2" ><strong>总报价</strong></td>
                    <td v-for="(price,p) in tableData.totalPrice" :key="p">{{price}}</td>
                 </tr>
 
-                <!-- 其他行：数据输出 -->
+                <!-- #################### -->
                 <tr v-for="(row,r) in table.rows" :key="r">
-                  <td width="5%" style="background-color:#EBEEF5;" v-if="r===0" :rowspan="table.rowspan" v-html="printDemand(row.demandName,table.quantity,table.unit)"></td>
-                  <td width="15%" :style="{'text-align':'left','background-color': r < table.rowspan - 1 ? '' :'#EBEEF5'}" v-html="printdemandPara(row.demandPara,r)"></td>
-                  <td style="text-align:center;" v-for="(provider,p) in row.demandProviders" :key="p" v-html="printdemandProviders(provider)">
+                  <td width="5%" 
+                    style="background-color:#EBEEF5;" 
+                    v-if="r===0" :rowspan="table.rowspan" 
+                    v-html="printDemand(row.demandName,table.quantity,table.unit)">
+                  </td>
+
+                  <td width="15%" 
+                    :style="{'text-align':'left','background-color': r < table.rowspan - 1 ? '' :'#EBEEF5'}" 
+                    v-html="printdemandPara(row.demandPara,r)">
+                  </td>
+
+                  <td 
+                    style="text-align:center;" 
+                    v-for="(provider,p) in row.demandProviders" 
+                    :key="p" 
+                    v-html="printdemandProviders(provider)">
                   </td>
                 </tr>
 
