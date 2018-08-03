@@ -1,10 +1,10 @@
 <template>
     <div style="text-align:center;">
         <el-collapse>
-          <el-collapse-item name="1" title="报价比较数据">
-            <div style="width:2000px;overflow-x:scroll;">
+          <el-collapse-item name="1" title="报价比较数据-自定义table">
+            <div style="width:100%;">
             <!-- 循环table -->
-            <table  width="2200px;" v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
+            <table v-for="(table,t) in tableData.tables" :key="t" class="ground-route-table">
               <thead>
                 <!-- #################### -->
                 <tr v-if="t===0" style="background-color:#EBEEF5;">
@@ -27,13 +27,15 @@
 
                 <!-- #################### -->
                 <tr v-for="(row,r) in table.rows" :key="r">
-                  <td width="5%" 
+                  <td 
+                    width="2%"
                     style="background-color:#EBEEF5;" 
                     v-if="r===0" :rowspan="table.rowspan" 
-                    v-html="printDemand(row.demandName,table.quantity,table.unit)">
+                    v-html="printDemandFirst(row.demandName,table.quantity,table.unit)">
                   </td>
 
-                  <td width="15%" 
+                  <td
+                    width="18%"
                     :style="{'text-align':'left','background-color': r < table.rowspan - 1 ? '' :'#EBEEF5'}" 
                     v-html="printdemandPara(row.demandPara,r)">
                   </td>
@@ -52,6 +54,46 @@
 
             </div>
           </el-collapse-item>
+
+
+          <el-collapse-item name="2" title="报价比较数据-element table">
+
+            <el-table
+              :data="sysData"
+              :span-method="arraySpanMethod"
+              border
+              style="width: 100%">
+              <el-table-column
+              align="center"
+              header-align="center"
+                prop="id"
+                label="采购需求"
+                width="180">
+              </el-table-column>
+
+              <el-table-column
+                align="left"
+                header-align="center"
+                prop="params"
+                label="采购详细"
+                width="180">
+              </el-table-column>
+
+              <el-table-column v-for="(name,n) in names" :key="n"
+                align="left"
+                header-align="center"
+                :label="name"
+                width="180">
+                <template slot-scope="scope">
+                  <!-- {{scope.row.details[scope.$index]}} -->
+                   {{metricsData[scope.$index + "-" + n]}}
+                </template>
+              </el-table-column>
+
+            </el-table>
+
+           
+          </el-collapse-item>
       </el-collapse>
       <hr>
       <el-button type="primary" size="small" @click="goHome">首页</el-button>
@@ -64,7 +106,11 @@ import { getTableData } from "./overview";
 export default {
   data() {
     return {
-      tableData: getTableData()
+      tableData: getTableData().pureData,
+      sysData: getTableData().sysData,
+      colSpans: getTableData().colSpans,
+      names:getTableData().names,
+      metricsData:getTableData().metricsData
     };
   },
   methods: {
@@ -72,7 +118,25 @@ export default {
       this.$router.replace("/");
     },
 
-    printDemand(data,count,unit){
+    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+      let i = 0;
+         if (columnIndex === 0) {
+          if (rowIndex % this.colSpans[i] === 0) {
+            i++;
+            return {
+              rowspan: this.colSpans[i-1],
+              colspan: 1
+            };
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            };
+          }
+        }
+      },
+
+    printDemandFirst(data,count,unit){
       let res = "";
       res += count + "<br/>" + unit.split("").join("<br/>") + "<br/>" + "●" + "<br/>";
       res += data.split("").join("<br/>");
@@ -133,7 +197,6 @@ export default {
   border-collapse: collapse;
   table-layout: fixed;
   word-break: break-all;
-  table-layout: fixed;
 }
 .ground-route-table td {
   border: 1px solid #dfe6ec;
