@@ -62,10 +62,13 @@
               :data="sysData"
               :span-method="arraySpanMethod"
               border
-              style="width: 100%">
+              style="width: 100%"
+              >
+
               <el-table-column
               align="center"
               header-align="center"
+              fixed
                 prop="id"
                 label="采购需求"
                 width="180">
@@ -74,19 +77,20 @@
               <el-table-column
                 align="left"
                 header-align="center"
+                fixed
                 prop="params"
                 label="采购详细"
                 width="180">
               </el-table-column>
 
               <el-table-column v-for="(name,n) in names" :key="n"
-                align="left"
+                align="center"
                 header-align="center"
                 :label="name"
                 width="180">
                 <template slot-scope="scope">
-                  <!-- {{scope.row.details[scope.$index]}} -->
-                   {{metricsData[scope.$index + "-" + n]}}
+                   <span v-html="printData(scope.$index, n)"></span>
+                    <!-- {{scope.$index + "-" + n}} -->
                 </template>
               </el-table-column>
 
@@ -109,36 +113,82 @@ export default {
       tableData: getTableData().pureData,
       sysData: getTableData().sysData,
       colSpans: getTableData().colSpans,
-      names:getTableData().names,
-      metricsData:getTableData().metricsData
+      names: getTableData().names,
+      metricsData: getTableData().metricsData
     };
   },
   methods: {
     goHome() {
       this.$router.replace("/");
     },
-
+    // ############################################################# Element table #############################################################
     arraySpanMethod({ row, column, rowIndex, columnIndex }) {
-      let i = 0;
-         if (columnIndex === 0) {
-          if (rowIndex % this.colSpans[i] === 0) {
-            i++;
-            return {
-              rowspan: this.colSpans[i-1],
-              colspan: 1
-            };
-          } else {
-            return {
-              rowspan: 0,
-              colspan: 0
-            };
+     //第一行数据
+      if (rowIndex === 0) {
+        //第一列: 合并第一行的第1个和第二个单元格
+        if(columnIndex === 0){
+          return {
+            rowspan: 1,
+            colspan: 2
           }
         }
-      },
+        // 第二列: 隐藏，保证后续不串行
+        else if(columnIndex === 1){
+          return {
+            rowspan:0,
+            colspan:0,
+          }
+        }
+      }
+      //其他行数据
+      else {
+         let i = 0;
+         if(columnIndex === 0){
+           if((rowIndex - 1) % this.colSpans[i] === 0){
+             i++;
+             return {
+              rowspan: this.colSpans[i - 1],
+              colspan: 1
+            };
+           }else{
+              return {
+                rowspan: 0,
+                colspan: 0
+            };
+           }
+         }
+      }
+    },
 
-    printDemandFirst(data,count,unit){
+    printData(row,n){
+      let res = this.metricsData[row + "-" + n];
+      if(res){
+        if(Array.isArray(res)){
+          let r = "";
+          for(let i = 0; i<res.length; i++){
+            r += "<img style='padding-left:10px;height:40px;width:40px;' src='"+res[i]+"'>";
+          }
+          return r;
+        }else if(typeof res === "object"){
+          
+        }else{
+          return res;
+        }
+      }else{
+        return row + "-" + n
+      }
+    },
+
+    // ############################################################# System table #############################################################
+    printDemandFirst(data, count, unit) {
       let res = "";
-      res += count + "<br/>" + unit.split("").join("<br/>") + "<br/>" + "●" + "<br/>";
+      res +=
+        count +
+        "<br/>" +
+        unit.split("").join("<br/>") +
+        "<br/>" +
+        "●" +
+        "<br/>";
       res += data.split("").join("<br/>");
       return res;
     },
@@ -147,15 +197,24 @@ export default {
     printdemandPara(data, index) {
       let res = "";
       if (index === 0) {
-        res = "<strong><span>品牌、规格型号:<br>" + data.join("<br/>") + "</span></strong>";
+        res =
+          "<strong><span>品牌、规格型号:<br>" +
+          data.join("<br/>") +
+          "</span></strong>";
         return res;
       } else if (index === 1) {
-        res = "<strong><span>技术参数及设置要求:<br>" + data.join("<br/>") + "</span></strong>";
+        res =
+          "<strong><span>技术参数及设置要求:<br>" +
+          data.join("<br/>") +
+          "</span></strong>";
         return res;
       } else if (index === 2) {
-        res = "<strong><span>售后服务要求:<br>" + data.join("<br/>") + "</span></strong>";
+        res =
+          "<strong><span>售后服务要求:<br>" +
+          data.join("<br/>") +
+          "</span></strong>";
         return res;
-      }else {
+      } else {
         return "<strong>" + data + "</strong>";
       }
     },
@@ -163,21 +222,20 @@ export default {
     // 报价详细
     printdemandProviders(data) {
       if (Array.isArray[data]) {
-
       } else if (typeof data === "object") {
         let res = "";
         if (data.flag === 1) {
           res = "<span style='color:#00cc00'>" + "√  满足" + "</span>";
           res += "<hr class='split-line'>";
-          res += "<span>"+data.desc+"</span>";
+          res += "<span>" + data.desc + "</span>";
           return res;
         } else if (data.flag === 2) {
           res = "<span style='color:#ff0000;'>" + "×  不满足" + "</span>";
           res += "<hr class='split-line'>";
           res += "<span>" + data.desc + "</span>";
           return res;
-        }else if(data.flag === 3){
-          res = "<span>"+data.item+"</span>";
+        } else if (data.flag === 3) {
+          res = "<span>" + data.item + "</span>";
           res += "<hr class='split-line'>";
           res += "<span>" + data.desc + "</span>";
           return res;
