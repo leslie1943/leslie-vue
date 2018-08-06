@@ -59,7 +59,7 @@
           <el-collapse-item name="2" title="报价比较数据-element table">
 
             <el-table
-              :data="sysData"
+              :data="labels"
               :span-method="arraySpanMethod"
               border
               style="width: 100%"
@@ -83,38 +83,51 @@
                 width="180">
               </el-table-column>
 
-              <el-table-column v-for="(name,n) in names" :key="n"
+              <el-table-column v-for="(supplier,n) in suppliers" :key="n"
                 align="center"
                 header-align="center"
-                :label="name"
+                :label="supplier"
                 width="180">
                 <template slot-scope="scope">
-                   <span v-html="printData(scope.$index, n)"></span>
-                    <!-- {{scope.$index + "-" + n}} -->
+                   <span :id="scope.$index + '-' + n" v-html="printData(scope.$index, n)"></span>
                 </template>
               </el-table-column>
 
             </el-table>
-
-           
           </el-collapse-item>
       </el-collapse>
-      <hr>
+      <hr class="split-line">
+      报价供应商：{{api_suppliers}}
+      <hr class="split-line">
+      行头信息：
+      <hr class="split-line">
+      合并规则：
+      <hr class="split-line">
+      矩阵数据：
+      <hr class="split-line">
       <el-button type="primary" size="small" @click="goHome">首页</el-button>
     </div>
 </template>
 
 <script>
 import { getTableData } from "./overview";
+import { getApiData } from "./apiData";
 
 export default {
   data() {
     return {
       tableData: getTableData().pureData,
-      sysData: getTableData().sysData,
-      colSpans: getTableData().colSpans,
-      names: getTableData().names,
-      metricsData: getTableData().metricsData
+
+      api_suppliers: [],
+      api_labels: [],
+      api_mergeArray:[],
+      api_metricsData:[],
+
+      //
+      labels: getTableData().labels,
+      suppliers: getTableData().suppliers,
+      metricsData: getTableData().metricsData,
+      mergeArray: getTableData().mergeArray,
     };
   },
   methods: {
@@ -142,21 +155,20 @@ export default {
       }
       //其他行数据
       else {
-         let i = 0;
-         if(columnIndex === 0){
-           if((rowIndex - 1) % this.colSpans[i] === 0){
-             i++;
-             return {
-              rowspan: this.colSpans[i - 1],
-              colspan: 1
-            };
-           }else{
+        if (columnIndex === 0) {
+          for(let i = 0; i<this.mergeArray.length;i++){
+            if(rowIndex === this.mergeArray[i].rowIndex){
               return {
-                rowspan: 0,
-                colspan: 0
-            };
-           }
-         }
+                rowspan: this.mergeArray[i].rowSpan,
+                colspan: 1
+              }
+            }
+          }
+          return {
+            rowspan: 0,
+            colspan: 0
+          }
+        }
       }
     },
 
@@ -244,7 +256,17 @@ export default {
         return data;
       }
     }
-  }
+  },
+  created() {
+    // api_suppliers: [],api_labels: [],api_mergeArray:[],api_metricsData:[],
+    const res = getApiData().result;
+    const biddingBaseListVOS = res.biddingBaseListVOS;
+
+    //供应商数据
+    for(let b = 0; b < biddingBaseListVOS.length;b++){
+      this.api_suppliers.push(biddingBaseListVOS[b].baseVo.supplierName);
+    }
+  },
 };
 </script>
 
