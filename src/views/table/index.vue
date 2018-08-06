@@ -60,7 +60,7 @@
 
             <el-table
               :data="labels"
-              :span-method="arraySpanMethod"
+              :span-method="mergeTableCell"
               border
               style="width: 100%"
               >
@@ -99,9 +99,9 @@
       <hr class="split-line">
       报价供应商：{{api_suppliers}}
       <hr class="split-line">
-      行头信息：
+      行头信息：{{api_labels}}
       <hr class="split-line">
-      合并规则：
+      合并规则：{{api_mergeArray}}
       <hr class="split-line">
       矩阵数据：
       <hr class="split-line">
@@ -118,7 +118,7 @@ export default {
     return {
       tableData: getTableData().pureData,
 
-      api_suppliers: [],
+      api_suppliers: [], 
       api_labels: [],
       api_mergeArray:[],
       api_metricsData:[],
@@ -135,7 +135,7 @@ export default {
       this.$router.replace("/");
     },
     // ############################################################# Element table #############################################################
-    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+    mergeTableCell({ row, column, rowIndex, columnIndex }) {
      //第一行数据
       if (rowIndex === 0) {
         //第一列: 合并第一行的第1个和第二个单元格
@@ -257,15 +257,87 @@ export default {
       }
     }
   },
-  created() {
-    // api_suppliers: [],api_labels: [],api_mergeArray:[],api_metricsData:[],
-    const res = getApiData().result;
-    const biddingBaseListVOS = res.biddingBaseListVOS;
 
-    //供应商数据
-    for(let b = 0; b < biddingBaseListVOS.length;b++){
-      this.api_suppliers.push(biddingBaseListVOS[b].baseVo.supplierName);
+// ############################################################# Data process #############################################################
+
+  mounted() {
+    let g_rowIndex = 1;
+    
+    // api_suppliers , api_labels , api_mergeArray , api_metricsData
+    const res = getApiData().result;
+
+    // ♦♦♦♦♦♦ 报价数据 ♦♦♦♦♦♦
+    const biddingBaseListVOS = res.biddingBaseListVOS;
+    // 报价供应商
+    for(let i = 0; i < biddingBaseListVOS.length;i++){
+      this.api_suppliers.push(biddingBaseListVOS[i].baseVo.supplierName);
     }
+    
+    // 行头信息
+    this.api_labels = [{id: '总报价',params: ''}];
+
+    // ♦♦♦♦♦♦ 清单列表-每一个需求清单数据 ♦♦♦♦♦♦
+    const array_projectItemsList = res.shoppingList.projectItemsList;
+
+    // 循环每个清单，得到行表头信息 && 合并规则
+    for(let i = 0; i < array_projectItemsList.length;i++){
+      let i_rowSpan = 5;
+      // g_rowIndex += 5;
+      //  ⭐⭐⭐ 每个清单 ⭐⭐⭐
+      let each_item = array_projectItemsList[i];
+      
+      //  清单基础信息 - model
+      let itemModel = each_item.projectItems;
+
+      //  物品名称
+      let itemName = itemModel.materialName;
+
+      //  参考品牌型号
+      let brandModel = each_item.projectItemBrandList;
+      let res_brandModel = "";
+      for(let m = 0; m < brandModel.length; m++){
+        res_brandModel += "品牌型号" + m +"：" + brandModel[m].brand + " - " + brandModel[m].spec;
+      }
+      this.api_labels.push( {id: itemName, params: `参考品牌型号:` + res_brandModel});
+
+
+      //   供应商报价（单价）
+      this.api_labels.push( {id: itemName, params: `供应商报价（单价）`});
+
+      //  技术参数及配置要求：
+      this.api_labels.push( {id: itemName, params: `技术参数及配置要求：` + itemModel.config});
+
+      //  售后服务要求：
+      this.api_labels.push( {id: itemName, params: `售后服务要求：` + itemModel.afterSales});
+
+      //  ⭐⭐证件部分⭐⭐
+      let certModel = each_item.projectItemCertList;
+      for(let c = 0; c < certModel.length; c++){
+        this.api_labels.push( {id: itemName, params: certModel[c].certTypeCode + " - " + certModel[c].certTypeName});
+        i_rowSpan++;
+        // g_rowIndex++;
+      }
+      //  投标备注
+      this.api_labels.push( {id: itemName, params: `投标备注`});
+
+      // 清单中的合并规则
+      if(i === 0){
+        this.api_mergeArray.push( {rowIndex:1, rowSpan : i_rowSpan});
+        g_rowIndex += i_rowSpan; 
+      }else{
+        this.api_mergeArray.push( {rowIndex: g_rowIndex, rowSpan : i_rowSpan});
+        g_rowIndex += i_rowSpan; 
+      }
+    }
+
+    // ######################################################## 供应商资质
+    //  ♦♦♦♦♦♦ 证件数据 ♦♦♦♦♦♦
+    const supplierCertList = res.sourceRule.supplierCertList;
+    for(var p = 0; p < supplierCertList.length; p++){
+      this.api_labels.push( {id: "供应商证件", params: supplierCertList[p].certTypeCode + " - " + supplierCertList[p].certTypeName});
+    }
+    this.api_mergeArray.push( {rowIndex: g_rowIndex, rowSpan : supplierCertList.length});
+
   },
 };
 </script>

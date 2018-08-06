@@ -4,10 +4,13 @@ export function getApiData() {
         "code":"",
         "msg":"",
         "result":{
+
+            // 清单
             "shoppingList":{
                 "projectItemsList":[
                     {
-                        "projectItemBrandList":[
+                        "projectItemBrandList":
+                        [
                             {
                                 "id":3,
                                 "baseId":1437,
@@ -139,6 +142,8 @@ export function getApiData() {
                 ],
                 "total":"1000.0"
             },
+
+            // 供应商资质
             "sourceRule":{
                 "invite_type":"1",
                 "supplierCertList":[
