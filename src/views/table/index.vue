@@ -103,7 +103,7 @@
       <hr class="split-line">
       合并规则：{{api_mergeArray}}
       <hr class="split-line">
-      矩阵数据：
+      表内数据：{{this.api_metricsData}}
       <hr class="split-line">
       <el-button type="primary" size="small" @click="goHome">首页</el-button>
     </div>
@@ -121,7 +121,7 @@ export default {
       api_suppliers: [], 
       api_labels: [],
       api_mergeArray:[],
-      api_metricsData:[],
+      api_metricsData:{},
 
       //
       labels: getTableData().labels,
@@ -267,10 +267,13 @@ export default {
     const res = getApiData().result;
 
     // ♦♦♦♦♦♦ 报价数据 ♦♦♦♦♦♦
-    const biddingBaseListVOS = res.biddingBaseListVOS;
-    // 报价供应商
-    for(let i = 0; i < biddingBaseListVOS.length;i++){
-      this.api_suppliers.push(biddingBaseListVOS[i].baseVo.supplierName);
+    const array_biddingBaseListVOS = res.biddingBaseListVOS;
+
+    // 报价供应商 - 报价列表
+    let biddingItems = [];
+    for(let i = 0; i < array_biddingBaseListVOS.length;i++){
+      this.api_suppliers.push(array_biddingBaseListVOS[i].baseVo.supplierName);
+      biddingItems.push(array_biddingBaseListVOS[i].baseVo.sumBadding);
     }
     
     // 行头信息
@@ -282,7 +285,6 @@ export default {
     // 循环每个清单，得到行表头信息 && 合并规则
     for(let i = 0; i < array_projectItemsList.length;i++){
       let i_rowSpan = 5;
-      // g_rowIndex += 5;
       //  ⭐⭐⭐ 每个清单 ⭐⭐⭐
       let each_item = array_projectItemsList[i];
       
@@ -315,7 +317,6 @@ export default {
       for(let c = 0; c < certModel.length; c++){
         this.api_labels.push( {id: itemName, params: certModel[c].certTypeCode + " - " + certModel[c].certTypeName});
         i_rowSpan++;
-        // g_rowIndex++;
       }
       //  投标备注
       this.api_labels.push( {id: itemName, params: `投标备注`});
@@ -338,6 +339,13 @@ export default {
     }
     this.api_mergeArray.push( {rowIndex: g_rowIndex, rowSpan : supplierCertList.length});
 
+    // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ 表内数据 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+    const col = this.api_suppliers.length;
+
+    // 表内数据: 第一行.
+    for(let i = 0 ;i < col; i++){
+      this.api_metricsData[0 + "-" + i] = biddingItems[i];
+    }
   },
 };
 </script>
