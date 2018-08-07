@@ -59,7 +59,7 @@
           <el-collapse-item name="2" title="报价比较数据-element table">
 
             <el-table
-              :data="labels"
+              :data="api_labels"
               :span-method="mergeTableCell"
               border
               style="width: 100%"
@@ -83,7 +83,7 @@
                 width="180">
               </el-table-column>
 
-              <el-table-column v-for="(supplier,n) in suppliers" :key="n"
+              <el-table-column v-for="(supplier,n) in api_suppliers" :key="n"
                 align="center"
                 header-align="center"
                 :label="supplier"
@@ -156,10 +156,10 @@ export default {
       //其他行数据
       else {
         if (columnIndex === 0) {
-          for(let i = 0; i<this.mergeArray.length;i++){
-            if(rowIndex === this.mergeArray[i].rowIndex){
+          for(let i = 0; i<this.api_mergeArray.length;i++){
+            if(rowIndex === this.api_mergeArray[i].rowIndex){
               return {
-                rowspan: this.mergeArray[i].rowSpan,
+                rowspan: this.api_mergeArray[i].rowSpan,
                 colspan: 1
               }
             }
@@ -173,7 +173,7 @@ export default {
     },
 
     printData(row,n){
-      let res = this.metricsData[row + "-" + n];
+      let res = this.api_metricsData[row + "-" + n];
       if(res){
         if(Array.isArray(res)){
           let r = "";
@@ -332,27 +332,27 @@ export default {
     }
 
     // ######################################################## 供应商资质
-    //  ♦♦♦♦♦♦ 证件数据 ♦♦♦♦♦♦
+    //   证件数据 
     const supplierCertList = res.sourceRule.supplierCertList;
     for(var p = 0; p < supplierCertList.length; p++){
       this.api_labels.push( {id: "供应商证件", params: supplierCertList[p].certTypeCode + " - " + supplierCertList[p].certTypeName});
     }
     this.api_mergeArray.push( {rowIndex: g_rowIndex, rowSpan : supplierCertList.length});
 
-    // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ 表内数据 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+    //  表内数据 
     const col = this.api_suppliers.length;
 
-    // 💗💗💗💗💗💗💗💗💗 表内数据: 第一行. 💗💗💗💗💗💗💗💗💗
+    //  表内数据: 第一行. 
     for(let i = 0 ;i < col; i++){
-      this.api_metricsData[0 + "-" + i] = firstRow_sumBidding[i];
+      this.api_metricsData[0 + "-" + i] = firstRow_sumBidding[i] + "元";
     }
 
     let cert_row_index = 1;
 
-    // 💗💗💗💗💗💗💗💗💗 表内数据: 详情行. 💗💗💗💗💗💗💗💗💗
+    //  表内数据: 详情行. 
     const row_items = ["itemBrandRemark","selfQuotation","configMatch","afterSalesMatch","biddingItemCerts","remark"];
     
-    // 💗💗💗 循环所有清单详细 start 💗💗💗
+    //  循环所有清单详细 start 
     for(let i = 0; i < array_biddingBaseListVOS.length;i++){
       
       // 每一个供应商报价详情
@@ -375,7 +375,7 @@ export default {
           }
           //固定行:报价
           else if(row_items[n] === "selfQuotation"){
-            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].selfQuotation;
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].selfQuotation + "元"
             row_index++;
           }
           //固定行:配置参数
@@ -407,22 +407,30 @@ export default {
         }
       }
     }
-    // 💗💗💗 循环所有清单详细 finish 💗💗💗
+    //  循环所有清单详细 finish 
 
-    // 💗💗💗 资质证件 💗💗💗
-   
-    // 供应商资质证件 - 行属性
-    const last_some_index = cert_row_index;
-
-    for(let e = 0; e < array_biddingBaseListVOS.length; e++){
-      let cert_row_index = last_some_index;
-      //当前供应商的资质证件-多行
-      let array_supplierCerts = array_biddingBaseListVOS[e].biddingCertList;
-      for(let f = 0; f < array_supplierCerts.length;f++){
-        this.api_metricsData[cert_row_index + "-" + f] = array_supplierCerts[f];
+    //  资质证件 start 
+    /**
+     * cert_init_row: 保证循环行恒定不变
+     * 20-0↓    ↓20-1   ↓20-2
+     * 21-0↓  → ↓21-1 → ↓21-2
+     * 22-0↓    ↓22-1   ↓22-2
+     */
+    const cert_init_row = cert_row_index;
+    // array_biddingBaseListVOS:  供应商报价实体_数组
+    for(let col = 0; col < array_biddingBaseListVOS.length; col++){
+      let cert_row_index = cert_init_row;
+      //当前供应商的资质证件
+      let array_currentSupplierCerts = array_biddingBaseListVOS[col].biddingCertList;
+      //循环 当前供应商的每个资质证件
+      for(let i = 0; i < array_currentSupplierCerts.length;i++){
+        //当前循环到的证件赋值
+        this.api_metricsData[cert_row_index + "-" + col] = array_currentSupplierCerts[i];
+        //参见 资质证件 start 出 注释
         cert_row_index++;
       }
     }
+    // 资质证件 finish 
   },
 };
 </script>
