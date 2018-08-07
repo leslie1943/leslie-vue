@@ -176,13 +176,15 @@ export default {
       let res = this.api_metricsData[row + "-" + n];
       if(res){
         if(Array.isArray(res)){
-          let r = "";
-          for(let i = 0; i<res.length; i++){
-            r += "<img style='padding-left:10px;height:40px;width:40px;' src='"+res[i]+"'>";
-          }
-          return r;
+
         }else if(typeof res === "object"){
-          
+          if(res.certUrls){
+            let r = "";
+            for(let i = 0; i< res.certUrls.length; i++){
+              r += "<img style='padding-left:10px;height:40px;width:40px;' src='"+res.certUrls[i]+"'>";
+            }
+            return r;
+          }
         }else{
           return res;
         }
