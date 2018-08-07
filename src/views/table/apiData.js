@@ -562,7 +562,7 @@ export function getApiData() {
                         ]
                     }
                 },
-    
+
                 {
                     "projectMaxPrice":0,
                     "baseVo":{

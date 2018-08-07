@@ -270,10 +270,10 @@ export default {
     const array_biddingBaseListVOS = res.biddingBaseListVOS;
 
     // 报价供应商 - 报价列表
-    let biddingItems = [];
+    let firstRow_sumBidding = [];
     for(let i = 0; i < array_biddingBaseListVOS.length;i++){
       this.api_suppliers.push(array_biddingBaseListVOS[i].baseVo.supplierName);
-      biddingItems.push(array_biddingBaseListVOS[i].baseVo.sumBadding);
+      firstRow_sumBidding.push(array_biddingBaseListVOS[i].baseVo.sumBadding);
     }
     
     // 行头信息
@@ -342,9 +342,86 @@ export default {
     // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ 表内数据 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     const col = this.api_suppliers.length;
 
-    // 表内数据: 第一行.
+    // 💗💗💗💗💗💗💗💗💗 表内数据: 第一行. 💗💗💗💗💗💗💗💗💗
     for(let i = 0 ;i < col; i++){
-      this.api_metricsData[0 + "-" + i] = biddingItems[i];
+      this.api_metricsData[0 + "-" + i] = firstRow_sumBidding[i];
+    }
+
+    let cert_row_index = 1;
+
+    // 💗💗💗💗💗💗💗💗💗 表内数据: 详情行. 💗💗💗💗💗💗💗💗💗
+    const row_items = ["itemBrandRemark","selfQuotation","configMatch","afterSalesMatch","biddingItemCerts","remark"];
+    
+    // 💗💗💗 循环所有清单详细 start 💗💗💗
+    for(let i = 0; i < array_biddingBaseListVOS.length;i++){
+      
+      // 每一个供应商报价详情
+      let each_supplier_bidding = array_biddingBaseListVOS[i];
+
+      // 每一个供应商报价详情的详情列表：多个商品的报价集合
+      let array_biddinglist = each_supplier_bidding.supplierCertAndDetail.biddinglist;
+
+      //计数器
+      let row_index = 1;
+
+      // 每一个供应商报价详情的详情列表 第m个商品的详情
+      for(let m = 0; m < array_biddinglist.length; m++){
+        // 循环固定的行参数
+        for(let n = 0; n < row_items.length; n++){
+          //固定行:品牌
+          if(row_items[n] === "itemBrandRemark"){
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].itemBrandRemark;
+            row_index++;
+          }
+          //固定行:报价
+          else if(row_items[n] === "selfQuotation"){
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].selfQuotation;
+            row_index++;
+          }
+          //固定行:配置参数
+          else if(row_items[n] === "configMatch"){
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].configMatch;
+            row_index++;
+          }
+          //固定行:售后
+          else if(row_items[n] === "afterSalesMatch"){
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].afterSalesMatch;
+            row_index++;
+          }
+          //动态行：商品资质证件
+          else if(row_items[n] === "biddingItemCerts"){
+            let certs = array_biddinglist[m].biddingItemCerts
+            for(let cer = 0; cer < certs.length; cer++){
+              this.api_metricsData[row_index + "-" + i] = certs[cer];
+              row_index++;
+            }
+          }
+          //固定行:报价备注
+          else if(row_items[n] === "remark"){
+            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].remark;
+            row_index++;
+            
+            //得到资质证件的行index
+            cert_row_index = row_index;
+          }
+        }
+      }
+    }
+    // 💗💗💗 循环所有清单详细 finish 💗💗💗
+
+    // 💗💗💗 资质证件 💗💗💗
+   
+    // 供应商资质证件 - 行属性
+    const last_some_index = cert_row_index;
+
+    for(let e = 0; e < array_biddingBaseListVOS.length; e++){
+      let cert_row_index = last_some_index;
+      //当前供应商的资质证件-多行
+      let array_supplierCerts = array_biddingBaseListVOS[e].biddingCertList;
+      for(let f = 0; f < array_supplierCerts.length;f++){
+        this.api_metricsData[cert_row_index + "-" + f] = array_supplierCerts[f];
+        cert_row_index++;
+      }
     }
   },
 };
