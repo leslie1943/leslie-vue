@@ -6,6 +6,7 @@ import countTime from '../views/countTime'
 import immutable from '../views/immutable'
 import echarts from '../views/echarts'
 import table from '../views/table'
+import notice from '../views/notice'
 
 
 
@@ -46,6 +47,11 @@ export const constRouterMap =
       path: '/table',
       name: 'table',
       component: table
+    },
+    {
+      path: '/notice',
+      name: 'notice',
+      component: notice
     },
   ]
 

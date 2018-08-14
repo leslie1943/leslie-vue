@@ -5,6 +5,7 @@ import App from './App'
 import store from './store';
 import router from './router'
 import echarts from 'echarts'
+import "@/assets/patch.css";
 
 // import 'vx-easyui/dist/themes/default/easyui.css';
 // import 'vx-easyui/dist/themes/icon.css';

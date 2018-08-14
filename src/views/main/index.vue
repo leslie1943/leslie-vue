@@ -213,6 +213,8 @@
 <el-button @click="immutable">immutable</el-button>
 <el-button @click="echarts">echarts</el-button>
 <el-button @click="table">手画Table</el-button>
+<el-button @click="notice">Notification</el-button>
+
 
 
 </div>
@@ -275,11 +277,12 @@ export default {
   data() {
     return {
       switchFlag:true,
+      
       color:"",
       list:[
-        {url:"https://s2s0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/1u=573700909,3523270049&fm=27&gp=0.jpg"},
-        {url:"https://ss20.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/2u=135879346,2002014798&fm=27&gp=0.jpg"},
-        {url:"https://ss21.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/3u=620953041,2283705734&fm=27&gp=0.jpg"},
+        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
+        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
+        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
         ],
         tableData3: [{
           date: '2016-05-03',
@@ -417,6 +420,7 @@ export default {
     ...mapGetters(["count"]) 
   },
   methods: {
+    
     getDateTime(){
       let endT = new Date('2019-06-20 12:00:00');
       let nowT = new Date();
@@ -472,6 +476,9 @@ export default {
     },
     table() {
       this.$router.replace("/table");
+    },
+    notice() {
+      this.$router.replace("/notice");
     },
     countDownTime() {
       if (this.timeLeft > 0) {

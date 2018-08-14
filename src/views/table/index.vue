@@ -62,16 +62,18 @@
               :data="api_labels"
               :span-method="mergeTableCell"
               border
-              style="width: 100%"
-              >
+              style="width: 100%">
 
+               <!-- label="采购需求" -->
               <el-table-column
-              align="center"
-              header-align="center"
-              fixed
-                prop="id"
+                align="center"
+                header-align="center"
+                fixed
                 label="采购需求"
-                width="180">
+                width="100">
+                <template slot-scope="scope">
+                  <span v-html="scope.row.id"></span>
+                </template>
               </el-table-column>
 
               <el-table-column
@@ -79,17 +81,20 @@
                 header-align="center"
                 fixed
                 prop="params"
-                label="采购详细"
-                width="180">
+                label="需求参数"
+                width="220">
+                <template slot-scope="scope">
+                  <span v-html="scope.row.params"></span>
+                </template>
               </el-table-column>
 
               <el-table-column v-for="(supplier,n) in api_suppliers" :key="n"
                 align="center"
                 header-align="center"
                 :label="supplier"
-                width="180">
+                >
                 <template slot-scope="scope">
-                   <span :id="scope.$index + '-' + n" v-html="printData(scope.$index, n)"></span>
+                  <span :id="scope.$index + '-' + n" v-html="printData(scope.$index, n)"></span>
                 </template>
               </el-table-column>
 
@@ -181,7 +186,7 @@ export default {
           if(res.certUrls){
             let r = "";
             for(let i = 0; i< res.certUrls.length; i++){
-              r += "<img style='padding-left:10px;height:40px;width:40px;' src='"+res.certUrls[i]+"'>";
+              r += "<img style='padding-left:10px;height:40px;width:40px;' src='"+ res.certUrls[i] +"'>";
             }
             return r;
           }
@@ -294,25 +299,25 @@ export default {
       let itemModel = each_item.projectItems;
 
       //  物品名称
-      let itemName = itemModel.materialName;
+      let itemName = itemModel.quantity + itemModel.unit + "●" + itemModel.materialName;
 
       //  参考品牌型号
       let brandModel = each_item.projectItemBrandList;
       let res_brandModel = "";
       for(let m = 0; m < brandModel.length; m++){
-        res_brandModel += "品牌型号" + m +"：" + brandModel[m].brand + " - " + brandModel[m].spec;
+          res_brandModel += "<span style='color:#999999;font-size:12px'>品牌型号" + (m+1) +":</span><br/>" + "<span style='color:#151515;font-size:12px'>" + brandModel[m].brand + " - " + brandModel[m].spec + "</span>" + "<br/>";
       }
-      this.api_labels.push( {id: itemName, params: `参考品牌型号:` + res_brandModel});
+      this.api_labels.push( {id: itemName, params: '<span style="color:#333333">参考品牌型号:</span><br/>' + res_brandModel});
 
 
       //   供应商报价（单价）
       this.api_labels.push( {id: itemName, params: `供应商报价（单价）`});
 
       //  技术参数及配置要求：
-      this.api_labels.push( {id: itemName, params: `技术参数及配置要求：` + itemModel.config});
+        this.api_labels.push( {id: itemName, params: '<span style="color:#333333">技术参数及配置要求:</span><br/>' + "<span style='color:#999999;font-size:12px'>" + itemModel.config + "</span>"});
 
       //  售后服务要求：
-      this.api_labels.push( {id: itemName, params: `售后服务要求：` + itemModel.afterSales});
+        this.api_labels.push( {id: itemName, params: '<span style="color:#333333">售后服务要求:</span><br/>' + "<span style='color:#999999;font-size:12px'>" + itemModel.afterSales + "</span>"});
 
       //  ⭐⭐证件部分⭐⭐
       let certModel = each_item.projectItemCertList;
@@ -382,12 +387,12 @@ export default {
           }
           //固定行:配置参数
           else if(row_items[n] === "configMatch"){
-            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].configMatch;
+            this.api_metricsData[row_index + "-" + i] = (array_biddinglist[m].configMatch === 1 ? "<span style='color:#FF4949;'>部分满足</span>" : "<span style='color:#2CA02C;'>满足</span>") + "<br/>" + "<span style='color:#999999;font-size:12px;'>补充说明: </span>" + "<span style='font-size:12px;'>" + array_biddinglist[m].configRemark + "</span>";
             row_index++;
           }
           //固定行:售后
           else if(row_items[n] === "afterSalesMatch"){
-            this.api_metricsData[row_index + "-" + i] = array_biddinglist[m].afterSalesMatch;
+            this.api_metricsData[row_index + "-" + i] = (array_biddinglist[m].afterSalesMatch === 1 ? "<span style='color:#FF4949;'>部分满足</span>" : "<span style='color:#2CA02C;'>满足</span>") + "<br/>" + "<span style='color:#999999;font-size:12px;'>补充说明: </span>" + "<span style='font-size:12px;'>" + array_biddinglist[m].afterSalesRemark + "</span>";
             row_index++;
           }
           //动态行：商品资质证件
