@@ -21,6 +21,9 @@
 
           <el-dialog
             :title="dialogTitle"
+            :show-close="false"
+            :close-on-press-escape="false"
+            :close-on-click-modal="false"
             :visible.sync="dialogFlag"
             width="80%" >
 
@@ -51,7 +54,7 @@
 
             <el-table-column width="30" >
                 <template slot-scope="scope">
-                <el-radio :label="scope.row.id" v-model="chooseId" @change="handdleChange(scope.row.id,scope.row)"></el-radio>
+                <el-radio :label="scope.row.id" v-model="chooseId" @change="handdleChooseChange(scope.row.id,scope.row)"></el-radio>
                 </template>
             </el-table-column>
 
@@ -91,17 +94,18 @@
 
             <br>
             <el-button type="primary" size="medium" @click="handdleChooseOK">选择</el-button>
-            <el-button type="primary" size="medium" @click="handdleChooseCancel">取消</el-button>
+            <el-button type="primary" plain="" size="medium" @click="handdleChooseCancel">取消</el-button>
         </div>
 
         <div v-if="currentStep===2">
-          <el-button type="primary" size="medium" @click="handdleBackStep">返回</el-button>
+          <el-button type="primary" size="medium" @click="handdleChooseAndClose">确定</el-button>
+          <el-button plain size="medium" @click="handdleBackStep">返回</el-button>
         </div>
             
 
       </el-dialog>
       <hr>
-      <el-button type="primary" size="small" @click="goHome">首页</el-button>
+      <el-button type="primary" size="small" @click="handdleGoHome">首页</el-button>
     </div>
 </template>
 
@@ -195,32 +199,34 @@ export default {
         //已经有通知.
         this.noticeFlag = true;
         this.instance = this.$notify({
-          title: '找到一条协议供货记录点击设置',
-            message: '点击查看',
+          title: '提示',
+            message: '<span>发现协议库产品与申购明细相似</span> <span style="color:#20A0FF;"> 查看 </span>',
             type: 'primary',
-            iconClass:"el-icon-goods",
+            // iconClass:"el-icon-goods",
+            dangerouslyUseHTMLString:true,
             duration: 0,
+            offset:300,
             // showClose: false
-            onClick:this.clickCallBack,
-            onClose:this.closeCallBack,
+            onClick:this.handleClickCallBack,
+            onClose:this.handleCloseCallBack,
         });
       }
     },
-    clickCallBack(){
+    handleClickCallBack(){
       this.dialogFlag = true; 
       this.noticeFlag = false; //关闭当前通知 并 重置通知标识
       this.instance.close();
       console.info("Notification has been closed!");
     },
-     closeCallBack(){
+    handleCloseCallBack(){
       this.noticeFlag = false; //关闭当前通知 并 重置通知标识
     },
 
-    goHome() {
+    handdleGoHome() {
       this.$router.replace("/");
     },
 
-    handdleChange(id,data){
+    handdleChooseChange(id,data){
       console.info(id);
       console.info(data);
     },
@@ -239,12 +245,17 @@ export default {
       this.proSpeciDialog = "";
     },
     handdleNextStep(){
-      this.dialogTitle = "产品详情";
+      this.dialogTitle = "协议产品详情";
       this.currentStep = 2;
     },
     handdleBackStep(){
       this.dialogTitle = "协议供货产品库";
       this.currentStep = 1;
+    },
+    handdleChooseAndClose(){
+      this.dialogFlag = false;
+      this.currentStep = 1;
+      this.chooseId = "";
     }
   },
 };
