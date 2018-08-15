@@ -214,7 +214,7 @@
 <el-button @click="echarts">echarts</el-button>
 <el-button @click="table">手画Table</el-button>
 <el-button @click="notice">Notification</el-button>
-
+<el-button @click="card">EL-Card</el-button>
 
 
 </div>
@@ -479,6 +479,9 @@ export default {
     },
     notice() {
       this.$router.replace("/notice");
+    },
+    card() {
+      this.$router.replace("/card");
     },
     countDownTime() {
       if (this.timeLeft > 0) {

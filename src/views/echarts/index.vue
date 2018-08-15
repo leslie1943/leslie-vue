@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import CommitChart from '@/components/CommitChart'
+import CommitChart from '@/components/CommitChart/CommitChart'
 
 export default {
     components:{CommitChart},

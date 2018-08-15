@@ -7,8 +7,7 @@ import immutable from '../views/immutable'
 import echarts from '../views/echarts'
 import table from '../views/table'
 import notice from '../views/notice'
-
-
+import card from '../views/card'
 
 Vue.use(Router)
 
@@ -52,6 +51,11 @@ export const constRouterMap =
       path: '/notice',
       name: 'notice',
       component: notice
+    },
+    {
+      path: '/card',
+      name: 'card',
+      component: card
     },
   ]
 
