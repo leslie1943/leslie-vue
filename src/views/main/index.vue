@@ -26,6 +26,7 @@
         <hr>
         <h3>{{count + '[...mapState(["count"])]'}} </h3>
     </el-collapse-item>
+
     <el-collapse-item title="Upload" name="2">
         <el-upload
           class="avatar-uploader"
@@ -37,14 +38,6 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           <hr>
         </el-upload>
-    </el-collapse-item>
-
-    <el-collapse-item title="使用 HTML 片段" name="3">
-        <el-button
-          plain
-          @click="open12">
-          使用 HTML 片段
-        </el-button>
     </el-collapse-item>
 
     <el-collapse-item title="面包屑" name="4">
@@ -79,62 +72,6 @@
 
     </el-collapse-item>
 
-      <el-collapse-item title="Table" name="6">
-           <el-table
-              :data="tableData5"
-              style="width: 100%">
-              <el-table-column type="expand">
-                <template slot-scope="props">
-                  <el-form label-position="left" block class="demo-table-expand" >
-                    <el-row>
-                      <el-col :span="12">
-                        <el-form-item label="商品名称">
-                          <span>{{ props.row.name }}</span>
-                        </el-form-item>
-                      </el-col>
-
-                      <el-col :span="12">
-                        <el-form-item label="所属店铺">
-                          <span>{{ props.row.shop }}</span>
-                        </el-form-item>
-                        </el-col>
-                    </el-row>
-                  
-                    <el-form-item label="商品 ID">
-                      <span>{{ props.row.id }}</span>
-                    </el-form-item>
-                    <el-form-item label="店铺 ID">
-                      <span>{{ props.row.shopId }}</span>
-                    </el-form-item>
-                    <el-form-item label="商品分类">
-                      <span>{{ props.row.category }}</span>
-                    </el-form-item>
-                    <el-form-item label="店铺地址">
-                      <span>{{ props.row.address }}</span>
-                    </el-form-item>
-                    <el-form-item label="商品描述">
-                      <span>{{ props.row.desc }}</span>
-                    </el-form-item>
-                  </el-form>
-                </template>
-              </el-table-column>
-
-              <el-table-column
-                label="商品 ID"
-                prop="id">
-              </el-table-column>
-              <el-table-column
-                label="商品名称"
-                prop="name">
-              </el-table-column>
-              <el-table-column
-                label="描述"
-                prop="desc">
-              </el-table-column>
-            </el-table>
-
-      </el-collapse-item>
-
       <el-collapse-item title="time left" name="7">
              {{timeLeftString}}
       </el-collapse-item>
@@ -146,53 +83,6 @@
               placeholder="选择日期"
               value-format="yyyy-MM-dd HH:mm:ss">
           </el-date-picker>
-      </el-collapse-item>
-
-       <el-collapse-item title="指令" name="9">
-          <div style="height:200px;" v-img="val.url" v-for="(val,index) in list" :key="index"></div>
-      </el-collapse-item>
-
-      <el-collapse-item name="10" title="多级表头">
-        <div >
-          <el-table
-            :data="tableData3"
-            style="width: 100%">
-            <el-table-column
-              prop="date"
-              label="日期"
-              width="150">
-            </el-table-column>
-            <el-table-column label="配送信息">
-              <el-table-column
-                prop="name"
-                label="姓名"
-                width="120">
-              </el-table-column>
-              <el-table-column label="地址">
-                <el-table-column
-                  prop="province"
-                  label="省份"
-                  width="120">
-                </el-table-column>
-                <el-table-column
-                  prop="city"
-                  label="市区"
-                  width="120">
-                </el-table-column>
-                <el-table-column
-                  prop="address"
-                  label="地址"
-                  width="300">
-                </el-table-column>
-                <el-table-column
-                  prop="zip"
-                  label="邮编"
-                  width="120">
-                </el-table-column>
-              </el-table-column>
-            </el-table-column>
-          </el-table>
-        </div>
       </el-collapse-item>
 
       <el-collapse-item title="Switch" name="11">
@@ -214,7 +104,7 @@
 <el-button @click="echarts">echarts</el-button>
 <el-button @click="table">手画Table</el-button>
 <el-button @click="notice">Notification</el-button>
-<el-button @click="card">EL-Card</el-button>
+<el-button @click="card">工作台</el-button>
 
 
 </div>
@@ -277,63 +167,7 @@ export default {
   data() {
     return {
       switchFlag:true,
-      
       color:"",
-      list:[
-        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
-        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
-        {url:"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/9bfbbffa8678fbabeb5796196bf5f68e_121_121.jpg"},
-        ],
-        tableData3: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }],
       activeNames:[],
       msg: "Vuex demo",
       timeLeft: 0,
@@ -341,39 +175,6 @@ export default {
       imageUrl: "",
       active:0,
       expiredDate:"",
-      tableData5: [{
-          id: '12987122',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987123',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987125',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987126',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }]
     };
   },
   computed: {
@@ -431,13 +232,6 @@ export default {
       }
     },
     
-    open12(){
-      this.$notify({
-          title: 'HTML 片段',
-          dangerouslyUseHTMLString: true,
-          message: '<strong>这是 <i>HTML</i> 片段</strong>'
-        });
-    },
     ...mapMutations(["add", "reduce"]),
     ...mapActions(["addAction", "reduceAction"]),
     handleAvatarSuccess(res, file) {

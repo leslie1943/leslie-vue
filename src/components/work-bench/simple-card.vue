@@ -1,5 +1,6 @@
 <template>
-    <div >
+    <div>
+    <!-- <div style="text-align:center;"> -->
         <el-card class="box-card" :style="currentBottomColor">
           <div><span class="card-title">{{cardTitle}}</span></div>
           <div><span class="card-show-text">{{cardShowText}}</span> <span>{{cardShowUnit}}</span></div>
