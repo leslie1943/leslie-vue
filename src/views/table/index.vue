@@ -1,4 +1,7 @@
 <template>
+ <happy-scroll  color="darkcyan" size="20">
+   <!-- color: 滚动条颜色 -->
+   <!-- size: 对于竖向滚动条表示宽度，竖向滚动条表示高度 -->
     <div style="text-align:center;">
         <el-collapse>
           <el-collapse-item name="1" title="报价比较数据-自定义table">
@@ -112,6 +115,7 @@
       <hr class="split-line">
       <el-button type="primary" size="small" @click="goHome">首页</el-button>
     </div>
+ </happy-scroll>
 </template>
 
 <script>
@@ -458,5 +462,8 @@ export default {
 .split-line {
   color: #9c9c9c;
   opacity: 0.2;
+}
+.happy-scroll-strip--horizontal{
+  /* background: darkgray; */
 }
 </style>

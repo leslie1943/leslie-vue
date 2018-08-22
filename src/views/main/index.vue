@@ -98,13 +98,14 @@
   </el-collapse>
 <hr>
 <el-button @click="handleShow">测试</el-button>
-<el-button @click="goLayout">go Layout</el-button>
-<el-button @click="countDown">倒计时</el-button>
-<el-button @click="immutable">immutable</el-button>
-<el-button @click="echarts">echarts</el-button>
-<el-button @click="table">手画Table</el-button>
-<el-button @click="notice">Notification</el-button>
-<el-button @click="card">工作台</el-button>
+<el-button @click="handleToUrl('Layout')">go Layout</el-button>
+<el-button @click="handleToUrl('countTime')">倒计时</el-button>
+<el-button @click="handleToUrl('immutable')">immutable</el-button>
+<el-button @click="handleToUrl('echarts')">echarts</el-button>
+<el-button @click="handleToUrl('table')">手画Table</el-button>
+<el-button @click="handleToUrl('notice')">Notification</el-button>
+<el-button @click="handleToUrl('card')">工作台</el-button>
+<el-button @click="handleToUrl('mutiselect')">muti-select</el-button>
 
 
 </div>
@@ -256,26 +257,8 @@ export default {
         callback: action => {}
       });
     },
-    goLayout() {
-      this.$router.replace("/Layout");
-    },
-    countDown() {
-      this.$router.replace("/countTime");
-    },
-    immutable() {
-      this.$router.replace("/immutable");
-    },
-    echarts() {
-      this.$router.replace("/echarts");
-    },
-    table() {
-      this.$router.replace("/table");
-    },
-    notice() {
-      this.$router.replace("/notice");
-    },
-    card() {
-      this.$router.replace("/card");
+    handleToUrl(target){
+      this.$router.replace("/" + target);
     },
     countDownTime() {
       if (this.timeLeft > 0) {

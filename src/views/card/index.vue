@@ -94,7 +94,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
   .box-card {
     width: 240px;
     height: 100px;
@@ -102,4 +102,5 @@ export default {
   .title-left{
     font-weight: bold;
   }
+
 </style>

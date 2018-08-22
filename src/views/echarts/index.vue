@@ -23,7 +23,7 @@ export default {
 
    var option = {
             title: {
-                
+                // text: '在Vue中使用echarts' 
             },
             tooltip: {},
             legend: {

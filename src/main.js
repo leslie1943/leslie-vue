@@ -6,6 +6,9 @@ import store from './store';
 import router from './router'
 import echarts from 'echarts'
 import "@/assets/patch.css";
+import HappyScroll from 'vue-happy-scroll';
+import 'vue-happy-scroll/docs/happy-scroll.css'
+
 
 // import 'vx-easyui/dist/themes/default/easyui.css';
 // import 'vx-easyui/dist/themes/icon.css';
@@ -17,6 +20,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
+Vue.use(HappyScroll)
+
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts
 

@@ -8,6 +8,7 @@ import echarts from '../views/echarts'
 import table from '../views/table'
 import notice from '../views/notice'
 import card from '../views/card'
+import mutiselect from '../views/mutiselect'
 
 Vue.use(Router)
 
@@ -56,6 +57,11 @@ export const constRouterMap =
       path: '/card',
       name: 'card',
       component: card
+    },
+    {
+      path: '/mutiselect',
+      name: 'mutiselect',
+      component: mutiselect
     },
   ]
 
