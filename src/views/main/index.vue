@@ -106,6 +106,8 @@
 <el-button @click="handleToUrl('notice')">Notification</el-button>
 <el-button @click="handleToUrl('card')">工作台</el-button>
 <el-button @click="handleToUrl('mutiselect')">muti-select</el-button>
+<el-button @click="handleToUrl('slot')">slot</el-button>
+
 
 
 </div>

@@ -9,6 +9,8 @@ import table from '../views/table'
 import notice from '../views/notice'
 import card from '../views/card'
 import mutiselect from '../views/mutiselect'
+import slot from '../views/slot'
+
 
 Vue.use(Router)
 
@@ -62,6 +64,11 @@ export const constRouterMap =
       path: '/mutiselect',
       name: 'mutiselect',
       component: mutiselect
+    },
+    {
+      path: '/slot',
+      name: 'slot',
+      component: slot
     },
   ]
 
