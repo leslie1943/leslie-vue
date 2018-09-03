@@ -10,6 +10,8 @@ import notice from '../views/notice'
 import card from '../views/card'
 import mutiselect from '../views/mutiselect'
 import slot from '../views/slot'
+import validate from '../views/validate'
+
 
 
 Vue.use(Router)
@@ -69,6 +71,11 @@ export const constRouterMap =
       path: '/slot',
       name: 'slot',
       component: slot
+    },
+    {
+      path: '/validate',
+      name: 'validate',
+      component: validate
     },
   ]
 
