@@ -463,7 +463,4 @@ export default {
   color: #9c9c9c;
   opacity: 0.2;
 }
-.happy-scroll-strip--horizontal{
-  /* background: darkgray; */
-}
 </style>
