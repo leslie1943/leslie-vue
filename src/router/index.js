@@ -11,6 +11,7 @@ import card from '../views/card'
 import mutiselect from '../views/mutiselect'
 import slot from '../views/slot'
 import validate from '../views/validate'
+import array from '../views/array'
 
 
 
@@ -76,6 +77,11 @@ export const constRouterMap =
       path: '/validate',
       name: 'validate',
       component: validate
+    },
+    {
+      path: '/array',
+      name: 'array',
+      component: array
     },
   ]
 

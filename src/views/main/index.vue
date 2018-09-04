@@ -108,6 +108,7 @@
 <el-button @click="handleToUrl('mutiselect')">muti-select</el-button>
 <el-button @click="handleToUrl('slot')">slot</el-button>
 <el-button @click="handleToUrl('validate')">validate</el-button>
+<el-button @click="handleToUrl('array')">array 操作</el-button>
 
 </div>
 </template>
