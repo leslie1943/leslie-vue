@@ -1,7 +1,7 @@
 <template>
 <div style="text-align:center;">
   <!-- :show-message="false" -->
-  <el-form label-width="100px" label-position="left" :model="personData" :rules="personRules" ref="personForm" class="demo-ruleForm">
+  <el-form label-width="100px" label-position="left" :model="personData" :rules="personrules" ref="personForm" class="demo-ruleForm">
     <el-row>
       <el-col :offset="6" :span="6">
         <!--prop 要和 personData里的属性一致 -->
@@ -92,29 +92,14 @@
 
 <script>
 import ToHome from "@/components/toHome/toHome";
+import localrules from './rules';
+
+
 export default{
   components:{
     ToHome
   },
   data(){
-    // ----------------------------- Rules validator start -----------------------------
-    var checkAge = (rule, value, callback) => {
-        if (!value) {
-          return callback(new Error('年龄不能为空'));
-        }
-        setTimeout(() => {
-          if (isNaN(value)) {
-             callback(new Error('请输入数字值'));
-          } else {
-            if (value < 18) {
-               callback(new Error('必须年满18岁'));
-            } else {
-               callback();
-            }
-          }
-        }, 1000);
-      };
-      // ----------------------------- Rules validator finish -----------------------------
     return {
       personData:{
         name:"",
@@ -122,23 +107,8 @@ export default{
         start:'',
         end:''
       },
-      personRules:{
-        // rules里的校验元素需要和prop里的一致
-        name:[
-          { required: true, message: '请输入名字', trigger: 'blur' },
-        ],
-        age:[
-          { required: true, message: '请输入年龄', trigger: 'blur' },
-          { validator: checkAge, trigger:'blur'}
-        ],
-        start:[
-          {required:true,message:'请输入开始日期',trigger:['blur','change']}
-        ],
-        end:[
-          {required:true,message:'请输入结束日期',trigger:['blur','change']}
-        ],
-
-      }
+      //rules.
+      personrules:localrules,
     }
   },
   methods:{

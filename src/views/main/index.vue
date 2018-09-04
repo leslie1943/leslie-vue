@@ -140,9 +140,7 @@
 
  */
 import $store from "@/store";
-// import loading from "@/utils/loading";
 import {getDaysLater} from "@/utils/date";
-// import {getTableData} from "./overview";
 import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   name: "count",
@@ -208,8 +206,7 @@ export default {
     // 获取state属性方式-2
     ...mapState({
       countByMapState: state => {
-        return (
-          state.count +
+        return ( state.count +
           `[    ...mapState({
             countByMapState:(state) =>{
               return state.count'

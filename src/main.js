@@ -28,10 +28,20 @@ Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   components: { App },
+//   template: '<App/>'
+// })
+
+const VUE_INSTANCE = new Vue({
   router,
   store,
+  template: '<app/>',
   components: { App },
-  template: '<App/>'
-})
+});
+
+window.VUE_INSTANCE = VUE_INSTANCE;
+VUE_INSTANCE.$mount("#app");

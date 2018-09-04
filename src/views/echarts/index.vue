@@ -5,15 +5,16 @@
         <div style="height:200px;width:400px;">
             <CommitChart></CommitChart>
         </div>
-       
+       <ToHome></ToHome>
     </div>
 </template>
 
 <script>
 import CommitChart from '@/components/CommitChart/CommitChart'
+import ToHome from "@/components/toHome/toHome";
 
 export default {
-    components:{CommitChart},
+    components:{CommitChart,ToHome},
   data() {
     return {
     }
