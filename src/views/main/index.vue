@@ -8,6 +8,9 @@
         <hr>
         <h3>{{$store.state.count}}</h3>
 
+        <!-- action()是触发mutation执行，并改变state -->
+        <!-- mutation也可以被直接commit('m_name',value)-->
+
         <div>
             <el-button type="primary" @click="$store.commit('add',2)">add with parameters=2</el-button>
             <el-button type="primary" @click="$store.commit('reduce',2)">reduce with parameters=2</el-button>
