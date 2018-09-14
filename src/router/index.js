@@ -12,6 +12,8 @@ import mutiselect from '../views/mutiselect'
 import slot from '../views/slot'
 import validate from '../views/validate'
 import array from '../views/array'
+import basicForm from '../views/basicForm'
+
 
 
 
@@ -82,6 +84,11 @@ export const constRouterMap =
       path: '/array',
       name: 'array',
       component: array
+    },
+    {
+      path: '/basicForm',
+      name: 'basicForm',
+      component: basicForm
     },
   ]
 

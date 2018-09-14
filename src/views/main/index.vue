@@ -112,6 +112,8 @@
 <el-button @click="handleToUrl('slot')">slot</el-button>
 <el-button @click="handleToUrl('validate')">validate</el-button>
 <el-button @click="handleToUrl('array')">array 操作</el-button>
+<el-button @click="handleToUrl('basicForm')">basicForm</el-button>
+
 
 </div>
 </template>
