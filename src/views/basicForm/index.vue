@@ -1,39 +1,46 @@
 <template>
 <div style="text-align:center;">  
- <BasicEditForm :formObject="formObject"></BasicEditForm>
+ <BasicEditForm :formObject="formObject" ref="personFormRef"></BasicEditForm>
+
+ <el-button type="primary"  @click="handleDoAction">提交</el-button>
+
   <!-- Back -->
   <ToHome></ToHome>
 </div>
 </template>
 
 <script>
+import formData from './index';
 import ToHome from "@/components/toHome/toHome";
 import BasicEditForm from "@/components/basicElement/basicEditForm";
 
-export default{
+export default {
   components:{
     ToHome,BasicEditForm
   },
   data(){
     return {
-        formObject: {
-          formModel:{name:"1",age:12,gender:'femal',first:'su',last:'zhen',testA:"A",testB:'V',testC:'C'},
-          formRules:{
-            name: [{ required: true, message: "请输入名称", trigger: "blur" }],
-          },
-          formRef:"personForm",
-          title:"个人信息",
-          fieldsArray:[
-            {label:"测试字段",prop:"name",attr:"name",placeholder:"请输入名字",suffix:"",required:true},
-            {label:"测试字段",prop:"age",attr:"age",placeholder:"请输入年龄",suffix:"",required:false},
-            {label:"测试字段",prop:"gender",attr:"gender",placeholder:"请输入性别",suffix:"",required:false},
-            {label:"测试字段",prop:"first",attr:"first",placeholder:"输入姓氏",suffix:"",required:false},
-            {label:"测试字段",prop:"last",attr:"last",placeholder:"输入名字",suffix:"",required:false},
-            {label:"测试字段",prop:"testA",attr:"testA",placeholder:"测试字段",suffix:"",required:false},
-            {label:"测试字段",prop:"testB",attr:"testB",placeholder:"测试字段",suffix:"",required:false},
-            {label:"测试字段",prop:"testC",attr:"testC",placeholder:"测试字段",suffix:"",required:false},
-          ]
+        formObject: formData,
+    }
+  },
+
+  methods:{
+    handleDoAction(){
+      this.$refs["personFormRef"].validateForm().then(subForm => {
+        // 子菜单通过必填项检验
+        if(subForm.validated){
+          this.$confirm("确认提交?", "提示", {confirmButtonText: "确定",cancelButtonText: "取消",type: "warning"}).then(()=>{
+            // 子页面返回的数据: res
+            this.$message.success({type: "success",message: subForm});
+          }).catch(()=>{
+            console.info("取消提交");
+          })
         }
+        // 子菜单未通过必填项检验
+        else{
+          this.$message.warning({type: "warning",message: "数据录入错误，请检查表单！"});
+        }
+      });
     }
   }
 }

@@ -5,6 +5,7 @@ import App from './App'
 import store from './store';
 import router from './router'
 import echarts from 'echarts'
+import CitySelect from '@/components/city-select';
 import "@/assets/patch.css";
 import HappyScroll from 'vue-happy-scroll';
 import 'vue-happy-scroll/docs/happy-scroll.css'
@@ -21,6 +22,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 Vue.use(HappyScroll)
+Vue.use(CitySelect);
+
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts
