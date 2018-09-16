@@ -12,7 +12,7 @@ import mutiselect from '../views/mutiselect'
 import slot from '../views/slot'
 import validate from '../views/validate'
 import array from '../views/array'
-import basicForm from '../views/basicForm'
+import basicForm from '../views/basicForm/'
 
 
 

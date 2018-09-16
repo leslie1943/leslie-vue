@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import formData from './index';
+import formData from './data.js';
 import ToHome from "@/components/toHome/toHome";
 import BasicEditForm from "@/components/basicElement/basicEditForm";
 
