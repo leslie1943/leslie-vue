@@ -1,12 +1,11 @@
 <template>
-<div style="text-align:center;">  
- <BasicEditForm :formObject="formObject" ref="personFormRef"></BasicEditForm>
-
- <el-button type="primary"  @click="handleDoAction">提交</el-button>
-
-  <!-- Back -->
-  <ToHome></ToHome>
-</div>
+  <div style="text-align:center;">  
+    <BasicEditForm :formObject="formObject" ref="personFormRef"></BasicEditForm>
+    <el-button type="primary" @click="handleDoAction">提交</el-button>
+    <el-button @click="handleClear">重置</el-button>
+    <!-- Back -->
+    <ToHome></ToHome>
+  </div>
 </template>
 
 <script>
@@ -41,6 +40,9 @@ export default {
           this.$message.warning({type: "warning",message: "数据录入错误，请检查表单！"});
         }
       });
+    },
+    handleClear(){
+      this.$refs["personFormRef"].clearForm("test-parameters");
     }
   }
 }

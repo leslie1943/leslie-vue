@@ -22,10 +22,10 @@
                                 
                                 <!-- ################## TYPE = INPUT ################## -->
                                 <div v-if="item.type=='input'">
-                                    <span v-if="item.prefix" style="padding-right:5px;" >{{item.prefix}}</span>
+                                    <span v-if="item.prefix" class="prefix-label">{{item.prefix}}</span>
                                     <el-input :style="{'width':item.width}" v-model="localModel.formModel[item.attr]" :placeholder="item.placeholder"></el-input>
                                     <!-- 表单后缀 -->
-                                    <span  v-if="item.suffix" style="padding-left:5px;">{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = SELECT ################## -->
@@ -33,9 +33,8 @@
                                     <el-select  :style="{'width':item.width}" v-model="localModel.formModel[item.attr]" :placeholder="item.placeholder">
                                         <el-option v-for="(opt,t) in item.options" :key="t" :label="opt.label" :value="opt.value"></el-option>
                                     </el-select>
-
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = Radio ################## -->
@@ -43,26 +42,23 @@
                                     <el-radio-group v-model="localModel.formModel[item.attr]" :placeholder="item.placeholder">
                                         <el-radio v-for="(opt,r) in item.options" :key="r" :label="opt.value" >{{opt.label}}</el-radio>
                                     </el-radio-group>
-
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = Date ################## -->
                                 <div v-if="item.type=='date'">
                                     <el-date-picker type="date" :style="{'width':item.width}" :placeholder="item.placeholder" v-model="localModel.formModel[item.attr]" value-format="yyyy-MM-dd" format="yyyy-MM-dd" ></el-date-picker>
-
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = DateRange ################## -->
                                 <div v-if="item.type=='dateRange'">
                                     <el-date-picker :style="{'width':item.width}" type="daterange" v-model="localModel.formModel[item.attr]" align="right" unlink-panels range-separator="至" :start-placeholder="item.options.startPlaceholder" value-format="yyyy-MM-dd" format="yyyy-MM-dd" :end-placeholder="item.options.endPlaceholder">
                                     </el-date-picker>
-
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = Checkbox ################## -->
@@ -71,14 +67,14 @@
                                         <el-checkbox v-for="(opt,t) in item.options" :key="t" :label="opt.value">{{opt.label}}</el-checkbox>
                                     </el-checkbox-group>
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = TextArea ################## -->
                                 <div v-if="item.type=='textArea'">
                                     <el-input type="textarea" :rows="2" v-model="localModel.formModel[item.attr]" :placeholder="item.placeholder"></el-input>
                                     <!-- 表单后缀 -->
-                                    <span>{{item.suffix}}</span>
+                                    <span  v-if="item.suffix" class="suffix-label">{{item.suffix}}</span>
                                 </div>
 
                                 <!-- ################## TYPE = address ################## -->
@@ -135,6 +131,10 @@ export default {
             });
             return this.localModel.formModel
         },
+        clearForm(val){
+            console.info(val);
+            this.$refs[this.localModel.formRef].resetFields();
+        },
         handleCitySelectChange(data) {
             console.info(data);
             this.localModel.formModel.addrCity = data.selectCity;
@@ -161,6 +161,12 @@ export default {
   content: "";
   margin-right: 8px;
   font-weight: bold;
+}
+.suffix-label{
+    padding-left:5px;
+}
+.prefix-label{
+    padding-right:5px;
 }
 </style>
 

@@ -100,19 +100,9 @@
 
   </el-collapse>
 <hr>
-<el-button @click="handleShow">测试</el-button>
-<el-button @click="handleToUrl('Layout')">go Layout</el-button>
-<el-button @click="handleToUrl('countTime')">倒计时</el-button>
-<el-button @click="handleToUrl('immutable')">immutable</el-button>
-<el-button @click="handleToUrl('echarts')">echarts</el-button>
-<el-button @click="handleToUrl('table')">手画Table</el-button>
-<el-button @click="handleToUrl('notice')">Notification</el-button>
-<el-button @click="handleToUrl('card')">工作台</el-button>
-<el-button @click="handleToUrl('mutiselect')">muti-select</el-button>
-<el-button @click="handleToUrl('slot')">slot</el-button>
-<el-button @click="handleToUrl('validate')">validate</el-button>
-<el-button @click="handleToUrl('array')">array 操作</el-button>
-<el-button @click="handleToUrl('basicForm')">basicForm</el-button>
+<el-button :type="getButtonType()" @click="handleShow">测试</el-button>
+
+<el-button :type="getButtonType()" @click="handleToUrl(item.url)" v-for="(item,index) in buttons" :key="index">{{item.title}}</el-button>
 
 
 </div>
@@ -181,6 +171,21 @@ export default {
       imageUrl: "",
       active:0,
       expiredDate:"",
+
+      buttons:[
+        {url:"Layout",title:"Layout"},
+        {url:"countTime",title:"倒计时"},
+        {url:"immutable",title:"immutable"},
+        {url:"echarts",title:"echarts"},
+        {url:"table",title:"table"},
+        {url:"notice",title:"notice"},
+        {url:"card",title:"card"},
+        {url:"mutiselect",title:"mutiselect"},
+        {url:"slot",title:"slot"},
+        {url:"validate",title:"validate"},
+        {url:"array",title:"array"},
+        {url:"basicForm",title:"basicForm"},
+      ]
     };
   },
   computed: {
@@ -226,6 +231,11 @@ export default {
     ...mapGetters(["count"]) 
   },
   methods: {
+    getButtonType(){
+      let btnType = ["primary","info","warning","success","danger"];
+      let index = Math.floor(Math.random() * 5);
+      return btnType[index]
+    },
     
     getDateTime(){
       let endT = new Date('2019-06-20 12:00:00');
