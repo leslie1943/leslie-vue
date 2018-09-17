@@ -1,5 +1,5 @@
 <template>
-    <div style="text-align:left;">
+    <div class="basicEditFormStyle">
         
         <el-row>
             <!-- 左边标题区域区域 -->
@@ -17,7 +17,7 @@
                         <!-- col -->
                         <el-col v-for="(item,index) in localModel.fieldsArray" :key="index" :offset="1" :span="getColSpan(item)">
                             <!-- 表单项 -->
-                            <el-form-item :label="item.label" :prop="item.prop">
+                            <el-form-item :label="item.label" :class="getFieldClass(item)" :prop="item.prop">
                                 <!-- 表单项详细 -->
                                 
                                 <!-- ################## TYPE = INPUT ################## -->
@@ -121,6 +121,9 @@ export default {
         getColSpan(item){
             return item.type == "textArea" ? 23 : 11;
         },
+        getFieldClass(item){
+            return item.required ? 'form-item-require-lable' : 'form-item-normal-lable';
+        },
         async validateForm(){
             await this.$refs[this.localModel.formRef].validate(valid => {
                 if (valid) {
@@ -150,23 +153,33 @@ export default {
     }
 }
 </script>
-<style>
-/* .el-form-item__label:before {
-  content: "*";
-  color: #f56c6c;
-  margin-right: 5px;
-  font-weight: bold;
-} */
-.el-form-item__label:before {
-  content: "";
-  margin-right: 8px;
-  font-weight: bold;
-}
-.suffix-label{
+<style lang="scss">
+.basicEditFormStyle{
+    text-align:left;
+    .form-item-require-lable {
+      .el-form-item__label:before {
+        content: "*";
+        color: #f56c6c;
+        margin-right: 5px;
+        font-weight: bold;
+      }
+    }
+    .form-item-normal-lable {
+      .el-form-item__label:before {
+        content: "";
+        margin-right: 10px;
+        font-weight: bold;
+      }
+    }
+    .suffix-label{
     padding-left:5px;
 }
 .prefix-label{
     padding-right:5px;
 }
+}
+
+
+
 </style>
 
