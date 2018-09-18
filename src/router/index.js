@@ -14,6 +14,8 @@ import validate from '../views/validate'
 import array from '../views/array'
 import basicForm from '../views/basicForm/'
 import directives from '../views/directives/'
+import transition from '../views/transition/'
+
 
 Vue.use(Router)
 
@@ -92,6 +94,11 @@ export const constRouterMap =
       path: '/directives',
       name: 'directives',
       component: directives
+    },
+    {
+      path: '/transition',
+      name: 'transition',
+      component: transition
     },
   ]
 

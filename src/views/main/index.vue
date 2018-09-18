@@ -100,9 +100,10 @@
 
   </el-collapse>
 <hr>
-<el-button :type="getButtonType()" @click="handleShow">测试</el-button>
+<!-- <el-button :type="getButtonType()" @click="handleShow">测试</el-button> -->
 
-<el-button :type="getButtonType()" @click="handleToUrl(item.url)" v-for="(item,index) in buttons" :key="index">{{item.title}}</el-button>
+<el-button :type="getButtonType()" @click="handleToUrl(item.url)" v-for="(item,index) in buttons" :key="index">{{item.title}}</el-button><br><br>
+
 
 
 </div>
@@ -166,6 +167,7 @@ export default {
         {url:"array",title:"array"},
         {url:"basicForm",title:"basicForm"},
         {url:"directives",title:"directives"},
+        {url:"transition",title:"transition"},
       ]
     };
   },

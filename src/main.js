@@ -11,6 +11,8 @@ import HappyScroll from 'vue-happy-scroll';
 import 'vue-happy-scroll/docs/happy-scroll.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import ToHome from "@/components/toHome/toHome";
+
 
 // 引入全局指令
 import * as GlobalDirective from "@/directive/GlobalDirective.js";
@@ -19,6 +21,7 @@ Vue.use(ElementUI);
 Vue.use(HappyScroll)
 Vue.use(CitySelect);
 Vue.use(GlobalDirective);
+Vue.use(ToHome);
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts

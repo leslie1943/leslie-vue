@@ -32,7 +32,7 @@
 import ToHome from "@/components/toHome/toHome";
 
 
-export default{
+export default {
   components:{
     ToHome
   },
