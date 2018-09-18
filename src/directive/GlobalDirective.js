@@ -8,3 +8,14 @@ Vue.directive('imgOnError', {
         }
     }
 })
+
+Vue.directive('imgOnClick', {
+    // <img v-imgOnError v-imgOnClick="{name:'suzhen',age:20}" />
+    bind: function (el, binding) {
+        console.info(binding.value); // {name:'suzhen' , age: 20}
+        el.style.cursor = 'pointer';
+        el.onclick = function(){
+            VUE_INSTANCE.$message({ message: binding.value, type: "success" });
+        }
+    }
+})

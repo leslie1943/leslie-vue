@@ -13,13 +13,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 // 引入全局指令
-import "./directive/GlobalDirective.js";
-
+import * as GlobalDirective from "@/directive/GlobalDirective.js";
 
 Vue.use(ElementUI);
 Vue.use(HappyScroll)
 Vue.use(CitySelect);
-
+Vue.use(GlobalDirective);
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts

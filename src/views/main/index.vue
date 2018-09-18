@@ -139,27 +139,7 @@ import $store from "@/store";
 import {getDaysLater} from "@/utils/date";
 import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
-  name: "count",
-  directives:{
-    "img":{
-      inserted:function(el,binding){
-        var color = Math.floor(Math.random() * 1000000);
-        el.style.backgroundColor = "#" + color;
-
-        var img = new Image();
-        img.src = binding.value; //获得传给指令的值
-        img.onload = function(){
-          el.style.backgroundImage = 'url(' + binding.value + ')';
-        }
-      }
-    },
-    mergerows: {
-      // 指令的定义
-      inserted: function(el) {
-        el.setAttribute("rowspan", 3);
-      }
-    }
-  },
+  name: "main",
   data() {
     return {
       switchFlag:true,
