@@ -185,6 +185,7 @@ export default {
         {url:"validate",title:"validate"},
         {url:"array",title:"array"},
         {url:"basicForm",title:"basicForm"},
+        {url:"directives",title:"directives"},
       ]
     };
   },

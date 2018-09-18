@@ -9,16 +9,12 @@ import CitySelect from '@/components/city-select';
 import "@/assets/patch.css";
 import HappyScroll from 'vue-happy-scroll';
 import 'vue-happy-scroll/docs/happy-scroll.css'
-
-
-// import 'vx-easyui/dist/themes/default/easyui.css';
-// import 'vx-easyui/dist/themes/icon.css';
-// import 'vx-easyui/dist/themes/vue.css';
-// import EasyUI from 'vx-easyui';
-// Vue.use(EasyUI);
-
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
+// 引入全局指令
+import "./directive/GlobalDirective.js";
+
 
 Vue.use(ElementUI);
 Vue.use(HappyScroll)
@@ -29,7 +25,6 @@ Vue.use(CitySelect);
 Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 // new Vue({
 //   el: '#app',

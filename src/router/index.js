@@ -13,9 +13,7 @@ import slot from '../views/slot'
 import validate from '../views/validate'
 import array from '../views/array'
 import basicForm from '../views/basicForm/'
-
-
-
+import directives from '../views/directives/'
 
 Vue.use(Router)
 
@@ -89,6 +87,11 @@ export const constRouterMap =
       path: '/basicForm',
       name: 'basicForm',
       component: basicForm
+    },
+    {
+      path: '/directives',
+      name: 'directives',
+      component: directives
     },
   ]
 
