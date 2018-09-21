@@ -15,6 +15,7 @@ import array from '../views/array'
 import basicForm from '../views/basicForm/'
 import directives from '../views/directives/'
 import transition from '../views/transition/'
+import mixin from '../views/mixin/'
 
 
 Vue.use(Router)
@@ -99,6 +100,11 @@ export const constRouterMap =
       path: '/transition',
       name: 'transition',
       component: transition
+    },
+    {
+      path: '/mixin',
+      name: 'mixin',
+      component: mixin
     },
   ]
 

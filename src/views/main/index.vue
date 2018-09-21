@@ -140,7 +140,7 @@ import $store from "@/store";
 import {getDaysLater} from "@/utils/date";
 import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
-  name: "main",
+  name: "test",
   data() {
     return {
       switchFlag:true,
@@ -168,6 +168,7 @@ export default {
         {url:"basicForm",title:"basicForm"},
         {url:"directives",title:"directives"},
         {url:"transition",title:"transition"},
+        {url:"mixin",title:"mixin"},
       ]
     };
   },
@@ -268,8 +269,6 @@ export default {
   mounted() {
     // loading.close();
     this.expiredDate = getDaysLater(3,18);
-    console.info("typeof this.expiredDate");
-    console.info(typeof this.expiredDate);
   },
   created(){
     // 获取当前项目的剩余时间. this.timeLeft
