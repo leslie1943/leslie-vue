@@ -1,5 +1,5 @@
 <template>
-    <div style="text-align:center;">
+    <div class="echarts-container">
        <div id="mychart" :style="{width: '300px', height: '300px'}">
        </div>
         <div style="height:200px;width:400px;">
@@ -50,8 +50,12 @@ export default {
 };
 </script>
 
-<style >
-.el-collapse-item__header{
-    background-color:#409EFF;
+<style lang="scss">
+.echarts-container{
+    text-align:center;
+   .el-collapse-item__header{
+        background-color:#409EFF;
+    }
 }
+
 </style>
