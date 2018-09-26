@@ -12,6 +12,9 @@ import 'vue-happy-scroll/docs/happy-scroll.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import ToHome from "@/components/toHome/toHome";
+import 'vue2-animate/dist/vue2-animate.min.css';
+import TextHighLight from 'vue-text-highlight';
+import TagsBall from 'vue-tags-ball'
 
 
 // 引入全局指令
@@ -22,6 +25,11 @@ Vue.use(HappyScroll)
 Vue.use(CitySelect);
 Vue.use(GlobalDirective);
 Vue.use(ToHome);
+Vue.use(TagsBall)
+
+
+Vue.component('to-home', ToHome);
+Vue.component('text-highlight', TextHighLight);
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts

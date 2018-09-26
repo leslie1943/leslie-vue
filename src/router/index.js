@@ -16,6 +16,8 @@ import basicForm from '../views/basicForm/'
 import directives from '../views/directives/'
 import transition from '../views/transition/'
 import mixin from '../views/mixin/'
+import texthighlight from '../views/texthighlight/'
+import tagsball from '../views/tagsball/'
 
 
 Vue.use(Router)
@@ -105,6 +107,16 @@ export const constRouterMap =
       path: '/mixin',
       name: 'mixin',
       component: mixin
+    },
+    {
+      path: '/texthighlight',
+      name: 'texthighlight',
+      component: texthighlight
+    },
+    {
+      path: '/tagsball',
+      name: 'tagsball',
+      component: tagsball
     },
   ]
 

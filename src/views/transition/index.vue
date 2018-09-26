@@ -1,43 +1,36 @@
 <template>
   <div style="text-align:center;">
-    <el-button @click="add">Add</el-button>
-    <el-button @click="remove">Remove</el-button>
-    <transition-group name="list" tag="p">
-      <span v-for="(item,index) in items" :key="index" class="list-item">
+    <!-- DEMO_______________1 -->
+    <el-button @click="add" type="primary">Add a number</el-button>
+    <el-button @click="remove" type="danger">Remove a number</el-button> <br><br>
+    <transition-group name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+      <div v-for="(item,index) in items" :key="index" class="list-item">
         {{item}}
-      </span>
+      </div>
+    </transition-group>
+
+    <hr>
+
+    <!-- DEMO_______________2 -->
+    
+    <el-button @click="addProduct" type="primary">Add products</el-button>
+    <el-button @click="removeProduct" type="danger">Remove products</el-button> <br><br>
+    <el-row>
+      <el-col :offset="9" :span="6">
+        <el-input v-model="product" placeholder=""></el-input>
+      </el-col>
+    </el-row>
+
+    <div><code>enter-active-class="bounceInLeft" leave-active-class="bounceOutRight"</code></div>
+    <transition-group name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+      <div style="padding-top:10px;" v-for="(item,index) in products" :key="index">
+        <el-tag closable :type="getTagType()">
+          {{item}}
+        </el-tag>
+      </div>
     </transition-group>
     <hr>
-    <!-- complex demo -->
-
-    <!-- <div>
-      <svg width="200" height="200">
-        <polygon :points="points"></polygon>
-        <circle cx="100" cy="100" r="90"></circle>
-      </svg>
-    </div>
-
-    <div>
-      <label>Sides:{{sides}}</label>
-      <el-input type="range" min="3" max="500" v-model.number="sides"></el-input>
-    </div>
-
-    <div>
-      <label>Minimum Radius:{{minRadius}}%</label>
-      <el-input type="range" min="0" max="90" v-model.number="minRadius"
-      />
-    </div>
-
-    <div>
-      <label>Update Interval: {{ updateInterval }} milliseconds</label>
-      <input 
-        type="range" 
-        min="10" 
-        max="2000"
-        v-model.number="updateInterval"
-      >
-    </div> -->
-
+    
     <!-- Back -->
     <ToHome></ToHome>
   </div>
@@ -45,7 +38,7 @@
 
 <script>
 import ToHome from "@/components/toHome/toHome";
-
+import {uuid} from "@/utils/normal";
 export default {
   components:{ToHome},
   data(){
@@ -55,90 +48,45 @@ export default {
     return{
       items:[1,2,3,4,5,6,7,8,9],
       nextNum:10,
-      // stats: stats,
-    	// points: generatePoints(stats),
-      // sides: defaultSides,
-      // minRadius: 50,
-      // interval: null,
-      // updateInterval: 500
+      products:[],
+      product:"",
+      tagType:"",
+      tagTypes:["success","info","warning","danger"],
     }
   },
-  // watch: {
-  // 	sides: function (newSides, oldSides) {
-  //   	var sidesDifference = newSides - oldSides
-  //     if (sidesDifference > 0) {
-  //     	for (var i = 1; i <= sidesDifference; i++) {
-  //       	this.stats.push(this.newRandomValue())
-  //       }
-  //     } else {
-  //       var absoluteSidesDifference = Math.abs(sidesDifference)
-  //     	for (var i = 1; i <= absoluteSidesDifference; i++) {
-  //       	this.stats.shift()
-  //       }
-  //     }
-  //   },
-  //   stats: function (newStats) {
-	// 		TweenLite.to(
-  //     	this.$data, 
-  //       this.updateInterval / 1000, 
-  //       { points: generatePoints(newStats) }
-  //   	)
-  //   },
-  //   updateInterval: function () {
-  //   	this.resetInterval()
-  //   }
-  // },
+  
   methods:{
+     getTagType(){
+      let tagType = ["primary","info","warning","success","danger"];
+      let index = Math.floor(Math.random() * 5);
+      return tagType[index]
+    },
+
     randomIndex(){
       return Math.floor(Math.random()*this.items.length);
     },
+
     add(){
       this.items.splice(this.randomIndex(),0,this.nextNum++);
     },
+
     remove(){
       this.items.splice(this.randomIndex(),1);
     },
 
-    //  randomizeStats: function () {
-    // 	var vm = this
-    // 	this.stats = this.stats.map(function () {
-    //   	return vm.newRandomValue()
-    //   })
-    // },
-    // newRandomValue: function () {
-    // 	return Math.ceil(this.minRadius + Math.random() * (100 - this.minRadius))
-    // },
-    // resetInterval: function () {
-    // 	var vm = this
-    // 	clearInterval(this.interval)
-    //   this.randomizeStats()
-    // 	this.interval = setInterval(function () { 
-    //   	vm.randomizeStats()
-    //   }, this.updateInterval)
-    // }
+    addProduct(){
+      this.product = uuid();
+      this.products.push(this.product);
+    },
+
+    removeProduct(){
+      this.products.splice(this.randomIndex(),1);
+    }
   },
   mounted: function () {
-  	// this.resetInterval()
   },
 }
-// function valueToPoint (value, index, total) {
-//   var x     = 0
-//   var y     = -value * 0.9
-//   var angle = Math.PI * 2 / total * index
-//   var cos   = Math.cos(angle)
-//   var sin   = Math.sin(angle)
-//   var tx    = x * cos - y * sin + 100
-//   var ty    = x * sin + y * cos + 100
-//   return { x: tx, y: ty }
-// }
 
-// function generatePoints (stats) {
-// 	var total = stats.length
-// 	return stats.map(function (stat, index) {
-//     var point = valueToPoint(stat, index, total)
-//     return point.x + ',' + point.y
-//   }).join(' ')
-// }
 </script>
 
 <style lang="scss">
@@ -153,17 +101,6 @@ export default {
 .list-enter,.list-leave-to{
   opacity: 0;
   transform: translateY(30px);
-}
-svg { display: block; }
-polygon { fill: #41B883; }
-circle {
-  fill: transparent;
-  stroke: #35495E;
-}
-input[type="range"] {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
 }
 </style>
 

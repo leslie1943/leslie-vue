@@ -102,9 +102,18 @@
 <hr>
 <!-- <el-button :type="getButtonType()" @click="handleShow">测试</el-button> -->
 
-<el-button :type="getButtonType()" @click="handleToUrl(item.url)" v-for="(item,index) in buttons" :key="index">{{item.title}}</el-button><br><br>
+<div style="display:inline;"  v-for="(item,index) in buttons" :key="index">
+  <el-button 
+    :type="getButtonType()" 
+    @click="handleToUrl(item.url)" 
+  >{{item.title}}
+  </el-button>
+  <br v-if="(index + 1) % 6 ==0"><br v-if="(index + 1) % 6 ==0">
+
+</div>
 
 
+<br><br>
 
 </div>
 </template>
@@ -169,6 +178,8 @@ export default {
         {url:"directives",title:"directives"},
         {url:"transition",title:"transition"},
         {url:"mixin",title:"mixin"},
+        {url:"texthighlight",title:"texthighlight"},
+        {url:"tagsball",title:"tagsball"},
       ]
     };
   },

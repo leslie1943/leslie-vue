@@ -32,9 +32,9 @@ export default {
   data(){
     return {
       leslie:{
-        name:"suzhen",
-        age:20,
-        company:'ViewHigh'
+        name: "suzhen",
+        age: 20,
+        company: 'ViewHigh'
       }
     }
   },
