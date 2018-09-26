@@ -8,6 +8,9 @@
         <hr>
         <h3>{{$store.state.count}}</h3>
 
+        <!-- action()是触发mutation执行，并改变state -->
+        <!-- mutation也可以被直接commit('m_name',value)-->
+
         <div>
             <el-button type="primary" @click="$store.commit('add',2)">add with parameters=2</el-button>
             <el-button type="primary" @click="$store.commit('reduce',2)">reduce with parameters=2</el-button>
@@ -26,6 +29,7 @@
         <hr>
         <h3>{{count + '[...mapState(["count"])]'}} </h3>
     </el-collapse-item>
+
     <el-collapse-item title="Upload" name="2">
         <el-upload
           class="avatar-uploader"
@@ -37,14 +41,6 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           <hr>
         </el-upload>
-    </el-collapse-item>
-
-    <el-collapse-item title="使用 HTML 片段" name="3">
-        <el-button
-          plain
-          @click="open12">
-          使用 HTML 片段
-        </el-button>
     </el-collapse-item>
 
     <el-collapse-item title="面包屑" name="4">
@@ -79,62 +75,6 @@
 
     </el-collapse-item>
 
-      <el-collapse-item title="Table" name="6">
-           <el-table
-              :data="tableData5"
-              style="width: 100%">
-              <el-table-column type="expand">
-                <template slot-scope="props">
-                  <el-form label-position="left" block class="demo-table-expand" >
-                    <el-row>
-                      <el-col :span="12">
-                        <el-form-item label="商品名称">
-                          <span>{{ props.row.name }}</span>
-                        </el-form-item>
-                      </el-col>
-
-                      <el-col :span="12">
-                        <el-form-item label="所属店铺">
-                          <span>{{ props.row.shop }}</span>
-                        </el-form-item>
-                        </el-col>
-                    </el-row>
-                  
-                    <el-form-item label="商品 ID">
-                      <span>{{ props.row.id }}</span>
-                    </el-form-item>
-                    <el-form-item label="店铺 ID">
-                      <span>{{ props.row.shopId }}</span>
-                    </el-form-item>
-                    <el-form-item label="商品分类">
-                      <span>{{ props.row.category }}</span>
-                    </el-form-item>
-                    <el-form-item label="店铺地址">
-                      <span>{{ props.row.address }}</span>
-                    </el-form-item>
-                    <el-form-item label="商品描述">
-                      <span>{{ props.row.desc }}</span>
-                    </el-form-item>
-                  </el-form>
-                </template>
-              </el-table-column>
-
-              <el-table-column
-                label="商品 ID"
-                prop="id">
-              </el-table-column>
-              <el-table-column
-                label="商品名称"
-                prop="name">
-              </el-table-column>
-              <el-table-column
-                label="描述"
-                prop="desc">
-              </el-table-column>
-            </el-table>
-
-      </el-collapse-item>
-
       <el-collapse-item title="time left" name="7">
              {{timeLeftString}}
       </el-collapse-item>
@@ -146,53 +86,6 @@
               placeholder="选择日期"
               value-format="yyyy-MM-dd HH:mm:ss">
           </el-date-picker>
-      </el-collapse-item>
-
-       <el-collapse-item title="指令" name="9">
-          <div style="height:200px;" v-img="val.url" v-for="(val,index) in list" :key="index"></div>
-      </el-collapse-item>
-
-      <el-collapse-item name="10" title="多级表头">
-        <div >
-          <el-table
-            :data="tableData3"
-            style="width: 100%">
-            <el-table-column
-              prop="date"
-              label="日期"
-              width="150">
-            </el-table-column>
-            <el-table-column label="配送信息">
-              <el-table-column
-                prop="name"
-                label="姓名"
-                width="120">
-              </el-table-column>
-              <el-table-column label="地址">
-                <el-table-column
-                  prop="province"
-                  label="省份"
-                  width="120">
-                </el-table-column>
-                <el-table-column
-                  prop="city"
-                  label="市区"
-                  width="120">
-                </el-table-column>
-                <el-table-column
-                  prop="address"
-                  label="地址"
-                  width="300">
-                </el-table-column>
-                <el-table-column
-                  prop="zip"
-                  label="邮编"
-                  width="120">
-                </el-table-column>
-              </el-table-column>
-            </el-table-column>
-          </el-table>
-        </div>
       </el-collapse-item>
 
       <el-collapse-item title="Switch" name="11">
@@ -207,13 +100,20 @@
 
   </el-collapse>
 <hr>
-<el-button @click="handleShow">测试</el-button>
-<el-button @click="goLayout">go Layout</el-button>
-<el-button @click="countDown">倒计时</el-button>
-<el-button @click="immutable">immutable</el-button>
-<el-button @click="echarts">echarts</el-button>
-<el-button @click="table">手画Table</el-button>
+<!-- <el-button :type="getButtonType()" @click="handleShow">测试</el-button> -->
 
+<div style="display:inline;"  v-for="(item,index) in buttons" :key="index">
+  <el-button 
+    :type="getButtonType()" 
+    @click="handleToUrl(item.url)" 
+  >{{item.title}}
+  </el-button>
+  <br v-if="(index + 1) % 6 ==0"><br v-if="(index + 1) % 6 ==0">
+
+</div>
+
+
+<br><br>
 
 </div>
 </template>
@@ -246,91 +146,14 @@
 
  */
 import $store from "@/store";
-// import loading from "@/utils/loading";
 import {getDaysLater} from "@/utils/date";
-// import {getTableData} from "./overview";
 import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
-  name: "count",
-  directives:{
-    "img":{
-      inserted:function(el,binding){
-        var color = Math.floor(Math.random() * 1000000);
-        el.style.backgroundColor = "#" + color;
-
-        var img = new Image();
-        img.src = binding.value; //获得传给指令的值
-        img.onload = function(){
-          el.style.backgroundImage = 'url(' + binding.value + ')';
-        }
-      }
-    },
-    mergerows: {
-      // 指令的定义
-      inserted: function(el) {
-        el.setAttribute("rowspan", 3);
-      }
-    }
-  },
+  name: "test",
   data() {
     return {
       switchFlag:true,
       color:"",
-      list:[
-        {url:"https://s2s0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/1u=573700909,3523270049&fm=27&gp=0.jpg"},
-        {url:"https://ss20.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/2u=135879346,2002014798&fm=27&gp=0.jpg"},
-        {url:"https://ss21.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/3u=620953041,2283705734&fm=27&gp=0.jpg"},
-        ],
-        tableData3: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }],
       activeNames:[],
       msg: "Vuex demo",
       timeLeft: 0,
@@ -338,39 +161,26 @@ export default {
       imageUrl: "",
       active:0,
       expiredDate:"",
-      tableData5: [{
-          id: '12987122',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987123',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987125',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }, {
-          id: '12987126',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }]
+
+      buttons:[
+        {url:"Layout",title:"Layout"},
+        {url:"countTime",title:"倒计时"},
+        {url:"immutable",title:"immutable"},
+        {url:"echarts",title:"echarts"},
+        {url:"table",title:"table"},
+        {url:"notice",title:"notice"},
+        {url:"card",title:"card"},
+        {url:"mutiselect",title:"mutiselect"},
+        {url:"slot",title:"slot"},
+        {url:"validate",title:"validate"},
+        {url:"array",title:"array"},
+        {url:"basicForm",title:"basicForm"},
+        {url:"directives",title:"directives"},
+        {url:"transition",title:"transition"},
+        {url:"mixin",title:"mixin"},
+        {url:"texthighlight",title:"texthighlight"},
+        {url:"tagsball",title:"tagsball"},
+      ]
     };
   },
   computed: {
@@ -402,8 +212,7 @@ export default {
     // 获取state属性方式-2
     ...mapState({
       countByMapState: state => {
-        return (
-          state.count +
+        return ( state.count +
           `[    ...mapState({
             countByMapState:(state) =>{
               return state.count'
@@ -417,6 +226,12 @@ export default {
     ...mapGetters(["count"]) 
   },
   methods: {
+    getButtonType(){
+      let btnType = ["primary","info","warning","success","danger"];
+      let index = Math.floor(Math.random() * 5);
+      return btnType[index]
+    },
+    
     getDateTime(){
       let endT = new Date('2019-06-20 12:00:00');
       let nowT = new Date();
@@ -427,13 +242,6 @@ export default {
       }
     },
     
-    open12(){
-      this.$notify({
-          title: 'HTML 片段',
-          dangerouslyUseHTMLString: true,
-          message: '<strong>这是 <i>HTML</i> 片段</strong>'
-        });
-    },
     ...mapMutations(["add", "reduce"]),
     ...mapActions(["addAction", "reduceAction"]),
     handleAvatarSuccess(res, file) {
@@ -458,20 +266,8 @@ export default {
         callback: action => {}
       });
     },
-    goLayout() {
-      this.$router.replace("/Layout");
-    },
-    countDown() {
-      this.$router.replace("/countTime");
-    },
-    immutable() {
-      this.$router.replace("/immutable");
-    },
-    echarts() {
-      this.$router.replace("/echarts");
-    },
-    table() {
-      this.$router.replace("/table");
+    handleToUrl(target){
+      this.$router.replace("/" + target);
     },
     countDownTime() {
       if (this.timeLeft > 0) {
@@ -484,8 +280,6 @@ export default {
   mounted() {
     // loading.close();
     this.expiredDate = getDaysLater(3,18);
-    console.info("typeof this.expiredDate");
-    console.info(typeof this.expiredDate);
   },
   created(){
     // 获取当前项目的剩余时间. this.timeLeft

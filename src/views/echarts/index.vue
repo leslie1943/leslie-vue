@@ -1,19 +1,20 @@
 <template>
-    <div style="text-align:center;">
+    <div class="echarts-container">
        <div id="mychart" :style="{width: '300px', height: '300px'}">
        </div>
         <div style="height:200px;width:400px;">
             <CommitChart></CommitChart>
         </div>
-       
+       <ToHome></ToHome>
     </div>
 </template>
 
 <script>
-import CommitChart from '@/components/CommitChart'
+import CommitChart from '@/components/CommitChart/CommitChart'
+import ToHome from "@/components/toHome/toHome";
 
 export default {
-    components:{CommitChart},
+    components:{CommitChart,ToHome},
   data() {
     return {
     }
@@ -23,7 +24,7 @@ export default {
 
    var option = {
             title: {
-                
+                // text: '在Vue中使用echarts' 
             },
             tooltip: {},
             legend: {
@@ -49,8 +50,12 @@ export default {
 };
 </script>
 
-<style >
-.el-collapse-item__header{
-    background-color:#409EFF;
+<style lang="scss">
+.echarts-container{
+    text-align:center;
+   .el-collapse-item__header{
+        background-color:#409EFF;
+    }
 }
+
 </style>

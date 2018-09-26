@@ -6,7 +6,18 @@ import countTime from '../views/countTime'
 import immutable from '../views/immutable'
 import echarts from '../views/echarts'
 import table from '../views/table'
-
+import notice from '../views/notice'
+import card from '../views/card'
+import mutiselect from '../views/mutiselect'
+import slot from '../views/slot'
+import validate from '../views/validate'
+import array from '../views/array'
+import basicForm from '../views/basicForm/'
+import directives from '../views/directives/'
+import transition from '../views/transition/'
+import mixin from '../views/mixin/'
+import texthighlight from '../views/texthighlight/'
+import tagsball from '../views/tagsball/'
 
 
 Vue.use(Router)
@@ -46,6 +57,66 @@ export const constRouterMap =
       path: '/table',
       name: 'table',
       component: table
+    },
+    {
+      path: '/notice',
+      name: 'notice',
+      component: notice
+    },
+    {
+      path: '/card',
+      name: 'card',
+      component: card
+    },
+    {
+      path: '/mutiselect',
+      name: 'mutiselect',
+      component: mutiselect
+    },
+    {
+      path: '/slot',
+      name: 'slot',
+      component: slot
+    },
+    {
+      path: '/validate',
+      name: 'validate',
+      component: validate
+    },
+    {
+      path: '/array',
+      name: 'array',
+      component: array
+    },
+    {
+      path: '/basicForm',
+      name: 'basicForm',
+      component: basicForm
+    },
+    {
+      path: '/directives',
+      name: 'directives',
+      component: directives
+    },
+    {
+      path: '/transition',
+      name: 'transition',
+      component: transition
+    },
+    {
+      path: '/mixin',
+      name: 'mixin',
+      component: mixin
+    },
+    {
+      path: '/texthighlight',
+      name: 'texthighlight',
+      component: texthighlight
+    },
+    {
+      path: '/tagsball',
+      name: 'tagsball',
+      component: tagsball
     },
   ]
 

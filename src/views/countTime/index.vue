@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TimeCountDown from "@/components/time-count-down";
+import TimeCountDown from "@/components/time-count-down/time-count-down";
 export default{
     components:{
         TimeCountDown
