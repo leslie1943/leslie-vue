@@ -3,7 +3,7 @@
     <div :style="{color:tagColor}">{{tagColor}}</div>
     <hr>
     <!-- radius 要和 width/height 配合使用. -->
-    <tags-ball v-bind:style="tagStyle" font="30px monaco"  color="#297FB4" :radius="300" :width='600' :height='600' :stop="stopFlag" :tags='tags'/>
+    <tags-ball v-bind:style="tagStyle" font="20px monaco"  color="#297FB4" :radius="200" :width='400' :height='400' :stop="stopFlag" :tags='tags'/>
     <hr>
     <el-row>
       <el-col :span="24">
