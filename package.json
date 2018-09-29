@@ -23,6 +23,7 @@
     "vue-chartjs": "^3.3.2",
     "vue-dev-generator-cli": "0.0.4",
     "vue-multiselect": "^2.1.0",
+    "vue-quick-menu": "^1.0.7",
     "vue-router": "^3.0.1",
     "vue-tags-ball": "^1.2.0",
     "vue-text-highlight": "^1.1.2",

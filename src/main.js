@@ -14,7 +14,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import ToHome from "@/components/toHome/toHome";
 import 'vue2-animate/dist/vue2-animate.min.css';
 import TextHighLight from 'vue-text-highlight';
-import TagsBall from 'vue-tags-ball'
+import TagsBall from 'vue-tags-ball';
+import QuickMenu from 'vue-quick-menu'
+
 
 
 // 引入全局指令
@@ -26,10 +28,12 @@ Vue.use(CitySelect);
 Vue.use(GlobalDirective);
 Vue.use(ToHome);
 Vue.use(TagsBall)
+// Vue.use(QuickMenu)
 
 
 Vue.component('to-home', ToHome);
 Vue.component('text-highlight', TextHighLight);
+Vue.component('quick-menu', QuickMenu);
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts

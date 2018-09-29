@@ -18,6 +18,7 @@ import transition from '../views/transition/'
 import mixin from '../views/mixin/'
 import texthighlight from '../views/texthighlight/'
 import tagsball from '../views/tagsball/'
+import quickmenu from '../views/quickmenu/'
 
 
 Vue.use(Router)
@@ -117,6 +118,11 @@ export const constRouterMap =
       path: '/tagsball',
       name: 'tagsball',
       component: tagsball
+    },
+    {
+      path: '/quickmenu',
+      name: 'quickmenu',
+      component: quickmenu
     },
   ]
 

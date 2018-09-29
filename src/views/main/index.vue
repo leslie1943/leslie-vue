@@ -180,6 +180,7 @@ export default {
         {url:"mixin",title:"mixin"},
         {url:"texthighlight",title:"texthighlight"},
         {url:"tagsball",title:"tagsball"},
+        {url:"quickmenu",title:"quickmenu"},
       ]
     };
   },
