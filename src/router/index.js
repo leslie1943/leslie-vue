@@ -19,6 +19,8 @@ import mixin from '../views/mixin/'
 import texthighlight from '../views/texthighlight/'
 import tagsball from '../views/tagsball/'
 import quickmenu from '../views/quickmenu/'
+import iviews from '../views/iviews/'
+import hack from '../views/hack/'
 
 
 Vue.use(Router)
@@ -123,6 +125,16 @@ export const constRouterMap =
       path: '/quickmenu',
       name: 'quickmenu',
       component: quickmenu
+    },
+    {
+      path: '/iviews',
+      name: 'iviews',
+      component: iviews
+    },
+    {
+      path: '/hack',
+      name: 'hack',
+      component: hack
     },
   ]
 

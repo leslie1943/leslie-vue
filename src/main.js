@@ -10,6 +10,9 @@ import "@/assets/patch.css";
 import HappyScroll from 'vue-happy-scroll';
 import 'vue-happy-scroll/docs/happy-scroll.css'
 import ElementUI from 'element-ui';
+import IView from 'iview';
+import 'iview/dist/styles/iview.css'
+
 import 'element-ui/lib/theme-chalk/index.css';
 import ToHome from "@/components/toHome/toHome";
 import 'vue2-animate/dist/vue2-animate.min.css';
@@ -28,7 +31,7 @@ Vue.use(CitySelect);
 Vue.use(GlobalDirective);
 Vue.use(ToHome);
 Vue.use(TagsBall)
-// Vue.use(QuickMenu)
+Vue.use(IView)
 
 
 Vue.component('to-home', ToHome);

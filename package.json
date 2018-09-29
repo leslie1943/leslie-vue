@@ -17,6 +17,7 @@
     "echarts": "^4.1.0",
     "element-ui": "^2.2.0",
     "gulp": "^3.9.1",
+    "iview": "^3.1.2",
     "npm-lifecycle": "^2.0.3",
     "through2": "^2.0.3",
     "vue": "^2.5.2",
