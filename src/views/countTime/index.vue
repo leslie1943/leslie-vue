@@ -1,6 +1,7 @@
 <template>
 <div>
     <TimeCountDown :endDate="expiredDate"></TimeCountDown>
+    <to-home></to-home>
 </div>
 </template>
 
@@ -17,4 +18,3 @@ export default{
     }
 }
 </script>
-

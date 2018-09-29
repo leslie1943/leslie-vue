@@ -1,6 +1,15 @@
 <template>
   <div style="text-align:center;">
     <div :style="{color:tagColor}">{{tagColor}}</div>
+    
+    <!-- 直接定义class在data里 -->
+    <div :style="styleInDataDefined_Direct">{{tagColor}}</div>
+
+    <!-- 对象形式的可以{className:true/false}直接指定 -->
+    <div :style="{color:tagColor}" v-bind:class="{testClass:true}">{{tagColor}}</div>
+
+    <!-- 单独bindding，需要在data里设定，然后data里的值指向style里的样式class -->
+    <div v-bind:class="testClassBeDefinedInData">{{tagColor}}</div>
     <hr>
     <!-- radius 要和 width/height 配合使用. -->
     <tags-ball v-bind:style="tagStyle" font="20px monaco"  color="#297FB4" :radius="200" :width='400' :height='400' :stop="stopFlag" :tags='tags'/>
@@ -30,6 +39,12 @@ export default {
       iconType: "el-icon-loading",
       bundleIntervalEvent: "",
       tagColor:"#297FB4",
+      testClassBeDefinedInData:"testClass2Styles",
+      styleInDataDefined_Direct:{
+        color:'darkblue',
+        border:'10px solid red',
+        fontSize: '30px',
+      }
     }
   },
   methods:{
@@ -53,5 +68,13 @@ export default {
 </script>
 
 <style lang="scss">
+.testClass{
+  color: #297FB4;
+  border:10px solid pink;
+}
+.testClass2Styles{
+  border:10px solid grey;
+  font-size: 20px;
+}
 </style>
 
