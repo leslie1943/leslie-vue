@@ -182,7 +182,7 @@ export default {
         {url:"tagsball",title:"tagsball"},
         {url:"quickmenu",title:"quickmenu"},
         {url:"iviews",title:"iviews"},
-        {url:"hack",title:"hack"},
+        {url:"viser",title:"viser"},
       ]
     };
   },

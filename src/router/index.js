@@ -20,9 +20,7 @@ import texthighlight from '../views/texthighlight/'
 import tagsball from '../views/tagsball/'
 import quickmenu from '../views/quickmenu/'
 import iviews from '../views/iviews/'
-import hack from '../views/hack/'
-
-
+import viser from '../views/viser/'
 Vue.use(Router)
 
 export const constRouterMap =
@@ -131,10 +129,11 @@ export const constRouterMap =
       name: 'iviews',
       component: iviews
     },
+
     {
-      path: '/hack',
-      name: 'hack',
-      component: hack
+      path: '/viser',
+      name: 'viser',
+      component: viser
     },
   ]
 
