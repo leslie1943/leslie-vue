@@ -21,6 +21,8 @@ import tagsball from '../views/tagsball/'
 import quickmenu from '../views/quickmenu/'
 import iviews from '../views/iviews/'
 import viser from '../views/viser/'
+import video from '../views/video/'
+
 Vue.use(Router)
 
 export const constRouterMap =
@@ -134,6 +136,11 @@ export const constRouterMap =
       path: '/viser',
       name: 'viser',
       component: viser
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: video
     },
   ]
 

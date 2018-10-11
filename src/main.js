@@ -25,8 +25,9 @@ import TagsBall from 'vue-tags-ball';
 import QuickMenu from 'vue-quick-menu'
 import VueGraph from 'vue-graph'
 import ViserVue from 'viser-vue'
-// import '@antv/g2'
 
+import VueVideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
 
 Vue.use(ElementUI);
 Vue.use(HappyScroll)
@@ -37,6 +38,7 @@ Vue.use(TagsBall)
 Vue.use(IView)
 Vue.use(VueGraph)
 Vue.use(ViserVue)
+Vue.use(VueVideoPlayer)
 
 Vue.component('to-home', ToHome);
 Vue.component('text-highlight', TextHighLight);
