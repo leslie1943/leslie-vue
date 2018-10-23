@@ -2,20 +2,20 @@
 <div>
     <div style="padding-left:25%;padding-top:20px;padding-bottom:20px;">
         <video-player  class="vjs-custom-skin"
-        ref="videoPlayer"
-        :options="playerOptions"
-        :playsinline="true"
-        @play="onPlayerPlay($event)"
-        @pause="onPlayerPause($event)"
-        @ended="onPlayerEnded($event)"
-        @loadeddata="onPlayerLoadeddata($event)"
-        @waiting="onPlayerWaiting($event)"
-        @playing="onPlayerPlaying($event)"
-        @timeupdate="onPlayerTimeupdate($event)"
-        @canplay="onPlayerCanplay($event)"
-        @canplaythrough="onPlayerCanplaythrough($event)"
-        @ready="playerReadied"
-        @statechanged="playerStateChanged($event)">
+          ref="videoPlayer"
+          :options="playerOptions"
+          :playsinline="true"
+          @play="onPlayerPlay($event)"
+          @pause="onPlayerPause($event)"
+          @ended="onPlayerEnded($event)"
+          @loadeddata="onPlayerLoadeddata($event)"
+          @waiting="onPlayerWaiting($event)"
+          @playing="onPlayerPlaying($event)"
+          @timeupdate="onPlayerTimeupdate($event)"
+          @canplay="onPlayerCanplay($event)"
+          @canplaythrough="onPlayerCanplaythrough($event)"
+          @ready="playerReadied"
+          @statechanged="playerStateChanged($event)">
         </video-player>
     </div>
     <to-home></to-home>
@@ -27,15 +27,16 @@ export default {
     data() {
       return {
         // videojs options
-        playerOptions: {
+        playerOptions:{
           height: '360',
           autoplay: false,
-          muted: true,
+          muted: false,
           language: 'en',
           playbackRates: [0.7, 1.0, 1.5, 2.0],
           sources: [{
             type: "video/mp4",
-            src: "http://vjs.zencdn.net/v/oceans.mp4",
+            // src: "http://vjs.zencdn.net/v/oceans.mp4",
+            src: "https://cdn.aimeike.tv/thumbnail/preview/preview_pRUW9_thumb.mp4?auth_key=1539374586-0-0-26c79db5e9ac25538be424673522f5ff",
           }],
           poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-1.jpg",
         }

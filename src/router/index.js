@@ -22,6 +22,7 @@ import quickmenu from '../views/quickmenu/'
 import iviews from '../views/iviews/'
 import viser from '../views/viser/'
 import video from '../views/video/'
+import temp from '../views/temp/'
 
 Vue.use(Router)
 
@@ -141,6 +142,11 @@ export const constRouterMap =
       path: '/video',
       name: 'video',
       component: video
+    },
+    {
+      path: '/temp',
+      name: 'temp',
+      component: temp
     },
   ]
 
