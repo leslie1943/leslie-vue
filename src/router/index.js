@@ -23,6 +23,8 @@ import iviews from '../views/iviews/'
 import viser from '../views/viser/'
 import video from '../views/video/'
 import temp from '../views/temp/'
+import bgImage from '../views/bgImage/'
+import drama from '../views/drama/'
 
 Vue.use(Router)
 
@@ -147,6 +149,16 @@ export const constRouterMap =
       path: '/temp',
       name: 'temp',
       component: temp
+    },
+    {
+      path: '/bgImage',
+      name: 'bgImage',
+      component: bgImage
+    },
+    {
+      path: '/drama',
+      name: 'drama',
+      component: drama
     },
   ]
 

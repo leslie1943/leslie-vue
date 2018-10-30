@@ -184,7 +184,9 @@ export default {
         {url:"iviews" , title:"iviews"},
         {url:"viser" , title:"viser"},
         {url:"video" , title:"video"},
+        {url:"bgImage" , title:"bgImage"},
         {url:"temp" , title:"temp"},
+        {url:"drama" , title:"drama"},
       ]
     };
   },

@@ -22,13 +22,17 @@
 
     <!-- line -->
     <div>
-      <v-chart :forceFit="true" :height="height" :data="data_line" :scale="scale_line">
-        <v-tooltip />
-        <v-axis />
-        <v-legend />
-        <v-line position="month*value" shape="hv" color="key" />
+      <!--  -->
+     <v-chart :forceFit="true" :height="height" :data="data_line" :scale="scale_line"> <!-- part_1: v-chart -->  
+        <v-tooltip /> <!-- part_2: v-tooltip -->
+        <v-axis /> <!-- part_3: v-axis -->
+        <v-legend /> <!-- part_4: v-legend-->
+        <v-line position="month*value" shape="hv" color="key" /> <!-- part_5: v-line -->
       </v-chart>
     </div>
+
+    <!-- Back -->
+    <to-home></to-home>
 
   </div>
 </template>
@@ -95,14 +99,15 @@ const scale_line = [{
     data() {
       return {
         // -------------------- bar
-        data_bar: [ { year: '1951 年', sales: 38 },{ year: '1952 年', sales: 52 },
-                { year: '1956 年', sales: 61 },{ year: '1957 年', sales: 145 },
-                { year: '1958 年', sales: 48 },{ year: '1959 年', sales: 38 },
-                { year: '1960 年', sales: 38 },{ year: '1962 年', sales: 38 }
-              ],
+        data_bar: [ 
+          { year: '1951 年', sales: 38 },{ year: '1952 年', sales: 52 },
+          { year: '1956 年', sales: 61 },{ year: '1957 年', sales: 145 },
+          { year: '1958 年', sales: 48 },{ year: '1959 年', sales: 38 },
+          { year: '1960 年', sales: 38 },{ year: '1962 年', sales: 38 }
+        ],
         scale_bar: [{dataKey: 'sales',tickInterval: 20,}],
         height: 400,
-        // -------------------- bar
+        // -------------------- pie,
         data_pie,
         scale_pie,
         pieStyle: {
