@@ -31,16 +31,12 @@
     </transition-group>
     <hr>
     
-    <!-- Back -->
-    <ToHome></ToHome>
   </div>
 </template>
 
 <script>
-import ToHome from "@/components/toHome/toHome";
 import {uuid} from "@/utils/normal";
 export default {
-  components:{ToHome},
   data(){
     // var defaultSides = 10
   	// var stats = Array.apply(null, { length: defaultSides })

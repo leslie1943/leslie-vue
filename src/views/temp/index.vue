@@ -59,7 +59,6 @@
 
     </el-table>
   </div>
-  <to-home></to-home>
 </div>
 </template>
 

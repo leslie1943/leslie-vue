@@ -19,8 +19,6 @@
         <el-button :type="btnType" @click="stop" :icon="iconType">{{btnText}}</el-button>
       </el-col>
     </el-row>
-    <!-- Back -->
-    <to-home></to-home>
   </div>
 </template>
 

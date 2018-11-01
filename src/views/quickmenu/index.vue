@@ -13,10 +13,7 @@
     <quick-menu :menu-count="4" color="orange" background-color="black" :icon-class="icon2" :menu-url-list="list" position="top-right"></quick-menu>
     <quick-menu :menu-count="4" color="#96368E" background-color="pink" :icon-class="icon3" :menu-url-list="list" position="bottom-left"></quick-menu>
     <quick-menu :is-open-new-tab="true" :menu-count="4" color="pink" background-color="#96368E" :icon-class="icon4" :menu-url-list="list" position="bottom-right"></quick-menu>
-    <!-- Back -->
-    <div style="margin-top:20%;">
-      <to-home></to-home>
-    </div>
+ 
   </div>
 </template>
 

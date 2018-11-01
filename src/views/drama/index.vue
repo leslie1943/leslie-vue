@@ -78,8 +78,6 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
     </el-dialog>
-  <!-- Back -->
-  <!-- <to-home></to-home> -->
 </div>
 </template>
 
@@ -139,7 +137,7 @@ export default {
         return 'success-row';
       }
     }
-  }
+  },
 }
 </script>
 

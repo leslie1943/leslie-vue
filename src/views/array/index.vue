@@ -23,19 +23,13 @@
       </el-table-column>
     </el-table>
     <el-button @click="handleChangeArray">修改数组</el-button>
-  <!-- Back -->
-  <ToHome></ToHome>
 </div>
 </template>
 
 <script>
-import ToHome from "@/components/toHome/toHome";
 
 
 export default {
-  components:{
-    ToHome
-  },
   data(){
     return {
       peopleList:[

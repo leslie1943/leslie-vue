@@ -3,8 +3,6 @@
     <div class="pic-background">
       <div class="text">test</div>
     </div>
-    <!-- Back -->
-    <to-home></to-home>
   </div>
 </template>
 

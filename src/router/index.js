@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import BaseLayout from '@/layout/baseLayout';
+
 import main from '../views/main'
 import layout from '../views/layout'
 import countTime from '../views/countTime'
@@ -33,135 +35,144 @@ export const constRouterMap =
     {
       path: '/',
       name: 'main',
-      component: main
-    },
-
-    {
-      path: '/layout',
-      name: 'layout',
-      component: layout
-    },
-
-    {
-      path: '/countTime',
-      name: 'countTime',
-      component: countTime
-    },
-
-    {
-      path: '/immutable',
-      name: 'immutable',
-      component: immutable
-    },
-
-    {
-      path: '/echarts',
-      name: 'echarts',
-      component: echarts
-    },
-    {
-      path: '/table',
-      name: 'table',
-      component: table
-    },
-    {
-      path: '/notice',
-      name: 'notice',
-      component: notice
-    },
-    {
-      path: '/card',
-      name: 'card',
-      component: card
-    },
-    {
-      path: '/mutiselect',
-      name: 'mutiselect',
-      component: mutiselect
-    },
-    {
-      path: '/slot',
-      name: 'slot',
-      component: slot
-    },
-    {
-      path: '/validate',
-      name: 'validate',
-      component: validate
-    },
-    {
-      path: '/array',
-      name: 'array',
-      component: array
-    },
-    {
-      path: '/basicForm',
-      name: 'basicForm',
-      component: basicForm
-    },
-    {
-      path: '/directives',
-      name: 'directives',
-      component: directives
-    },
-    {
-      path: '/transition',
-      name: 'transition',
-      component: transition
-    },
-    {
-      path: '/mixin',
-      name: 'mixin',
-      component: mixin
-    },
-    {
-      path: '/texthighlight',
-      name: 'texthighlight',
-      component: texthighlight
-    },
-    {
-      path: '/tagsball',
-      name: 'tagsball',
-      component: tagsball
-    },
-    {
-      path: '/quickmenu',
-      name: 'quickmenu',
-      component: quickmenu
-    },
-    {
-      path: '/iviews',
-      name: 'iviews',
-      component: iviews
-    },
-
-    {
-      path: '/viser',
-      name: 'viser',
-      component: viser
-    },
-    {
-      path: '/video',
-      name: 'video',
-      component: video
-    },
-    {
-      path: '/temp',
-      name: 'temp',
-      component: temp
-    },
-    {
-      path: '/bgImage',
-      name: 'bgImage',
-      component: bgImage
-    },
-    {
-      path: '/drama',
-      name: 'drama',
-      component: drama
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      redirect: '/main',
+      children:[
+        {
+          path: '/',
+          name: 'main',
+          component: main
+        },
+    
+        {
+          path: '/layout',
+          name: 'layout',
+          component: layout,
+        },
+    
+        {
+          path: '/countTime',
+          name: 'countTime',
+          component: countTime
+        },
+    
+        {
+          path: '/immutable',
+          name: 'immutable',
+          component: immutable
+        },
+    
+        {
+          path: '/echarts',
+          name: 'echarts',
+          component: echarts
+        },
+        {
+          path: '/table',
+          name: 'table',
+          component: table
+        },
+        {
+          path: '/notice',
+          name: 'notice',
+          component: notice
+        },
+        {
+          path: '/card',
+          name: 'card',
+          component: card
+        },
+        {
+          path: '/mutiselect',
+          name: 'mutiselect',
+          component: mutiselect
+        },
+        {
+          path: '/slot',
+          name: 'slot',
+          component: slot
+        },
+        {
+          path: '/validate',
+          name: 'validate',
+          component: validate
+        },
+        {
+          path: '/array',
+          name: 'array',
+          component: array
+        },
+        {
+          path: '/basicForm',
+          name: 'basicForm',
+          component: basicForm
+        },
+        {
+          path: '/directives',
+          name: 'directives',
+          component: directives
+        },
+        {
+          path: '/transition',
+          name: 'transition',
+          component: transition
+        },
+        {
+          path: '/mixin',
+          name: 'mixin',
+          component: mixin
+        },
+        {
+          path: '/texthighlight',
+          name: 'texthighlight',
+          component: texthighlight
+        },
+        {
+          path: '/tagsball',
+          name: 'tagsball',
+          component: tagsball
+        },
+        {
+          path: '/quickmenu',
+          name: 'quickmenu',
+          component: quickmenu
+        },
+        {
+          path: '/iviews',
+          name: 'iviews',
+          component: iviews
+        },
+    
+        {
+          path: '/viser',
+          name: 'viser',
+          component: viser
+        },
+        {
+          path: '/video',
+          name: 'video',
+          component: video
+        },
+        {
+          path: '/temp',
+          name: 'temp',
+          component: temp
+        },
+        {
+          path: '/bgImage',
+          name: 'bgImage',
+          component: bgImage
+        },
+        {
+          path: '/drama',
+          name: 'drama',
+          component: drama
+        },
+        //to paste
+      ],
     },
   ]
-
 
 let router = new Router({
   model: 'hash',
@@ -170,4 +181,3 @@ let router = new Router({
 });
 
 export default router;
-

@@ -18,8 +18,6 @@
         <p>使用Immutable处理的值: {{this.personIM}}</p>
         <hr>
         <p>使用SImmutable处理的值:{{this.personSI}}</p>
-
-        <to-home></to-home>
     </div>
 </template>
 

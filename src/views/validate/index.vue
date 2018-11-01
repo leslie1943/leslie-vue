@@ -83,22 +83,14 @@
       <el-button type="warning" slot="reference">label-width tips</el-button>
 
     </el-popover>
-  
-
-  <!-- Back -->
-  <ToHome></ToHome>
 </div>
 </template>
 
 <script>
-import ToHome from "@/components/toHome/toHome";
 import localrules from './rules';
 
 
-export default{
-  components:{
-    ToHome
-  },
+export default {
   data(){
     return {
       personData:{

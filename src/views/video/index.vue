@@ -18,7 +18,6 @@
           @statechanged="playerStateChanged($event)">
         </video-player>
     </div>
-    <to-home></to-home>
 </div>
 </template>
 

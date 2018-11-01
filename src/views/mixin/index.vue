@@ -12,20 +12,14 @@
   <hr>
   <div>被定义在本组件中的data.leslie{{this.$data.leslie}}</div>
   <div>被定义在混入对象的data.moon{{this.$data.moon}}</div>
-  <!-- Back -->
-  <ToHome></ToHome>
 </div>
 </template>
 
 <script>
-import ToHome from "@/components/toHome/toHome";
 import mixMoon from './mixMoon';
 import mixSun from './mixSun';
 
 export default {
-  components:{
-    ToHome
-  },
   // 混入模式,两个对象键名冲突时，取组件对象的键值对
   // 混入对象 vs 组件 => 两个对象键名冲突时，取组件对象的键值对
   mixins: [mixMoon,mixSun],

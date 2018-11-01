@@ -70,9 +70,6 @@
       <Icon size="24" color="#2d8cf0" type="md-thumbs-up" /><Icon type="md-thumbs-up" />
       <Icon size="24" color="#2d8cf0" type="logo-windows" /><Icon type="logo-windows" />
     </div>
-
-    <!-- Back -->
-    <to-home></to-home>
   </div>
 </template>
 
