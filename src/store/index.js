@@ -4,6 +4,7 @@ import actions from './actions';
 import mutations from './mutations'
 import getters from './getters'
 import immutable from './modules/immutable';
+import permission from './modules/permission';
 
 Vue.use(Vuex);
 
@@ -20,5 +21,6 @@ export default new Vuex.Store({
   strict: false,
   modules:{
     immutable,
+    permission,
   }
 });

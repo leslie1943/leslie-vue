@@ -5,14 +5,14 @@
         <i class="iconfont icon-index" style="color:#35A4F9;fontSize:12px;"></i>
         <span slot="title">手动添加</span>
       </el-menu-item> -->
-      <sidebar-item :routes="permitMenus"></sidebar-item>
+      <sidebar-item :routes="leftMenus"></sidebar-item>
     </el-menu>
   </nav>
 </template>
 
 <script>
 import SidebarItem from "./sidebar-item";
-import menus from "@/utils/menu.js";
+import {  mapGetters } from "vuex";
 export default {
   name: "Sidebar",
   components: { SidebarItem },
@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       defaultIndex : '',
-      permitMenus: menus
     }
   },
   mounted() {
@@ -28,6 +27,9 @@ export default {
   },
   methods: {
     menuSelected(index, path) {},
+  },
+  computed:{
+     ...mapGetters(["leftMenus"]) 
   },
   //监听路由变化.
   watch:{

@@ -1,6 +1,5 @@
 <template>
 <div style="text-align:center;">
-
   <el-collapse v-model="activeNames" >
 
     <el-collapse-item title="Vuex" name="1">

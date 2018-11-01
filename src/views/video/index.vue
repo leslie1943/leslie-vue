@@ -34,8 +34,8 @@ export default {
           playbackRates: [0.7, 1.0, 1.5, 2.0],
           sources: [{
             type: "video/mp4",
-            // src: "http://vjs.zencdn.net/v/oceans.mp4",
-            src: "https://cdn.aimeike.tv/thumbnail/preview/preview_pRUW9_thumb.mp4?auth_key=1539374586-0-0-26c79db5e9ac25538be424673522f5ff",
+            src: "http://vjs.zencdn.net/v/oceans.mp4",
+            // src: "https://cdn.aimeike.tv/thumbnail/preview/preview_pRUW9_thumb.mp4?auth_key=1539374586-0-0-26c79db5e9ac25538be424673522f5ff",
           }],
           poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-1.jpg",
         }

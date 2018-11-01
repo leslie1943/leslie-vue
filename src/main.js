@@ -29,6 +29,10 @@ import ViserVue from 'viser-vue'
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 
+// 初始化左侧导航
+import {initLeftMenus } from './utils/auth';
+initLeftMenus();
+
 Vue.use(ElementUI);
 Vue.use(HappyScroll)
 Vue.use(CitySelect);

@@ -45,23 +45,23 @@ export const constRouterMap =
           component: main
         },
     
-        {
-          path: '/layout',
-          name: 'layout',
-          component: layout,
-        },
+        // {
+        //   path: '/layout',
+        //   name: 'layout',
+        //   component: layout,
+        // },
     
-        {
-          path: '/countTime',
-          name: 'countTime',
-          component: countTime
-        },
+        // {
+        //   path: '/countTime',
+        //   name: 'countTime',
+        //   component: countTime
+        // },
     
-        {
-          path: '/immutable',
-          name: 'immutable',
-          component: immutable
-        },
+        // {
+        //   path: '/immutable',
+        //   name: 'immutable',
+        //   component: immutable
+        // },
     
         {
           path: '/echarts',
@@ -172,6 +172,32 @@ export const constRouterMap =
         //to paste
       ],
     },
+
+    {
+      path: '/layout',
+      name: 'layout',
+      component: BaseLayout,
+      icon: "el-icon-rank",
+      children:[
+        {
+          path: '/layout',
+          name: 'layout',
+          component: layout,
+        },
+        {
+          path: '/countTime',
+          name: 'countTime',
+          component: countTime,
+        },
+    
+        {
+          path: '/immutable',
+          name: 'immutable',
+          component: immutable
+        },
+      ],
+      
+    }
   ]
 
 let router = new Router({
