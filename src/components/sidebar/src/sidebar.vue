@@ -1,6 +1,6 @@
 <template>
   <nav id="side-nav">
-    <el-menu id="left-menu" @select="menuSelected" :default-active="defaultIndex" router active-text-color="#20A0FF">
+    <el-menu id="left-menu" @select="menuSelected" :default-active="defaultIndex" router active-text-color="rgb(255, 100, 40)">
       <!-- <el-menu-item index="/">
         <i class="iconfont icon-index" style="color:#35A4F9;fontSize:12px;"></i>
         <span slot="title">手动添加</span>
@@ -23,7 +23,8 @@ export default {
     }
   },
   mounted() {
-    this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
+    // this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
+    this.defaultIndex = this.$route.path;
   },
   methods: {
     menuSelected(index, path) {},
@@ -34,7 +35,8 @@ export default {
   //监听路由变化.
   watch:{
     $route(to,from){
-      this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
+      // this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
+      this.defaultIndex = this.$route.path;
     }
   },
 };
@@ -45,12 +47,10 @@ export default {
   background: rgb(50, 64, 87);
 
   .menu-wrapper {
-    // padding-right: 8px;
     .el-submenu__title {
       margin-top: 10px;
       line-height: 32px;
       height: 32px;
-
     }
 
     .el-menu-item {
@@ -61,7 +61,6 @@ export default {
       color: #909399;
       border-top: 1px solid rgba(153, 153, 153, 0.1);
     }
-   
 
     .el-submenu__title:hover {
       background: none;
@@ -78,7 +77,6 @@ export default {
       margin-bottom: 8px;
       .is-active {
         padding-left: 36px !important;
-        background: #f7fbff;
         border-left: 4px solid #62adf4;
       }
       .el-menu-item {
@@ -92,13 +90,12 @@ export default {
       }
       .el-menu-item:hover {
         // background: none !important;
-        background: #f7fbff;
-        color: #20a0ff;
+        // background: #f7fbff;
+        color: orange;
       }
       .is-active {
-        background: #f7fbff;
         border-left: 4px solid #62adf4;
-        // padding-left: 36px !important;
+        color: orange;
       }
     }
   }

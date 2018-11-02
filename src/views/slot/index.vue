@@ -25,7 +25,8 @@
 <script>
 // import loading from "@/utils/loading";
 import BaseLayout from "@/components/baseLayout/";
-export default{
+export default {
+  components: {BaseLayout}
 }
 </script>
 

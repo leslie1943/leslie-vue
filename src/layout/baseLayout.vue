@@ -13,13 +13,15 @@
      -->
     <el-container>
       <!-- Header -->
-      <el-header>TTTTT</el-header>
+      <el-header>大连望海</el-header>
 
         <el-container>
           <!-- Menu -->
+          
           <el-aside>
             <Sidebar></Sidebar>
           </el-aside>
+          
 
           <!-- Content -->
           <el-container>
@@ -31,7 +33,7 @@
           </el-container>
       </el-container>
 
-        <el-footer>FFF</el-footer>
+        <el-footer>本产品最终解释权归苏震所有</el-footer>
     </el-container>
   </div>
 </template>
@@ -56,11 +58,16 @@ export default {
 
   .el-header, .el-footer {
     background-color: #0073b1;
-    /* background-color: #303133; */
-    // color: #333;
     color:white;
     text-align: center;
     line-height: 80px;
+  }
+
+  .el-aside {
+    overflow: hidden;
+  }
+  .el-main{
+    overflow: hidden;
   }
 }
 </style>

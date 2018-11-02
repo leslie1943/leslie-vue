@@ -3,6 +3,9 @@
 
 // ################### 引入 全局指令
 import * as GlobalDirective from "@/directive/GlobalDirective.js";
+// ################### 引入图标和字体问题
+import '@/assets/font/iconfont.css';
+import '@/assets/font/iconfont';
 // ################### 引入 modules
 import Vue from 'vue'
 import App from './App'
@@ -28,6 +31,9 @@ import ViserVue from 'viser-vue'
 
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
+
+//监听当路由发生变化
+import '@/utils/routing';
 
 // 初始化左侧导航
 import {initLeftMenus } from './utils/auth';
