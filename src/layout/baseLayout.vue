@@ -18,10 +18,7 @@
         <el-container>
           <!-- Menu -->
           
-          <el-aside>
-            <Sidebar></Sidebar>
-          </el-aside>
-          
+          <el-aside style="width: 167px;"><side-bar></side-bar></el-aside>
 
           <!-- Content -->
           <el-container>
@@ -33,16 +30,16 @@
           </el-container>
       </el-container>
 
-        <el-footer>本产品最终解释权归苏震所有</el-footer>
+        <el-footer>本产品最终解释权归蹭车群所有</el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
-import Sidebar from "@/components/sidebar";
+import SideBar from "@/components/sidebar";
 export default {
   components: {
-    Sidebar
+    SideBar
   },
   computed: {
     key() {
@@ -55,16 +52,23 @@ export default {
 <style lang="scss" >
 .baseLayout {
   background-color:white;
-
-  .el-header, .el-footer {
+  .el-aside{
+    background: #324057;
+    min-height: 610px;
+    overflow: hidden;
+  }
+  .el-header {
     background-color: #0073b1;
     color:white;
     text-align: center;
-    line-height: 80px;
+    line-height: 70px;
+    letter-spacing: 40px;
   }
-
-  .el-aside {
-    overflow: hidden;
+  .el-footer {
+    background-color: #0073b1;
+    color:white;
+    text-align: center;
+    line-height: 70px;
   }
   .el-main{
     overflow: hidden;

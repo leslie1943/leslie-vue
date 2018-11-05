@@ -1,10 +1,6 @@
 <template>
   <nav id="side-nav">
     <el-menu id="left-menu" @select="menuSelected" :default-active="defaultIndex" router active-text-color="rgb(255, 100, 40)">
-      <!-- <el-menu-item index="/">
-        <i class="iconfont icon-index" style="color:#35A4F9;fontSize:12px;"></i>
-        <span slot="title">手动添加</span>
-      </el-menu-item> -->
       <sidebar-item :routes="leftMenus"></sidebar-item>
     </el-menu>
   </nav>
@@ -14,7 +10,7 @@
 import SidebarItem from "./sidebar-item";
 import {  mapGetters } from "vuex";
 export default {
-  name: "Sidebar",
+  name: "SideBar",
   components: { SidebarItem },
 
   data() {
@@ -23,7 +19,6 @@ export default {
     }
   },
   mounted() {
-    // this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
     this.defaultIndex = this.$route.path;
   },
   methods: {
@@ -35,7 +30,6 @@ export default {
   //监听路由变化.
   watch:{
     $route(to,from){
-      // this.defaultIndex = (this.$route.meta && this.$route.meta.navigator) ? this.$route.meta.navigator : this.$route.path;
       this.defaultIndex = this.$route.path;
     }
   },
@@ -45,6 +39,8 @@ export default {
 <style lang="scss">
 .el-menu {
   background: rgb(50, 64, 87);
+  // 这个地方和baseLayput里aside内的width差1个px
+  width: 168px;
 
   .menu-wrapper {
     .el-submenu__title {
@@ -72,6 +68,8 @@ export default {
       height: 40px;
       font-size: 14px;
     }
+
+    // 子菜单样式.
     .el-submenu {
       border-top: 1px solid rgba(153, 153, 153, 0.1);
       margin-bottom: 8px;
@@ -85,12 +83,9 @@ export default {
         line-height: 32px;
         font-size: 14px;
         color: #909399;
-        // display: inline-block;
         border: none;
       }
       .el-menu-item:hover {
-        // background: none !important;
-        // background: #f7fbff;
         color: orange;
       }
       .is-active {
