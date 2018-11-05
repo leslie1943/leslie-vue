@@ -10,6 +10,7 @@ Vue.use(Vuex);
 
 const state = {
   count: 1,
+  appLoading: true,
 };
 
 // export default 封装代码，可以让外部引用.

@@ -35,7 +35,7 @@ import 'video.js/dist/video-js.css'
 //监听当路由发生变化
 import '@/utils/routing';
 
-// 初始化左侧导航
+// 初始化左侧导航, 并关闭loading
 import {initLeftMenus } from './utils/auth';
 initLeftMenus();
 

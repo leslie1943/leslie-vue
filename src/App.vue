@@ -1,12 +1,25 @@
 <template>
-  <div id="app">
+  <div id="app"  
+    v-loading.fullscreen.lock="appLoading" 
+    element-loading-text="项目加载中" 
+    element-loading-spinner="el-icon-loading"
+    element-loading-background="rgba(0, 0, 0, 0.8)">
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed:{
+    ...mapState({
+      appLoading: state => {
+        return state.appLoading
+      }
+    })
+  }
 }
 </script>
 

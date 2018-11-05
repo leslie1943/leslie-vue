@@ -57,7 +57,7 @@ export default {
   computed: {
     // 获取state属性方式-1
     countByReturn() {
-      return this.$store.state.count + " [    return this.$store.state.count]";
+      return this.$store.state.count + " [return this.$store.state.count]";
     },
     // 获取state属性方式-2
     ...mapState({
