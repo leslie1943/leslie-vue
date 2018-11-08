@@ -43,4 +43,9 @@ export default {
     message: '请输入结束日期',
     trigger: ['blur', 'change']
   }],
+  regCapital: [{
+    required: true,
+    message: '请输入注册资金',
+    trigger: ['blur', 'change']
+  }],
 };

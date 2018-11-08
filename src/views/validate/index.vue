@@ -34,6 +34,14 @@
         </el-col>
       </el-row>
 
+      <el-row>
+        <el-col :offset="6" :span="6">
+        <el-form-item label-width="100px" label="注册资本" prop="regCapital" >
+          <el-input-number id="regCapital" style="width:100%;" :maxlength="20" v-model="personData.regCapital" :precision="2" :min="0" :controls="false" placeholder="0.00"></el-input-number>
+          </el-form-item>
+        </el-col>
+      </el-row>
+
     <el-row>
       <el-col :offset="6" :span="6">
       <el-form-item>        
@@ -97,7 +105,8 @@ export default {
         name:"",
         age: '',
         start:'',
-        end:''
+        end:'',
+        regCapital:'',
       },
       //rules.
       personrules:localrules,

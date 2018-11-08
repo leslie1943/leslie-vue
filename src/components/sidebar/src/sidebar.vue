@@ -1,6 +1,10 @@
 <template>
   <nav id="side-nav">
-    <el-menu id="left-menu" @select="menuSelected" :default-active="defaultIndex" router active-text-color="rgb(255, 100, 40)">
+    <el-radio-group v-model="isCollapse">
+      <el-radio-button :label="false" style="margin-right:20px;">展开</el-radio-button>
+      <el-radio-button :label="true">收起</el-radio-button>
+    </el-radio-group>
+    <el-menu :collapse="isCollapse" id="left-menu" @select="menuSelected" :default-active="defaultIndex" router active-text-color="rgb(255, 100, 40)">
       <sidebar-item :routes="leftMenus"></sidebar-item>
     </el-menu>
   </nav>
@@ -16,6 +20,7 @@ export default {
   data() {
     return {
       defaultIndex : '',
+      isCollapse: true,
     }
   },
   mounted() {
@@ -93,6 +98,9 @@ export default {
         color: orange;
       }
     }
+  }
+  .el-menu-item{
+      color:#909399;
   }
 }
 </style>

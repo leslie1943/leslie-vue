@@ -18,7 +18,9 @@
         <el-container>
           <!-- Menu -->
           
-          <el-aside style="width: 167px;"><side-bar></side-bar></el-aside>
+          <el-aside style="width: 167px;">
+            <side-bar></side-bar>
+          </el-aside>
 
           <!-- Content -->
           <el-container>
@@ -53,6 +55,7 @@ export default {
 .baseLayout {
   background-color:white;
   .el-aside{
+    //侧边栏补足颜色
     background: #324057;
     min-height: 610px;
     overflow: hidden;

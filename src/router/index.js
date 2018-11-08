@@ -31,16 +31,62 @@ Vue.use(Router)
 
 export const constRouterMap =
   [
+    // 首页
     {
-      // ############## Primary menu ##############
       path: '/',
-      name: 'Vue 基础',
+      name: '首   页',
       icon: 'el-icon-menu',
       component: BaseLayout,
-      redirect: '/',
+      hideChildren: true,
       children: [
         {
           path: '/',
+          name: '首页',
+          component: main,
+        }
+      ],
+    },
+    // 内部管理
+    {
+      path: '/internal',
+      name: '内部管理',
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      hideChildren: true,
+      children: [
+        {
+          path: '/internal',
+          name: '首页',
+          component: main,
+        }
+      ],
+    },
+
+    // 客户管理
+    {
+      path: '/client',
+      name: '客户管理',
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      hideChildren: true,
+      children: [
+        {
+          path: '/client',
+          name: '首页',
+          component: main,
+        }
+      ],
+    },
+    {
+      // ############## Primary menu ##############
+      path: '/quick',
+      name: 'Vue 基础',
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      redirect: '/quick',
+      children: [
+        {
+          path: '/quick',
           name: '快捷入口',
           component: main
         },
