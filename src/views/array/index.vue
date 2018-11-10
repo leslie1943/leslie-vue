@@ -27,29 +27,47 @@
 </template>
 
 <script>
-
+import { getUserInfo } from "@/api/user";
 
 export default {
-  data(){
+  data() {
     return {
-      peopleList:[
-      {
-        name:"test001",
-        age:30,
-        desc:'test001'
-      },
-      {
-        name:"test002",
-        age:28,
-        desc:'test002'
-      }]
+      userInfo: [],
+      peopleList: [
+        {
+          name: "test001",
+          age: 30,
+          desc: "test001"
+        },
+        {
+          name: "test002",
+          age: 28,
+          desc: "test002"
+        }
+      ]
+    };
+  },
+  methods: {
+    handleChangeArray() {
+      this.peopleList.splice(0, 1, {
+        name: "test003",
+        age: 18,
+        desc: "test003"
+      });
+    },
+    async getUserInfo() {
+      try {
+        let res = await getUserInfo();
+        this.$message({ message: res.data, type: "success" });
+        console.info(res);
+      } catch (e) {
+        console.info(e);
+      }
     }
   },
-  methods:{
-    handleChangeArray(){
-      this.peopleList.splice(0,1,{name:"test003",age:18,desc:"test003"});
-    }
+  created() {
+    this.getUserInfo();
   }
-}
+};
 </script>
 

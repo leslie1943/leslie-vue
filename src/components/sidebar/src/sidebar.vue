@@ -12,32 +12,32 @@
 
 <script>
 import SidebarItem from "./sidebar-item";
-import {  mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "SideBar",
   components: { SidebarItem },
 
   data() {
     return {
-      defaultIndex : '',
-      isCollapse: true,
-    }
+      defaultIndex: "",
+      isCollapse: false
+    };
   },
   mounted() {
     this.defaultIndex = this.$route.path;
   },
   methods: {
-    menuSelected(index, path) {},
+    menuSelected(index, path) {}
   },
-  computed:{
-     ...mapGetters(["leftMenus"]) 
+  computed: {
+    ...mapGetters(["leftMenus"])
   },
   //监听路由变化.
-  watch:{
-    $route(to,from){
+  watch: {
+    $route(to, from) {
       this.defaultIndex = this.$route.path;
     }
-  },
+  }
 };
 </script>
 
@@ -99,8 +99,8 @@ export default {
       }
     }
   }
-  .el-menu-item{
-      color:#909399;
+  .el-menu-item {
+    color: #909399;
   }
 }
 </style>
