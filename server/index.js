@@ -8,7 +8,7 @@ const app = express();
 const cors = require('cors');
 
 // app.set('port', process.env.PORT || 1944);
-app.set('port', 1944);
+app.set('port', 2714);
 app.use(api);
 
 // 引入处理post数据的模块

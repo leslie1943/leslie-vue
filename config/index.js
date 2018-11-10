@@ -6,26 +6,29 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    // Various Dev Server settings
+    host: 'localhost',
+    port: 1943, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    autoOpenBrowser: false,
+    errorOverlay: true,
+    notifyOnErrors: true,
+    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // proxy 表
+    // 如果遇到/api那么请求本地服务+端口号为2714的api
+    // port number必须要与server中的保持一致
+    // network中看不到url和port的变化
     proxyTable: {
       '/api': {
-        target: 'http://localhost:1944/api',
+        target: 'http://localhost:2714/api',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
         }
       }
     },
-    // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 1943, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
-    errorOverlay: true,
-    notifyOnErrors: true,
-    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
 
     /**
