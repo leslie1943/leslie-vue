@@ -41,21 +41,6 @@ const UserSchema = new Schema({
     isp: String,
 });
 
-// 信息表
-// const InfoSchema = new Schema({
-// 	_id:Schema.Types.ObjectId,
-//     username: String,
-// 	nickname: String,
-// 	touziyear:String,
-// 	email:String,
-// 	modifyTime: { type: Date, default: Date.now },
-// 	baseType:String,
-// 	changeType:String,
-// },{
-//     versionKey: false,
-//     timestamps:{createdAt:'modifyTime'}
-// });
-
 /************** 编译模型Model **************/
 /**
  * 编译模型: model(name,[schema],[collection],[skipInit])

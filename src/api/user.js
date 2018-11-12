@@ -1,6 +1,6 @@
 import fetch from '@/utils/fetch';
 
-export function getUserInfo() {
+export function getUserInfoAPI() {
     return fetch({
         method: 'get',
         url: '/api/user/getUserInfo',

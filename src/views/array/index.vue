@@ -1,5 +1,6 @@
 <template>
-<div style="text-align:center;">  
+<div style="text-align:center;">
+  {{userList}}
   <el-table
       :data="peopleList"
       style="width: 100%">
@@ -27,7 +28,8 @@
 </template>
 
 <script>
-import { getUserInfo } from "@/api/user";
+import { createNamespacedHelpers, mapGetters } from "vuex";
+const { mapActions: userAction } = createNamespacedHelpers("user");
 
 export default {
   data() {
@@ -48,25 +50,21 @@ export default {
     };
   },
   methods: {
+    ...userAction(["getUserList"]),
+
     handleChangeArray() {
       this.peopleList.splice(0, 1, {
         name: "test003",
         age: 18,
         desc: "test003"
       });
-    },
-    async getUserInfo() {
-      try {
-        let res = await getUserInfo();
-        this.$message({ message: res.data, type: "success" });
-        console.info(res);
-      } catch (e) {
-        console.info(e);
-      }
     }
   },
+  computed: {
+    ...mapGetters(["userList"])
+  },
   created() {
-    this.getUserInfo();
+    this.getUserList();
   }
 };
 </script>

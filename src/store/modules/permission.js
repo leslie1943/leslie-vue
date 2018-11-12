@@ -5,7 +5,7 @@ const permission = {
     leftMenus: [],
   },
   mutations: {
-    INIT_LEFT_MENUS:(state, menus) => {
+    INIT_LEFT_MENUS: (state, menus) => {
       state.leftMenus = menus;
     },
   },

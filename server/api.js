@@ -54,5 +54,4 @@ router.get('/api/user/getUserInfo', (req, res) => {
     });
 });
 
-console.log('dddd')
 module.exports = router;
