@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import BaseLayout from '@/layout/baseLayout';
+import LoginLayout from '@/layout/loginLayout';
+
+import login from '../views/login/'
+
 import main from '../views/main'
 import layout from '../views/layout'
 import countTime from '../views/countTime'
@@ -26,11 +30,30 @@ import video from '../views/video/'
 import temp from '../views/temp/'
 import bgImage from '../views/bgImage/'
 import drama from '../views/drama/'
+import api from '../views/api/'
+import formlayout from '../views/formlayout/'
+
+
 
 Vue.use(Router)
 
 export const constRouterMap =
   [
+    // 首页
+    {
+      path: '/login',
+      name: '登录',
+      icon: 'el-icon-menu',
+      component: LoginLayout,
+      hideChildren: true,
+      children: [
+        {
+          path: '/login',
+          name: '登录',
+          component: login,
+        }
+      ],
+    },
     // 首页
     {
       path: '/',
@@ -86,6 +109,11 @@ export const constRouterMap =
       redirect: '/quick',
       children: [
         {
+          path: '/formlayout',
+          name: '表单布局',
+          component: formlayout
+        },
+        {
           path: '/quick',
           name: '快捷入口',
           component: main
@@ -115,6 +143,11 @@ export const constRouterMap =
           path: '/array',
           name: '数组修改',
           component: array
+        },
+        {
+          path: '/api',
+          name: '测试接口',
+          component: api
         },
         {
           path: '/basicForm',

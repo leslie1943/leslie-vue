@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const models = require('./db');
 const express = require('express');
+const chalk = require('chalk')
 const router = express.Router();
+const warning = chalk.keyword('orange');
+
 
 /************** 创建(create) 读取(get) 更新(update) 删除(delete) **************/
 
@@ -35,22 +38,16 @@ const callback = function (err, data, res) {
  * @params:pageSize
  */
 router.get('/api/user/getUserInfo', (req, res) => {
-    console.info('In get user information.');
-
-    console.info('into getUserInfo ------- ');
-    // const pageIndex = parseInt(req.query.pageIndex);
-    // const pageSize = parseInt(req.query.pageSize);
+    console.info(warning('【------------ Debug-MongoDB-Api start ------------】get user information.'));
 
     const m = models.Users.find({});
     let p = models.Users;
-    // const start = (pageIndex - 1) * pageSize;
 
-    // m.skip(start);
-    // m.limit(pageSize);
     // m.sort({ 'createTime': 'desc' });
     m.exec(function (err, data) {
         console.info(data);
         execCallback(p, err, data, res);
+        console.info(warning('【------------ Debug-MongoDB-Api end ------------】get user information.'));
     });
 });
 

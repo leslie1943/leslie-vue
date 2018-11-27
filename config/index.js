@@ -25,11 +25,20 @@ module.exports = {
     // port number必须要与server中的保持一致
     // network中看不到url和port的变化
     proxyTable: {
+      // 请求其他server
+      // '/api/announcement/new': {
+      //   target: 'http://192.168.100.22:8080/epro/api/announcement/new', //tuzhu
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/epro/api/announcement/new': ''
+      //   },
+      //   cssSourceMap: false
+      // },
       '/api': {
-        target: 'http://localhost:2714/api', //目标接口域名
+        target: 'http://localhost:7001/api', //目标接口域名, EGG server
         changeOrigin: true, //是否跨域
         pathRewrite: {
-          '^/api': '' //重写接口
+          '^/api': '' //重写接口,如果没有这行代码,请求变为: http://localhost:2714/api/api/
         }
       }
     },

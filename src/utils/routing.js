@@ -17,7 +17,7 @@ router.beforeEach(async (to, from, next) => {
 
     // 全局 loading start.
     console.info('【DEBUG-Loading is start...');
-    store.commit('startLoading');
+    // store.commit('startLoading');
 
     console.info('【DEBUG-Router】: to detail');
     console.info(to);
@@ -29,11 +29,11 @@ router.beforeEach(async (to, from, next) => {
     next();
     
     // 触发全局 loading
-    setTimeout(() => {
-        console.info('【DEBUG-Loading is end...');
-        // 全局 loading end.
-        store.commit('endLoading');
-    },2000);
+    // setTimeout(() => {
+    //     console.info('【DEBUG-Loading is end...');
+    //     // 全局 loading end.
+    //     store.commit('endLoading');
+    // },2000);
 
     // 触发全局 NProgress
     setTimeout(() => {

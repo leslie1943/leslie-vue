@@ -43,7 +43,7 @@
 </template>
 
 <script>
-
+import {getURL} from '@/utils/promise';
 import $store from "@/store";
 import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
@@ -79,6 +79,9 @@ export default {
     ...mapMutations(["add", "reduce"]),
     ...mapActions(["addAction", "reduceAction"]),
   },
+  created(){
+    getURL();
+  }
 };
 </script>
 <style scoped>

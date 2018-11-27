@@ -28,6 +28,8 @@ import TagsBall from 'vue-tags-ball';
 import QuickMenu from 'vue-quick-menu'
 import VueGraph from 'vue-graph'
 import ViserVue from 'viser-vue'
+import FormLayout from '@/components/FormLayout';
+
 
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
@@ -49,6 +51,8 @@ Vue.use(IView)
 Vue.use(VueGraph)
 Vue.use(ViserVue)
 Vue.use(VueVideoPlayer)
+Vue.use(FormLayout);
+
 
 Vue.component('to-home', ToHome);
 Vue.component('text-highlight', TextHighLight);
