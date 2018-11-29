@@ -4,6 +4,10 @@
       本文关键字 ":class" / ":style"
     </el-row>
     <hr>
+     <el-row style="font-size:22px;">
+      {{obj_C}}
+    </el-row>
+    <hr>
     <el-row >
       <el-col :span="8" v-for="(card, index) in cardList" :key="index">
         <el-card  :body-style="{ padding: '0px' }">
@@ -31,6 +35,15 @@ export default {
   name: "FundCard",
   data(){
     return {
+      obj_A:{
+        name:"suzhen"
+      },
+      obj_B:{
+        age:20
+      },
+      obj_C:{
+
+      },
       disabled: false,
       cardList:[
         {fundName:"华西医院救助项目",fundNo:"223011313131312",fundAccount:1000,totalMoney:1000},
@@ -50,6 +63,9 @@ export default {
     handleClose(){
       this.disabled = !this.disabled;
     }
+  },
+  created(){
+    this.obj_C = {...this.obj_A, ...this.obj_B}
   }
 };
 </script>
