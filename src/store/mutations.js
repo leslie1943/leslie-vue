@@ -7,4 +7,10 @@ export default {
   reduce(state, n) {
     state.count -= (n ? n : 1);
   },
+  startLoading(state){
+    state.appLoading = true;
+  },
+  endLoading(state){
+    state.appLoading = false;
+  }
 };

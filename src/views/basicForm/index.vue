@@ -3,8 +3,6 @@
     <BasicEditForm :formObject="formObject" ref="personFormRef"></BasicEditForm>
     <el-button type="primary" @click="handleDoAction">提交</el-button>
     <el-button @click="handleClear">重置</el-button>
-    <!-- Back -->
-    <ToHome></ToHome>
   </div>
 </template>
 
@@ -15,7 +13,7 @@ import BasicEditForm from "@/components/basicElement/basicEditForm";
 
 export default {
   components:{
-    ToHome,BasicEditForm
+    BasicEditForm
   },
   data(){
     return {

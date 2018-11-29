@@ -26,18 +26,11 @@
     <el-row>
     <img v-imgOnError v-imgOnClick="{name:'suzhen',age:20}" src="http://img0222.imgtn.bdimg.com/22it/u=3800480277,1159420951&fm=200&gp=2220.jpg"/>
     </el-row>
-    <!-- Back -->
-    <ToHome></ToHome>
   </div>
 </template>
 
 <script>
-import ToHome from "@/components/toHome/toHome";
-
 export default {
-  components:{
-    ToHome,
-  },
 }
 </script>
 

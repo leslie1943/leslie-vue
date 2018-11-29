@@ -1,5 +1,5 @@
 <template>
-    <div style="text-align:center;">
+    <div class="immutable-main-container">
         <el-collapse v-model="activeNames" >
             <el-collapse-item title="Immutable data" name="1">
                 <p>Immutable Data 就是一旦创建,就不能再被更改的数据.</p> 
@@ -67,8 +67,11 @@ export default {
 };
 </script>
 
-<style >
-.el-collapse-item__header{
-    background-color:#409EFF;
+<style lang="scss">
+.immutable-main-container{
+    text-align: center;
+    .el-collapse-item__header{
+        background-color:#409EFF;
+    }
 }
 </style>

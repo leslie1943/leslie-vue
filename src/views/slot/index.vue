@@ -16,7 +16,6 @@
       <h1>Here might be a footer</h1>
       </template>
     <p slot="footer">here might be a footer in p
-      <ToHome></ToHome>
       </p>
     
   </base-layout>
@@ -26,12 +25,8 @@
 <script>
 // import loading from "@/utils/loading";
 import BaseLayout from "@/components/baseLayout/";
-import ToHome from "@/components/toHome/toHome";
-
-export default{
-  components:{
-    BaseLayout,ToHome
-  }
+export default {
+  components: {BaseLayout}
 }
 </script>
 

@@ -1,32 +1,8 @@
 <template>
-<div >
-  <!-- <el-container>
-  <el-header>Header</el-header>
-  <el-main>Main</el-main>
-</el-container> -->
-
-<!-- <el-container>
-  <el-header>Header</el-header>
-  <el-main>Main</el-main>
-  <el-footer>Footer</el-footer>
-</el-container> -->
-
-<!-- <el-container>
-  <el-aside width="200px">Aside</el-aside>
-  <el-main>Main</el-main>
-</el-container> -->
-
-<!-- <el-container>
-  <el-header>Header</el-header>
-  <el-container>
-    <el-aside width="200px">Aside</el-aside>
-    <el-main>Main</el-main>
-  </el-container>
-</el-container> -->
+<div class="layout-container-view">
 
 <el-container>
   <el-header style="height: 75px;">
-    <el-button @click="backHome">back to home</el-button>
     <el-tag style="color:white;">header</el-tag>
     <el-tag style="color:white;">header</el-tag>
     <el-tag style="color:white;">header</el-tag>
@@ -219,33 +195,25 @@ export default{
         }]
     }
   },
-  methods:{
-
+  methods: {
     backHome(){
       this.$router.replace('/');
     }
   },
-  mounted() {
-    
-    loading.close();
-  }
-
 }
 </script>
 
-<style>
+<style lang="scss">
+.layout-container-view{
   .el-header, .el-footer {
     background-color: #0073b1;
-    /* background-color: #303133; */
     color: #333;
     text-align: center;
     line-height: 80px;
-    
   }
   
   .el-aside {
     background-color: #303133;
-    /* background-color: #0073b1; */
     color: #333;
     text-align: center;
     line-height: 600px;
@@ -283,4 +251,5 @@ export default{
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
   } */
+  }
 </style>
