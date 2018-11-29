@@ -32,8 +32,7 @@ import bgImage from '../views/bgImage/'
 import drama from '../views/drama/'
 import api from '../views/api/'
 import formlayout from '../views/formlayout/'
-
-
+import fundCard from '../views/fundCard/'
 
 Vue.use(Router)
 
@@ -112,6 +111,11 @@ export const constRouterMap =
           path: '/formlayout',
           name: '表单布局',
           component: formlayout
+        },
+        {
+          path: '/fundCard',
+          name: '经费卡片',
+          component: fundCard
         },
         {
           path: '/quick',
