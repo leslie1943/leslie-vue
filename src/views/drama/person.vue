@@ -15,7 +15,6 @@
       </el-table-column>
 
       <el-table-column label="Roles" align="center" header-align="center">
-          <!-- :type="tagsType[index % 4]"  -->
           <template slot-scope="scope">
             <el-tag 
               v-for="(role,index) in scope.row.roles" 

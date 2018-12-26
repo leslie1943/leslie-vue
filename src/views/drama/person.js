@@ -8,7 +8,6 @@ import leslie from "./imgs/leslie.jpg";
 import ying from "./imgs/ying.jpg";
 
 export default {
-    tagsType: ['success','info','warning','error'],
     persons:[
         {
             id: 'Dong',
