@@ -30,6 +30,10 @@ import VueGraph from 'vue-graph'
 import ViserVue from 'viser-vue'
 import FormLayout from '@/components/FormLayout';
 
+// 引入图片组件
+import 'viewerjs/dist/viewer.css'
+import Viewer from 'v-viewer'
+
 
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
@@ -46,6 +50,7 @@ Vue.use(HappyScroll)
 Vue.use(CitySelect);
 Vue.use(GlobalDirective);
 Vue.use(ToHome);
+Vue.use(Viewer);
 Vue.use(TagsBall)
 Vue.use(IView)
 Vue.use(VueGraph)

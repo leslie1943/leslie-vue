@@ -2,7 +2,7 @@
 <div class="drama-container">
 
   <!--       :data="dramas" style="width: 100%" :default-sort = "{prop: 'name', order: 'descending'}"> -->
-    <el-table :row-class-name="tableRowClassName" :data="dramas" style="width: 100%" >
+    <el-table @row-click="handleRowClick" :row-class-name="tableRowClassName" :data="dramas" style="width: 100%" >
        <el-table-column type="index"  align="left" header-align="left">
       </el-table-column>
 
@@ -14,6 +14,9 @@
          {{scope.row.type}}
         </template>
       </el-table-column> -->
+      
+      <el-table-column prop="host" label="主持人" >
+      </el-table-column>
 
       <el-table-column prop="persons" label="人数" >
       </el-table-column>
@@ -98,8 +101,28 @@
     </el-table>
 
     <!-- ############# 查看结局 ############# -->
-    <el-dialog  title="剧本简介"  :visible.sync="dialogVisible"  width="60%"  center>
-      <div style="white-space: normal;">{{currentRow.detail}}</div>
+    <el-dialog :title="currentRow.ending.name"  :visible.sync="dialogVisible"  width="60%"  center>
+      <hr>
+      <el-row style="font-size:24px;">
+        <span style="font-weight:bold;color:red;"><Icon type="ios-contact" />真实凶手</span>: {{currentRow.ending.realMurder}}
+      </el-row>
+
+      <el-row style="font-size:24px;">
+         <span style="font-weight:bold;color:#409EFF;"><Icon type="ios-contact-outline" />投票凶手</span>: {{currentRow.ending.voteMurder}}
+      </el-row>
+      <hr style="margin-top:20px;">
+
+      <el-row style="text-align:center;font-size:18px;font-weight:bold;color:gray;">
+        结局
+      </el-row>
+
+      <hr style="margin-bottom:20px;">
+
+      <el-row  v-for="(item,id) in currentRow.ending.detail" :key="id">
+        <Icon type="md-arrow-round-forward" /> {{item.desc}}
+      </el-row>
+      
+      
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
@@ -121,6 +144,11 @@ export default {
     return data
   },
   methods:{
+    handleRowClick(row,event,col){
+      console.info(row);
+      console.info(event);
+      console.info(col);
+    },
     handleViewDetail(row){
       this.currentRow = row;
       this.dialogVisible = true;
@@ -130,6 +158,7 @@ export default {
       this.previewDialogImageUrl = e.target.src;
     },
     tableRowClassName({row, rowIndex}){
+      row.defineKey =rowIndex;
       if (row.status == 2) {
         // return 'success-row';
       }

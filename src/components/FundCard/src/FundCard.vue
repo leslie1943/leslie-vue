@@ -5,7 +5,15 @@
     </el-row>
     <hr>
      <el-row style="font-size:22px;">
-      {{obj_C}}
+       obj_A:{
+        name:"suzhen"
+      },
+      obj_B:{
+        age:20
+      },
+      obj_C:{},<br>
+       this.obj_C = {...this.obj_A, ...this.obj_B} <br>
+      this.obj_C = {{obj_C}}
     </el-row>
     <hr>
     <el-row >

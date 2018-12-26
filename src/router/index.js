@@ -30,6 +30,8 @@ import video from '../views/video/'
 import temp from '../views/temp/'
 import bgImage from '../views/bgImage/'
 import drama from '../views/drama/'
+import dramaPerson from '../views/drama/person.vue'
+
 import api from '../views/api/'
 import formlayout from '../views/formlayout/'
 import fundCard from '../views/fundCard/'
@@ -38,7 +40,7 @@ Vue.use(Router)
 
 export const constRouterMap =
   [
-    // 首页
+    // ############## 首页 ##############
     {
       path: '/login',
       name: '登录',
@@ -53,7 +55,7 @@ export const constRouterMap =
         }
       ],
     },
-    // 首页
+    // ############## 首页 ##############
     {
       path: '/',
       name: '首   页',
@@ -68,7 +70,7 @@ export const constRouterMap =
         }
       ],
     },
-    // 内部管理
+    // ############## 内部管理 ##############
     {
       path: '/internal',
       name: '内部管理',
@@ -84,7 +86,7 @@ export const constRouterMap =
       ],
     },
 
-    // 客户管理
+    // ############## 客户管理 ##############
     {
       path: '/client',
       name: '客户管理',
@@ -99,6 +101,28 @@ export const constRouterMap =
         }
       ],
     },
+
+    // ############## Primary menu drama ##############
+    {
+      path: '/drama',
+      name: '剧本部分',
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      hideChildren: false,
+      children: [
+        {
+          path: '/drama',
+          name: '剧本详情',
+          component: drama
+        },
+        {
+          path: '/drama-person',
+          name: '剧本玩家',
+          component: dramaPerson
+        },
+      ]
+    },
+
     {
       // ############## Primary menu ##############
       path: '/quick',
@@ -173,18 +197,14 @@ export const constRouterMap =
           path: '/temp',
           name: '临时区域',
           component: temp,
-          hidden:true,
+          hidden: true,
         },
         {
           path: '/bgImage',
           name: '背景图片',
           component: bgImage
         },
-        {
-          path: '/drama',
-          name: '剧本详情',
-          component: drama
-        },
+
         {
           path: '/layout',
           name: '布局示例',
@@ -285,7 +305,7 @@ export const constRouterMap =
         }
       ],
     },
-]
+  ]
 
 let router = new Router({
   model: 'hash',
