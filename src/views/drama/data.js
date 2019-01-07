@@ -17,6 +17,11 @@ import jysp2 from "./imgs/jysp2.jpg";
 import jysp3 from "./imgs/jysp3.jpg";
 import jysp4 from "./imgs/jysp4.jpg";
 
+import zlp1 from "./imgs/zlp1.jpg";
+import zlp2 from "./imgs/zlp2.jpg";
+import zlp3 from "./imgs/zlp3.jpg";
+import zlp4 from "./imgs/zlp4.jpg";
+
 export default {
   previewDialogVisible: false,
   previewDialogImageUrl: "",
@@ -253,7 +258,7 @@ export default {
         { realName: "慧莹", cosName: "璐娅🐺" }
       ],
       status: 2,
-      places: ["海帝"],
+      places: ["海帝乐园"],
       photos: [
         { id: 2, path: jysp1 },
         { id: 1, path: jysp2 },
@@ -289,7 +294,7 @@ export default {
         { realName: "慧莹", cosName: "白秀才" }
       ],
       status: 2,
-      places: ["海帝"],
+      places: ["海帝乐园"],
       photos: [
         { id: 2, path: jysp1 },
         { id: 1, path: jysp2 },
@@ -308,6 +313,45 @@ export default {
           { index: 5, desc: "白秀才虽然多次被鬼小妾和撒师爷泼脏水，终究洗白了自己" },
           { index: 6, desc: "鬼小妾，投票给自己的亲生姐姐，一子错满盘皆输，聪明反被聪明误。" },
           { index: 7, desc: "杨巡捕在全场懵逼的状态下，抓住了最后一投的机会，成功绝杀了鬼小妾，使得真凶无处躲藏，真相大败于天下。" },
+        ]
+      },
+    },
+    // -------------------------- 皂罗袍
+    {
+      name: "皂罗袍", persons: 8, copyright: true, type: "未来穿越",
+      host: "老板",
+      roles: [
+        // { realName: "老板", cosName: "主持" },
+        { realName: "郭磊", cosName: "宁王" },
+        { realName: "周游", cosName: "章怀恩" },
+        { realName: "颖姐", cosName: "章婉仪" },
+        { realName: "雪莲", cosName: "萧默云" },
+        { realName: "苏震", cosName: "章子恒" },
+        { realName: "慧莹", cosName: "林瑶光" },
+        { realName: "源源", cosName: "章彦之" },
+      ],
+      status: 2,
+      places: ["海帝乐园"],
+      photos: [
+        { id: 2, path: zlp1 },
+        { id: 1, path: zlp2 },
+        { id: 4, path: zlp3 },
+        { id: 3, path: zlp4 },
+      ],
+      ending: {
+        name: '皂罗袍',
+        realMurder: "宁王",
+        voteMurder: "章怀恩",
+        detail: [
+          { index: 1, desc: "老板主持好评,继续保持！👍👍👍👍👍👍" },
+          { index: 2, desc: "Mark服务好评,继续保持！👍👍👍👍👍👍" },
+          { index: 3, desc: "章彦之:老爷子头戴两顶绿帽，痛失亲生女儿，在管家的忽悠下错投真凶，遗憾退场." },
+          { index: 4, desc: "林瑶光:身为名门之后，利用萧氏入府，与老爷子分居，与宁王私通，并诞下一男一女,这波绿帽子送的666。私会后不回房也是让人汗颜!" },
+          { index: 5, desc: "萧默云:一个为了爱情的傻白甜，本想保护女儿，却弄巧成拙。可悲的是，在最后阶段，火拼一直暗中资助自己的人，相煎何太急." },
+          { index: 6, desc: "章怀恩:身世坎坷，命运多舛，本是赵国公子，因战乱沦为不同男人的娈童，同时也是剧中最善良的人，没有之一，令人扼腕的是自己帮助的人不但不感恩，反而恩将仇报。最后被投为凶手." },
+          { index: 7, desc: "宁王: 牛逼，牛逼，睡了别人的老婆，并让自己的女儿爱上了自己，还是那句话，一家人最重要的就是整整齐齐，也成功的将嫌疑洗白了。人生赢家!" },
+          { index: 8, desc: "章子恒: 酱油角色，唯一的亮点是和自己两个妹妹的关系。有最后认出了真凶，也是自己的亲生父亲.唯一的明白人" },
+          { index: 9, desc: "章婉仪: 本应该嫁给中山郡王，拥有无限的风光，可爱上自己的亲生父亲，并和自己的哥哥做了不耻之事.个中滋味，唯有自己能够体会。" },
         ]
       },
     },

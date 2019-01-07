@@ -112,13 +112,13 @@
       </el-row>
       <hr style="margin-top:20px;">
 
-      <el-row style="text-align:center;font-size:18px;font-weight:bold;color:gray;">
+      <el-row style="text-align:center;font-size:18px;font-weight:bold;color:gray;word-break: break-word;white-space: normal;">
         结局
       </el-row>
 
       <hr style="margin-bottom:20px;">
 
-      <el-row  v-for="(item,id) in currentRow.ending.detail" :key="id">
+      <el-row style="word-break: break-word;white-space: normal;"  v-for="(item,id) in currentRow.ending.detail" :key="id">
         <Icon type="md-arrow-round-forward" /> {{item.desc}}
       </el-row>
       

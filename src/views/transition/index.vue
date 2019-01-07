@@ -22,13 +22,13 @@
     </el-row>
 
     <div><code>enter-active-class="bounceInLeft" leave-active-class="bounceOutRight"</code></div>
-    <transition-group name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <transition name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
       <div style="padding-top:10px;" v-for="(item,index) in products" :key="index">
         <el-tag closable :type="getTagType()">
           {{item}}
         </el-tag>
       </div>
-    </transition-group>
+    </transition>
     <hr>
     
   </div>

@@ -3,39 +3,6 @@ import Router from 'vue-router'
 import BaseLayout from '@/layout/baseLayout';
 import LoginLayout from '@/layout/loginLayout';
 
-import login from '../views/login/'
-
-import main from '../views/main'
-import layout from '../views/layout'
-import countTime from '../views/countTime'
-import immutable from '../views/immutable'
-import echarts from '../views/echarts'
-import table from '../views/table'
-import notice from '../views/notice'
-import card from '../views/card'
-import mutiselect from '../views/mutiselect'
-import slot from '../views/slot'
-import validate from '../views/validate'
-import array from '../views/array'
-import basicForm from '../views/basicForm/'
-import directives from '../views/directives/'
-import transition from '../views/transition/'
-import mixin from '../views/mixin/'
-import texthighlight from '../views/texthighlight/'
-import tagsball from '../views/tagsball/'
-import quickmenu from '../views/quickmenu/'
-import iviews from '../views/iviews/'
-import viser from '../views/viser/'
-import video from '../views/video/'
-import temp from '../views/temp/'
-import bgImage from '../views/bgImage/'
-import drama from '../views/drama/'
-import dramaPerson from '../views/drama/person.vue'
-
-import api from '../views/api/'
-import formlayout from '../views/formlayout/'
-import fundCard from '../views/fundCard/'
-
 Vue.use(Router)
 
 export const constRouterMap =
@@ -51,7 +18,7 @@ export const constRouterMap =
         {
           path: '/login',
           name: '登录',
-          component: login,
+          component: () => import('../views/login/') ,
         }
       ],
     },
@@ -66,7 +33,7 @@ export const constRouterMap =
         {
           path: '/',
           name: '首页',
-          component: main,
+          component: () => import('../views/main/'),
         }
       ],
     },
@@ -81,7 +48,7 @@ export const constRouterMap =
         {
           path: '/internal',
           name: '首页',
-          component: main,
+          component: () => import('../views/main/'),
         }
       ],
     },
@@ -97,7 +64,7 @@ export const constRouterMap =
         {
           path: '/client',
           name: '首页',
-          component: main,
+          component: () => import('../views/main/'),
         }
       ],
     },
@@ -113,12 +80,12 @@ export const constRouterMap =
         {
           path: '/drama',
           name: '剧本详情',
-          component: drama
+          component: () => import('../views/drama/index'),
         },
         {
           path: '/drama-person',
           name: '剧本玩家',
-          component: dramaPerson
+          component: () => import('../views/drama/person.vue'),
         },
       ]
     },
@@ -134,88 +101,88 @@ export const constRouterMap =
         {
           path: '/formlayout',
           name: '表单布局',
-          component: formlayout
+          component: () => import('../views/formlayout'),
         },
         {
           path: '/fundCard',
           name: '经费卡片',
-          component: fundCard
+          component: () => import('../views/fundCard'),
         },
         {
           path: '/quick',
           name: '快捷入口',
-          component: main
+          component: () => import('../views/main'),
         },
         {
           path: '/table',
           name: '列表示例',
-          component: table
+          component: () => import('../views/table'),
         },
         {
           path: '/card',
           name: '简单卡片',
-          component: card
+          component: () => import('../views/card'),
         },
 
         {
           path: '/slot',
           name: '插槽应用',
-          component: slot
+          component: () => import('../views/slot'),
         },
         {
           path: '/validate',
           name: '表单校验',
-          component: validate
+          component: () => import('../views/validate'),
         },
         {
           path: '/array',
           name: '数组修改',
-          component: array
+          component: () => import('../views/array'),
         },
         {
           path: '/api',
           name: '测试接口',
-          component: api
+          component: () => import('../views/api'),
         },
         {
           path: '/basicForm',
           name: '基础表单',
-          component: basicForm
+          component: () => import('../views/basicForm'),
         },
         {
           path: '/directives',
           name: '指令示例',
-          component: directives
+          component: () => import('../views/directives'),
         },
 
         {
           path: '/mixin',
           name: '混入模式',
-          component: mixin
+          component: () => import('../views/mixin'),
         },
         {
           path: '/temp',
           name: '临时区域',
-          component: temp,
-          hidden: true,
+          component: () => import('../views/temp'),
         },
         {
           path: '/bgImage',
           name: '背景图片',
-          component: bgImage
+          component: () => import('../views/bgImage'),
         },
 
         {
           path: '/layout',
           name: '布局示例',
-          component: layout,
           icon: "el-icon-rank",
+          component: () => import('../views/layout'),
+          
         },
         {
           path: '/countTime',
           name: '倒计时',
-          component: countTime,
           icon: "el-icon-rank",
+          component: () => import('../views/countTime'),
         },
       ],
     },
@@ -230,43 +197,43 @@ export const constRouterMap =
         {
           path: '/echarts',
           name: 'ECharts',
-          component: echarts
+          component: () => import('../views/echarts'),
         },
         {
           path: '/mutiselect',
           name: '多选插件',
-          component: mutiselect
+          component: () => import('../views/mutiselect'),
         },
         {
           path: '/transition',
           name: '动画插件',
-          component: transition
+          component: () => import('../views/transition'),
         },
         {
           path: '/texthighlight',
           name: '高亮插件',
-          component: texthighlight
+          component: () => import('../views/texthighlight'),
         },
         {
           path: '/tagsball',
           name: '旋转球体',
-          component: tagsball
+          component: () => import('../views/tagsball'),
         },
         {
           path: '/quickmenu',
           name: '快捷菜单',
-          component: quickmenu
+          component: () => import('../views/quickmenu'),
         },
         {
           path: '/video',
           name: '视频插件',
-          component: video
+          component: () => import('../views/video'),
         },
         {
           path: '/immutable',
           name: '断链助手',
           icon: 'icon-shengouguanli',
-          component: immutable,
+          component: () => import('../views/immutable'),
         },
       ]
     },
@@ -281,12 +248,12 @@ export const constRouterMap =
         {
           path: '/iviews',
           name: 'IViews',
-          component: iviews
+          component: () => import('../views/iviews'),
         },
         {
           path: '/viser',
           name: 'Viser',
-          component: viser,
+          component: () => import('../views/viser'),
         },
       ],
     },
@@ -301,7 +268,49 @@ export const constRouterMap =
         {
           path: '/notice',
           name: '隐藏子菜单',
-          component: notice,
+          component: () => import('../views/notice'),
+        }
+      ],
+    },
+    // ############## Primary menu ##############
+    {
+      path: '/annual',
+      name: '年会',
+      icon: 'el-icon-menu',
+      component: LoginLayout,
+      children: [
+        {
+          path: '/annual',
+          name: '年会',
+          component: () => import('../views/annual'),
+        }
+      ],
+    },
+
+    {
+      path: '/lottery',
+      name: '年会',
+      icon: 'el-icon-menu',
+      component: LoginLayout,
+      children: [
+        {
+          path: '/lottery',
+          name: '年会',
+          component: () => import('../views/lottery'),
+        }
+      ],
+    },
+
+    {
+      path: '/years',
+      name: 'Years',
+      icon: 'el-icon-menu',
+      component: BaseLayout,
+      children: [
+        {
+          path: '/years/2019',
+          name: '2019',
+          component: () => import('../views/years/2019'),
         }
       ],
     },
