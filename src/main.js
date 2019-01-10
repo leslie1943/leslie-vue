@@ -1,6 +1,20 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
+console.info(" ################## test require ################## ")
+let { test_require } = require('@/utils/demo_require.js');
+test_require('This function be require("@/utils/demo_require.js"');
+console.info(" ################## test require ################## ")
+
+
+console.info(" ################## test import ################## ")
+import _ ,{test_import,name_import} from '@/utils/demo_import.js';
+test_import('This function be require("@/utils/demo_import.js"');
+_('I am export default function.');
+console.info('I am be imported:' + name_import);
+console.info(" ################## test import ################## ")
+
+
 // ################### 引入 全局指令
 import * as GlobalDirective from "@/directive/GlobalDirective.js";
 // ################### 引入图标和字体问题
