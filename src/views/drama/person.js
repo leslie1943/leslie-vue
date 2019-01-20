@@ -24,6 +24,8 @@ export default {
             jiyisuipian: { cosName: '主持人',style:"background-color:black;color:white"},
             damingqinglongjie:{cosName: '王农夫',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '主持人',style:"background-color:black;color:white"},
+            shanghaitan:{cosName: '朱老板',style:"background-color:#E17217;color:#000000"},
+            xiaoyuansharen:{cosName: '赵帅哥',style:"background-color:#26B545;color:#000000"},
         },
         {
             id: 'Justin',
@@ -41,6 +43,8 @@ export default {
             jiyisuipian: { cosName: '马修😀',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '何总兵',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '宁王',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '卢记者',style:"background-color:#E17217;color:#000000"},
+            xiaoyuansharen:{cosName: '王学习',style:"background-color:#26B545;color:#000000"},
         },
         {
             id: 'Neo',
@@ -58,6 +62,8 @@ export default {
             jiyisuipian: { cosName: '托尔🙂',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '鬼小妾',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '章怀恩',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '主持人',style:"background-color:black;color:white"},
+            xiaoyuansharen:{cosName: '主持人',style:"background-color:black;color:white"},
         },
         {
             id: 'Ying',
@@ -74,6 +80,8 @@ export default {
             jiyisuipian: { cosName: '香香😲',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '撒师爷',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '章婉仪',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '',style:""},
+            xiaoyuansharen:{cosName: '',style:""},
         },
         {
             id: 'Mark',
@@ -90,6 +98,8 @@ export default {
             jiyisuipian: { cosName: '莱特🐺',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '主持人',style:"background-color:black;color:white"},
             zaoluopao:{cosName: '🚩剧务',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '王流氓',style:"background-color:#E17217;color:#000000"},
+            xiaoyuansharen:{cosName: '李小弟',style:"background-color:#26B545;color:#000000"},
         },
         {
             id: 'Dora',
@@ -106,6 +116,8 @@ export default {
             jiyisuipian: { cosName: '扎克🙄',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '杨巡捕',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '萧默云',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '陈女仆',style:"background-color:#E17217;color:#000000"},
+            xiaoyuansharen:{cosName: '郝闺蜜',style:"background-color:#26B545;color:#000000"},
         },
         {
             id: 'Leslie',
@@ -122,6 +134,8 @@ export default {
             jiyisuipian: { cosName: '艾米😎',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '蓉浪人',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '章子恒',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '朱黎',style:"background-color:#E17217;color:#000000"},
+            xiaoyuansharen:{cosName: '林校花',style:"background-color:#26B545;color:#000000"},
         },
         {
             id: 'Samantha',
@@ -138,6 +152,8 @@ export default {
             jiyisuipian: { cosName: '璐娅🐺',style:"background-color:#2F4F4F;color:#FF8C00"},
             damingqinglongjie:{cosName: '白秀才',style:"background-color:#FAFAD2;color:#000000"},
             zaoluopao:{cosName: '林瑶光',style:"background-color:#0FD5EB;color:#000000"},
+            shanghaitan:{cosName: '',style:""},
+            xiaoyuansharen:{cosName: '',style:""},
         }
     ]
 }

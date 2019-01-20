@@ -23,7 +23,7 @@
 
 <script>
 
-import immutable from "immutable";
+// import immutable from "immutable";
 import SImmutable from "seamless-immutable";
 import { mapGetters } from "vuex";
 export default {
@@ -38,7 +38,7 @@ export default {
     // --------------------- immutable --------------------------------
     // Use immutable get data from vuex.
     console.info(" ################ immutable ################ ");
-    this.personIM = immutable.fromJS(this.immutableData);
+    this.personIM = this.$immutable.fromJS(this.immutableData);
     console.info(this.personIM.getIn(["name"]));
     console.info(this.personIM.getIn(["mobile"]));
     // >>>>>>>>>>>>>>>>>>> 使用 setIn 赋值

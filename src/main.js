@@ -33,6 +33,8 @@ import 'vue-happy-scroll/docs/happy-scroll.css'
 import ElementUI from 'element-ui';
 import IView from 'iview';
 import 'iview/dist/styles/iview.css'
+import immutable from "immutable";
+
 
 import 'element-ui/lib/theme-chalk/index.css';
 import ToHome from "@/components/toHome/toHome";
@@ -79,6 +81,7 @@ Vue.component('quick-menu', QuickMenu);
 
 // Vue.use(echarts);
 Vue.prototype.$echarts = echarts
+Vue.prototype.$immutable = immutable
 
 Vue.config.productionTip = false
 

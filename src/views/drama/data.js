@@ -22,6 +22,12 @@ import zlp2 from "./imgs/zlp2.jpg";
 import zlp3 from "./imgs/zlp3.jpg";
 import zlp4 from "./imgs/zlp4.jpg";
 
+import shanghaitan1 from "./imgs/shanghaitan1.jpg";
+import shanghaitan2 from "./imgs/shanghaitan2.jpg";
+import shanghaitan3 from "./imgs/shanghaitan3.jpg";
+import shanghaitan4 from "./imgs/shanghaitan4.jpg";
+
+
 export default {
   previewDialogVisible: false,
   previewDialogImageUrl: "",
@@ -53,6 +59,20 @@ export default {
         { id: 4, path: dd4 },
         { id: 3, path: dd3 },
       ],
+      ending: {
+        name: '蛊魂铃',
+        realMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        voteMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        detail: [
+          { index: 1, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 2, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 4, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        ]
+      },
     },
     // --------------------------孽岛疑云
     {
@@ -73,6 +93,20 @@ export default {
         { id: 1, path: dd1 },
         { id: 2, path: dd2 },
       ],
+      ending: {
+        name: '孽岛疑云',
+        realMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        voteMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        detail: [
+          { index: 1, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 2, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 4, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        ]
+      },
     },
     // --------------------------良辰吉日
     {
@@ -96,6 +130,20 @@ export default {
         { id: 4, path: dd4 },
         { id: 1, path: dd1 },
       ],
+      ending: {
+        name: '良辰吉日',
+        realMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        voteMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        detail: [
+          { index: 1, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 2, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 4, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        ]
+      },
     },
     // --------------------------盖弥书院
     {
@@ -118,6 +166,20 @@ export default {
         { id: 2, path: dd2 },
         { id: 4, path: dd4 }
       ],
+      ending: {
+        name: '盖弥书院',
+        realMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        voteMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        detail: [
+          { index: 1, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 2, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 4, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        ]
+      },
     },
     // --------------------------星座怪谈
     {
@@ -140,6 +202,20 @@ export default {
         { id: 1, path: dd1 },
         { id: 4, path: dd4 }
       ],
+      ending: {
+        name: '星座怪谈',
+        realMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        voteMurder: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+        detail: [
+          { index: 1, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 2, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 3, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 4, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+          { index: 5, desc: "xxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        ]
+      },
     },
     // --------------------------大胥密史
     {
@@ -355,5 +431,84 @@ export default {
         ]
       },
     },
+
+    // -------------------------- 上海滩杀人事件
+    {
+      name: "上海滩杀人事件", persons: 8, copyright: true, type: "xx",
+      host: "周游",
+      roles: [
+        { realName: "老板", cosName: "朱老板" },
+        { realName: "郭磊", cosName: "卢记者" },
+        { realName: "周游", cosName: "主持人" },
+        // { realName: "颖姐", cosName: "章婉仪" },
+        { realName: "雪莲", cosName: "陈女仆" },
+        { realName: "苏震", cosName: "朱黎" },
+        { realName: "马克", cosName: "王流氓" },
+        // { realName: "慧莹", cosName: "林瑶光" },
+        // { realName: "源源", cosName: "章彦之" },
+      ],
+      status: 2,
+      places: ["海帝乐园"],
+      photos: [
+        { id: 1, path: shanghaitan1 },
+        { id: 2, path: shanghaitan2 },
+        { id: 3, path: shanghaitan3 },
+        { id: 4, path: shanghaitan4 },
+      ],
+      ending: {
+        name: '上海滩杀人事件',
+        realMurder: "卢记者",
+        voteMurder: "朱黎",
+        detail: [
+          { index: 1, desc: "周游主持好评,继续保持！👍👍👍👍👍👍" },
+          { index: 3, desc: "章彦之:老爷子头戴两顶绿帽，痛失亲生女儿，在管家的忽悠下错投真凶，遗憾退场." },
+          { index: 4, desc: "林瑶光:身为名门之后，利用萧氏入府，与老爷子分居，与宁王私通，并诞下一男一女,这波绿帽子送的666。私会后不回房也是让人汗颜!" },
+          { index: 5, desc: "萧默云:一个为了爱情的傻白甜，本想保护女儿，却弄巧成拙。可悲的是，在最后阶段，火拼一直暗中资助自己的人，相煎何太急." },
+          { index: 6, desc: "章怀恩:身世坎坷，命运多舛，本是赵国公子，因战乱沦为不同男人的娈童，同时也是剧中最善良的人，没有之一，令人扼腕的是自己帮助的人不但不感恩，反而恩将仇报。最后被投为凶手." },
+          { index: 7, desc: "宁王: 牛逼，牛逼，睡了别人的老婆，并让自己的女儿爱上了自己，还是那句话，一家人最重要的就是整整齐齐，也成功的将嫌疑洗白了。人生赢家!" },
+          { index: 8, desc: "章子恒: 酱油角色，唯一的亮点是和自己两个妹妹的关系。有最后认出了真凶，也是自己的亲生父亲.唯一的明白人" },
+          { index: 9, desc: "章婉仪: 本应该嫁给中山郡王，拥有无限的风光，可爱上自己的亲生父亲，并和自己的哥哥做了不耻之事.个中滋味，唯有自己能够体会。" },
+        ]
+      },
+    },
+    // -------------------------- 校园灵异事件
+    {
+      name: "校园灵异事件", persons: 8, copyright: true, type: "xx",
+      host: "周游",
+      roles: [
+        { realName: "老板", cosName: "赵帅哥" },
+        { realName: "郭磊", cosName: "王学习" },
+        { realName: "周游", cosName: "主持人" },
+        // { realName: "颖姐", cosName: "章婉仪" },
+        { realName: "雪莲", cosName: "郝闺蜜" },
+        { realName: "苏震", cosName: "林校花" },
+        { realName: "马克", cosName: "李小弟" },
+        // { realName: "慧莹", cosName: "林瑶光" },
+        // { realName: "源源", cosName: "章彦之" },
+      ],
+      status: 2,
+      places: ["海帝乐园"],
+      photos: [
+        { id: 1, path: shanghaitan1 },
+        { id: 2, path: shanghaitan2 },
+        { id: 3, path: shanghaitan3 },
+        { id: 4, path: shanghaitan4 },
+      ],
+      ending: {
+        name: '校园灵异事件',
+        realMurder: "林校花",
+        voteMurder: "林校花",
+        detail: [
+          { index: 1, desc: "周游主持好评,继续保持！👍👍👍👍👍👍" },
+          { index: 3, desc: "章彦之:老爷子头戴两顶绿帽，痛失亲生女儿，在管家的忽悠下错投真凶，遗憾退场." },
+          { index: 4, desc: "林瑶光:身为名门之后，利用萧氏入府，与老爷子分居，与宁王私通，并诞下一男一女,这波绿帽子送的666。私会后不回房也是让人汗颜!" },
+          { index: 5, desc: "萧默云:一个为了爱情的傻白甜，本想保护女儿，却弄巧成拙。可悲的是，在最后阶段，火拼一直暗中资助自己的人，相煎何太急." },
+          { index: 6, desc: "章怀恩:身世坎坷，命运多舛，本是赵国公子，因战乱沦为不同男人的娈童，同时也是剧中最善良的人，没有之一，令人扼腕的是自己帮助的人不但不感恩，反而恩将仇报。最后被投为凶手." },
+          { index: 7, desc: "宁王: 牛逼，牛逼，睡了别人的老婆，并让自己的女儿爱上了自己，还是那句话，一家人最重要的就是整整齐齐，也成功的将嫌疑洗白了。人生赢家!" },
+          { index: 8, desc: "章子恒: 酱油角色，唯一的亮点是和自己两个妹妹的关系。有最后认出了真凶，也是自己的亲生父亲.唯一的明白人" },
+          { index: 9, desc: "章婉仪: 本应该嫁给中山郡王，拥有无限的风光，可爱上自己的亲生父亲，并和自己的哥哥做了不耻之事.个中滋味，唯有自己能够体会。" },
+        ]
+      },
+    }
   ]
 }

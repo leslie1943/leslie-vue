@@ -113,6 +113,36 @@
           </template>
       </el-table-column>
 
+      <el-table-column label="上海滩杀人事件" align="center" width="110" header-align="center">
+          <template slot-scope="scope">
+              <span v-if="scope.row.shanghaitan.cosName">
+                <el-tag :style="scope.row.shanghaitan.style">
+                    <span v-if="scope.row.shanghaitan.cosName=='主持人'"><Icon type="md-mic" /></span>
+                    {{scope.row.shanghaitan.cosName}}</el-tag>
+            </span>
+          </template>
+      </el-table-column>
+
+      <el-table-column label="校园灵异事件" align="center" width="110" header-align="center">
+          <template slot-scope="scope">
+              <span v-if="scope.row.xiaoyuansharen.cosName">
+                <el-tag :style="scope.row.xiaoyuansharen.style">
+                    <span v-if="scope.row.xiaoyuansharen.cosName=='主持人'"><Icon type="md-mic" /></span>
+                    {{scope.row.xiaoyuansharen.cosName}}</el-tag>
+            </span>
+          </template>
+      </el-table-column>
+
+       <!-- <el-table-column label="xxxxxx" align="center" width="110" header-align="center">
+          <template slot-scope="scope">
+              <span v-if="scope.row.yyyyyyyy.cosName">
+                <el-tag :style="scope.row.yyyyyyyy.style">
+                    <span v-if="scope.row.yyyyyyyy.cosName=='主持人'"><Icon type="md-mic" /></span>
+                    {{scope.row.yyyyyyyy.cosName}}</el-tag>
+            </span>
+          </template>
+      </el-table-column> -->
+
       <!-- <el-table-column label="xxxxxx" align="center" width="110" header-align="center">
           <template slot-scope="scope">
               <span v-if="scope.row.yyyyyyyy.cosName">
