@@ -8,7 +8,7 @@ console.info(" ################## test require ################## ")
 
 
 console.info(" ################## test import ################## ")
-import _ ,{test_import,name_import} from '@/utils/demo_import.js';
+import _, { test_import, name_import } from '@/utils/demo_import.js';
 test_import('This function be require("@/utils/demo_import.js"');
 _('I am export default function.');
 console.info('I am be imported:' + name_import);
@@ -45,6 +45,7 @@ import QuickMenu from 'vue-quick-menu'
 import VueGraph from 'vue-graph'
 import ViserVue from 'viser-vue'
 import FormLayout from '@/components/FormLayout';
+import ViewClamp from '@/components/ViewClamp';
 
 // 引入图片组件
 import 'viewerjs/dist/viewer.css'
@@ -58,7 +59,7 @@ import 'video.js/dist/video-js.css'
 import '@/utils/routing';
 
 // 初始化左侧导航, 并关闭loading
-import {initLeftMenus } from './utils/auth';
+import { initLeftMenus } from './utils/auth';
 initLeftMenus();
 
 Vue.use(ElementUI);
@@ -73,6 +74,7 @@ Vue.use(VueGraph)
 Vue.use(ViserVue)
 Vue.use(VueVideoPlayer)
 Vue.use(FormLayout);
+Vue.use(ViewClamp);
 
 
 Vue.component('to-home', ToHome);

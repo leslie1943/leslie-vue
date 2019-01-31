@@ -18,7 +18,7 @@ export const constRouterMap =
         {
           path: '/login',
           name: '登录',
-          component: () => import('../views/login/') ,
+          component: () => import('../views/login/'),
         }
       ],
     },
@@ -176,7 +176,7 @@ export const constRouterMap =
           name: '布局示例',
           icon: "el-icon-rank",
           component: () => import('../views/layout'),
-          
+
         },
         {
           path: '/countTime',
@@ -234,6 +234,11 @@ export const constRouterMap =
           name: '断链助手',
           icon: 'icon-shengouguanli',
           component: () => import('../views/immutable'),
+        },
+        {
+          path: '/clampy',
+          name: 'Clampy',
+          component: () => import('../views/clampy'),
         },
       ]
     },
