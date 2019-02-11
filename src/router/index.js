@@ -70,25 +70,25 @@ export const constRouterMap =
     },
 
     // ############## Primary menu drama ##############
-    {
-      path: '/drama',
-      name: '剧本部分',
-      icon: 'el-icon-menu',
-      component: BaseLayout,
-      hideChildren: false,
-      children: [
-        {
-          path: '/drama',
-          name: '剧本详情',
-          component: () => import('../views/drama/index'),
-        },
-        {
-          path: '/drama-person',
-          name: '剧本玩家',
-          component: () => import('../views/drama/person.vue'),
-        },
-      ]
-    },
+    // {
+    //   path: '/drama',
+    //   name: '剧本部分',
+    //   icon: 'el-icon-menu',
+    //   component: BaseLayout,
+    //   hideChildren: false,
+    //   children: [
+    //     {
+    //       path: '/drama',
+    //       name: '剧本详情',
+    //       component: () => import('../views/drama/index'),
+    //     },
+    //     {
+    //       path: '/drama-person',
+    //       name: '剧本玩家',
+    //       component: () => import('../views/drama/person.vue'),
+    //     },
+    //   ]
+    // },
 
     {
       // ############## Primary menu ##############
