@@ -7,7 +7,7 @@ import NProgress from 'nprogress';
 // Progress 进度条样式
 import 'nprogress/nprogress.css';
 
-import  { constRouterMap } from '../router'
+import { constRouterMap } from '../router'
 
 router.beforeEach(async (to, from, next) => {
 
@@ -27,7 +27,7 @@ router.beforeEach(async (to, from, next) => {
 
     //执行跳转
     next();
-    
+
     // 触发全局 loading
     // setTimeout(() => {
     //     console.info('【DEBUG-Loading is end...');
@@ -35,10 +35,12 @@ router.beforeEach(async (to, from, next) => {
     //     store.commit('endLoading');
     // },2000);
 
-    // 触发全局 NProgress
-    setTimeout(() => {
-        console.info('【DEBUG-NProgress】 is ending...');
-        // 进度条 done
-        NProgress.done();
-    },3000);
+    // 触发全局 NProgress - 纯粹是为了实验的代码
+    // setTimeout(() => {
+    //     console.info('【DEBUG-NProgress】 is ending...');
+    //     // 进度条 done
+    //     NProgress.done();
+    // },3000);
+    NProgress.done();
+    console.info('【DEBUG-NProgress】 is ending...');
 })

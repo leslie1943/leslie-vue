@@ -1,13 +1,12 @@
 <template>
-<div>
-  <div style="text-align:center;color:red;">
-    <h2>{{showTimeLeft}}</h2>
+  <div>
+    <div style="text-align:center;color:red;">
+      <h2>{{showTimeLeft}}</h2>
+    </div>
+    <div style="text-align:center;color:green;">
+      <h2>{{showTimeLeft}}</h2>
+    </div>
   </div>
-  <div style="text-align:center;color:green;">
-    <span>{{showTimeLeft}}</span>
-  </div>
-</div>
-
 </template>
 
 <script>
@@ -15,7 +14,7 @@
 export default {
   name: "timeCountDown",
   props: {
-    endDate: String
+    endDate: String,
   },
   data() {
     return {
@@ -28,6 +27,8 @@ export default {
     showTimeLeft() {
       //剩余秒数<=0
       if (this.timeLeft <= 0) {
+        // 结束event
+        this.$emit('handle-done', true)
         return "已过期";
       }
       // 剩余秒数>0
@@ -36,7 +37,7 @@ export default {
         let hour = Math.floor((this.timeLeft % 86400) / 3600);
         let min = Math.floor(((this.timeLeft % 86400) % 3600) / 60);
         let sec = Math.floor(((this.timeLeft % 86400) % 3600) % 60);
-        return ( day + "天  " + (hour < 10 ? "0" : "") + hour + ": " + (min < 10 ? "0" : "") + min + ": " + (sec < 10 ? "0" : "") + sec
+        return (day + "天  " + (hour < 10 ? "0" : "") + hour + ": " + (min < 10 ? "0" : "") + min + ": " + (sec < 10 ? "0" : "") + sec
         );
       }
     }
@@ -46,7 +47,7 @@ export default {
     initSecondsLeft() {
       let currentDate = new Date();
       let tmp = this.endDate.split(/[- : /]/);
-      let toEndDate = new Date(tmp[0], tmp[1]-1, tmp[2], tmp[3], tmp[4], tmp[5]);
+      let toEndDate = new Date(tmp[0], tmp[1] - 1, tmp[2], tmp[3], tmp[4], tmp[5]);
 
       //参数日期 > 当前日期 => 获取剩余秒数
       if (toEndDate > currentDate) {
@@ -63,7 +64,8 @@ export default {
       } else {
         clearInterval(this.bundleIntervalEvent);
       }
-    }
+    },
+
   },
 
   created() {
