@@ -15,6 +15,7 @@ export default {
   name: "timeCountDown",
   props: {
     endDate: String,
+    handlePropsListener: Function
   },
   data() {
     return {
@@ -65,9 +66,13 @@ export default {
         clearInterval(this.bundleIntervalEvent);
       }
     },
-
   },
-
+  mounted() {
+    if (typeof this.handlePropsListener === 'function') {
+      this.$message.info('Child component , Child component , Child component , Child component , Child component , Child component: mounted')
+      this.handlePropsListener()
+    }
+  },
   created() {
     //初始化剩余秒数
     this.initSecondsLeft();

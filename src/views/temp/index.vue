@@ -62,8 +62,11 @@
         </el-col>
       </el-row>
 
+      <el-row>
+        <el-alert title="阿斯顿撒大大" type="error" show-icon></el-alert>
+      </el-row>
+
       <div style="min-height:50px;margin-top:20px;margin-bottom:20px;background:#0073b1"></div>
-      {{dialogVisible}}
       <div style="min-height:50px;margin-top:20px;margin-bottom:20px;background:#0073b1"></div>
       <el-tag style="background:red;color:white;">竞</el-tag>
     </div>
@@ -111,6 +114,7 @@ export default {
         return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
       };
     },
+
     loadAll() {
       return [
         { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
