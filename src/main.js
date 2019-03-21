@@ -14,6 +14,7 @@ _('I am export default function.');
 console.info('I am be imported:' + name_import);
 console.info(" ################## test import ################## ")
 
+import '@/filter/index.js'
 
 // ################### 引入 全局指令
 import * as GlobalDirective from "@/directive/GlobalDirective.js";

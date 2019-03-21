@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align:center;">  
+  <div style="text-align:center;">
     <BasicEditForm :formObject="formObject" ref="personFormRef"></BasicEditForm>
     <el-button type="primary" @click="handleDoAction">提交</el-button>
     <el-button @click="handleClear">重置</el-button>
@@ -12,34 +12,36 @@ import ToHome from "@/components/toHome/toHome";
 import BasicEditForm from "@/components/basicElement/basicEditForm";
 
 export default {
-  components:{
+  components: {
     BasicEditForm
   },
-  data(){
+  data() {
     return {
-        formObject: formData,
+      formObject: formData,
     }
   },
 
-  methods:{
-    handleDoAction(){
+  methods: {
+    handleDoAction() {
+      // 触发子组件方法
       this.$refs["personFormRef"].validateForm().then(subForm => {
         // 子菜单通过必填项检验
-        if(subForm.validated){
-          this.$confirm("确认提交?", "提示", {confirmButtonText: "确定",cancelButtonText: "取消",type: "warning"}).then(()=>{
+        if (subForm.validated) {
+          this.$confirm("确认提交?", "提示", { confirmButtonText: "确定", cancelButtonText: "取消", type: "warning" }).then(() => {
             // 子页面返回的数据: res
-            this.$message.success({type: "success",message: subForm});
-          }).catch(()=>{
+            this.$message.success({ type: "success", message: subForm });
+          }).catch(() => {
             console.info("取消提交");
           })
         }
         // 子菜单未通过必填项检验
-        else{
-          this.$message.warning({type: "warning",message: "数据录入错误，请检查表单！"});
+        else {
+          this.$message.warning({ type: "warning", message: "数据录入错误，请检查表单！" });
         }
       });
     },
-    handleClear(){
+    // 触发子组件方法.
+    handleClear() {
       this.$refs["personFormRef"].clearForm("test-parameters");
     }
   }

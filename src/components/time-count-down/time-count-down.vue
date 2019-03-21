@@ -78,6 +78,9 @@ export default {
     this.initSecondsLeft();
     //执行间隔事件.
     this.bundleIntervalEvent = setInterval(this.intervalEvent, 1000);
+  },
+  beforeDestroy() {
+    clearInterval(this.bundleIntervalEvent);
   }
 };
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="epro-clamp-container">
     <!-- Case: 默认显示 [被截断后的文字] + [展开按钮] -->
+    <slot name="label"></slot>
     <span v-if="show">
       {{truncate(text)}}
       <!-- 是否显示操作 -->

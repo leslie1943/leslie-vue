@@ -1,7 +1,12 @@
 <template>
   <div class="temp-main-container">
     <div style="padding-top:20px;padding-bottom:20px;">
-      <el-table :data="tableData" style="width: 100%" tooltip-effect="dark">
+      <el-table
+        @cell-mouse-enter="handleMouseEnter"
+        :data="tableData"
+        style="width: 100%"
+        tooltip-effect="dark"
+      >
         <el-table-column prop="field1" label="申购单">
           <template slot-scope="scope">
             <span>
@@ -70,6 +75,16 @@
       <div style="min-height:50px;margin-top:20px;margin-bottom:20px;background:#0073b1"></div>
       <el-tag style="background:red;color:white;">竞</el-tag>
     </div>
+
+    <!-- "vs-setting.json里: vetur.validation.template": false  可以去掉 vue/no-use-v-if-with-v-for -->
+    <div>
+      <ul>
+        <li v-for="(item,key) in testData" :key="key" v-if="item.visible">{{item.text}}</li>
+      </ul>
+    </div>
+    <div>{{moment(new Date()).format('YYYY-MM-DD')}}</div>
+    <div>{{dateVal|dateSimple}}</div>
+    <div>{{filterText}}</div>
   </div>
 </template>
 
@@ -78,6 +93,15 @@ import moment from 'moment'
 export default {
   data() {
     return {
+      moment: moment,
+      filterText: '12345678901234567890',
+      dateVal: '2019-03-20 22:22:22',
+      testData: [
+        { text: '杰拉德1', visible: true },
+        { text: '杰拉德2', visible: false },
+        { text: '杰拉德3', visible: false },
+        { text: '杰拉德4', visible: true },
+      ],
       tableData: [
         {
           field1: '上海市普陀区金沙江路上海市普陀区金沙江路上海市普陀区金沙江路上海市普陀区金沙江路上海市普陀区金沙江路',
@@ -103,6 +127,16 @@ export default {
     }
   },
   methods: {
+    handleMouseEnter(row, column, cell, event) {
+      console.info(cell.parentNode)
+      // cell.parentNode
+      cell.parentNode.onmouseover = function () {
+        cell.parentNode.style.backgroundColor = 'pink'
+      }
+      cell.parentNode.onmouseout = function () {
+        cell.parentNode.style.backgroundColor = 'pink'
+      }
+    },
     querySearch(queryString, cb) {
       var restaurants = this.restaurants;
       var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
@@ -172,7 +206,35 @@ export default {
     }
   },
   mounted() {
+    console.info(this.$root.$options.filters.dateSimple('12345678901234567890'))
+    this.filterText = this.$root.$options.filters.dateSimple(this.filterText)
+    let filters = this.$root.$options.filters
+    this.$message.success('测试filter:' + filters.dateSimple('2019-12-12 01:02:03'))
+    // console.info(this.$filters.dateSimple('12345678901234567890'))
     this.restaurants = this.loadAll();
+    // 添加监听器，在title里显示状态变化
+    let hidden, state, visibilityChange;
+    if (typeof document.hidden !== "undefined") {
+      hidden = "hidden";
+      visibilityChange = "visibilitychange";
+      state = "visibilityState";
+    } else if (typeof document.mozHidden !== "undefined") {
+      hidden = "mozHidden";
+      visibilityChange = "mozvisibilitychange";
+      state = "mozVisibilityState";
+    } else if (typeof document.msHidden !== "undefined") {
+      hidden = "msHidden";
+      visibilityChange = "msvisibilitychange";
+      state = "msVisibilityState";
+    } else if (typeof document.webkitHidden !== "undefined") {
+      hidden = "webkitHidden";
+      visibilityChange = "webkitvisibilitychange";
+      state = "webkitVisibilityState";
+    }
+    document.addEventListener(visibilityChange, function () {
+      document.title = document[state];
+    }, false);
+    document.title = document[state];
   },
 }
 </script>
